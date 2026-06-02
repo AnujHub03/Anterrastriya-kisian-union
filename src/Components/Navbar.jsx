@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { Link } from 'react-router-dom'
 const Navbar = () => {
   // Simple state to track theme toggle
   const [theme, setTheme] = useState('light')
@@ -13,12 +13,12 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li><a className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Home</a></li>
-      <li><a className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Team & Leadership</a></li>
-      <li><a className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Membership</a></li>
-      <li><a className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Activities & Events</a></li>
-      <li><a className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">About</a></li>
-      <li><a className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Contact</a></li>
+      <li><Link to="/" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Home</Link></li>
+      <li><Link to="/team" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Team & Leadership</Link></li>
+      <li><Link to="/membership" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Membership</Link></li>
+      <li><Link to="/activities" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Activities & Events</Link></li>
+      <li><Link to="/about" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">About</Link></li>
+      <li><Link to="/contact" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">Contact</Link></li>
     </>
   )
 
