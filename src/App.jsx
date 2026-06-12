@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar'
 import About from './Pages/About'
 import Issues from './Pages/Issues'
 import Membership from './Pages/Membership'
+import IdGenerator from './Pages/IdCard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
         <Route path='/about' element={<About/>} />
         <Route path='/issues' element={<Issues/>} />
         <Route path='/membership' element={<Membership/>} />
+        <Route path='/IdCard' element={<IdGenerator/>} />
       </Routes>
     </>
   )
