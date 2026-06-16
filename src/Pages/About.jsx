@@ -1,48 +1,76 @@
 import React from 'react'
+import { useLanguage } from './LanguageContext'
 
 const About = () => {
+  const { t } = useLanguage() // 👈 Deconstruct vocabulary access logic
+
+  // Dynamic context availability validation loop
+  if (!t || !t.about) {
+    return <div className="py-12 text-center text-lg">Loading Profile Systems...</div>
+  }
+
   return (
-    <div className="py-6 max-w-5xl mx-auto space-y-12">
-      {/* Preamble / प्रस्तावना */}
-      <section className="bg-base-200 p-6 sm:p-10 rounded-2xl border border-base-300 shadow-sm space-y-4">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-primary border-b border-base-300 pb-3">
-          प्रस्तावना (Preamble)
+    <div className="py-6 max-w-5xl mx-auto space-y-12 px-4 sm:px-6">
+      
+      {/* Preamble / प्रस्तावना Header Section */}
+      <section className="bg-base-200 p-6 sm:p-10 rounded-3xl border border-base-300 shadow-xl relative overflow-hidden group hover:border-teal-500/30 transition-all duration-300">
+        <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-teal-500 to-orange-500"></div>
+        <h2 className="text-2xl sm:text-3xl font-black text-teal-500 border-b border-base-300 pb-3 tracking-wide">
+          {t.about.preambleTitle}
         </h2>
-        <p className="text-base sm:text-lg leading-relaxed text-justify font-medium">
-          यह संघ किसी राजनीतिक दल से नहीं जुड़ेगा और केवल किसान मुद्दों, सामाजिक विषयों ओर वंचित वर्ग के लिए काम करेगा। हम, विश्व के किसान ओर वंचित वर्ग, अपनी आर्थिक-सामाजिक स्थिति सुधारने, कृषि को लाभकारी बनाने और किसानों ओर शोषित वर्ग के हितों की रक्षा के लिए इस गैर-राजनीतिक संगठन का गठन करते हैं।
+        <p className="text-base sm:text-lg leading-relaxed text-justify font-medium pt-2 opacity-95">
+          {t.about.preambleBody}
         </p>
       </section>
 
-      {/* Structural Data Layout */}
+      {/* Structural Data Split Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Scope and Field Card */}
-        <div className="card bg-base-200 border border-base-300 shadow-md p-6">
-          <h3 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">📍 नाम और कार्यक्षेत्र</h3>
-          <div className="space-y-3 font-semibold">
-            <div className="flex justify-between border-b border-base-300 pb-2">
-              <span className="opacity-70">नाम:</span>
-              <span className="text-primary">अंतर्राष्ट्रीय किसान यूनियन</span>
+        
+        {/* Scope and Field Profile Card */}
+        <div className="card bg-base-200 border border-base-300 shadow-xl p-6 sm:p-8 rounded-3xl hover:shadow-2xl hover:border-teal-500/20 transition-all duration-300">
+          <h3 className="text-xl font-black text-teal-500 mb-6 flex items-center gap-2 tracking-wide">
+            {t.about.scopeHeading}
+          </h3>
+          <div className="space-y-4 font-bold text-sm sm:text-base">
+            <div className="flex justify-between items-center border-b border-base-300/60 pb-3">
+              <span className="opacity-60 text-xs sm:text-sm uppercase tracking-wider">{t.about.labelName}</span>
+              <span className="text-orange-500 font-black text-right">{t.about.valueName}</span>
             </div>
-            <div className="flex justify-between border-b border-base-300 pb-2">
-              <span className="opacity-70">कार्यक्षेत्र:</span>
-              <span>सम्पूर्ण विश्व (Global)</span>
+            <div className="flex justify-between items-center border-b border-base-300/60 pb-3">
+              <span className="opacity-60 text-xs sm:text-sm uppercase tracking-wider">{t.about.labelScope}</span>
+              <span className="text-base-content text-right">{t.about.valueScope}</span>
             </div>
-            <div className="flex justify-between pb-1">
-              <span className="opacity-70">मुख्य कार्यालय:</span>
-              <span>मेरठ (उत्तर प्रदेश), भारत</span>
+            <div className="flex justify-between items-center pt-1">
+              <span className="opacity-60 text-xs sm:text-sm uppercase tracking-wider">{t.about.labelOffice}</span>
+              <span className="text-base-content text-right font-semibold">{t.about.valueOffice}</span>
             </div>
           </div>
         </div>
 
-        {/* Vision Statements */}
-        <div className="card bg-base-200 border border-base-300 shadow-md p-6">
-          <h3 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">🌱 हमारे मुख्य संकल्प</h3>
-          <ul className="space-y-3 text-sm font-medium opacity-90">
-            <li className="flex gap-2">⚡ <span>किसानों को तकनीकी, कानूनी और बाजार की सही जानकारी प्रदान करना।</span></li>
-            <li className="flex gap-2">⚡ <span><strong>कर्ज माफी नहीं, बल्कि स्थाई कर्ज मुक्ति</strong> के लिए ठोस नीति सुझाना।</span></li>
-            <li className="flex gap-2">⚡ <span>पारंपरिक और पूर्णतः जैविक खेती (Organic Farming) को बढ़ावा देना।</span></li>
+        {/* Vision/Resolution Commitments Card */}
+        <div className="card bg-base-200 border border-base-300 shadow-xl p-6 sm:p-8 rounded-3xl hover:shadow-2xl hover:border-orange-500/20 transition-all duration-300">
+          <h3 className="text-xl font-black text-orange-500 mb-6 flex items-center gap-2 tracking-wide">
+            {t.about.resolutionHeading}
+          </h3>
+          <ul className="space-y-4 text-sm sm:text-base font-semibold opacity-95">
+            <li className="flex gap-3 items-start">
+              <span className="text-teal-500 mt-1 text-xs">⚡</span>
+              <span>{t.about.res1}</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <span className="text-orange-500 mt-1 text-xs">⚡</span>
+              <span>
+                <strong className="text-orange-500 font-extrabold">{t.about.res2Bold}</strong>
+                {t.about.res2Text}
+              </span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <span className="text-teal-500 mt-1 text-xs">⚡</span>
+              <span>{t.about.res3}</span>
+            </li>
           </ul>
         </div>
+
       </div>
     </div>
   )

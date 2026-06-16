@@ -1,40 +1,65 @@
 import React from 'react'
+import { useLanguage } from './LanguageContext'
 
 const Issues = () => {
+  const { t } = useLanguage() // 👈 Destructure global translation state engine
+
+  // Dynamic localization structural safety fallback validation check block
+  if (!t || !t.issues) {
+    return <div className="py-12 text-center text-lg">Loading Analytics Systems...</div>
+  }
+
   return (
-    <div className="py-6 space-y-12">
-      {/* Alert Header */}
-      <div className="text-center max-w-2xl mx-auto">
-        <h2 className="text-3xl font-black text-error mb-2">*क्या किसानों को खत्म करके जमीन हड़पना चाहती है सरकार?*</h2>
-        <p className="font-semibold opacity-85">वैश्विक वित्तीय संस्थाओं एवं पूंजीपतियों की नियत का एक विश्लेषणात्मक विवरण।</p>
+    <div className="py-6 space-y-12 max-w-6xl mx-auto px-4 sm:px-6">
+      
+      {/* Alert Header Section */}
+      <div className="text-center max-w-3xl mx-auto space-y-3">
+        <h2 className="text-2xl sm:text-4xl font-black text-error border-b-2 border-error/20 pb-4 leading-tight">
+          ⚠️ {t.issues.title}
+        </h2>
+        <p className="text-sm sm:text-base font-semibold opacity-75 max-w-xl mx-auto">
+          {t.issues.warning}
+        </p>
       </div>
 
-      {/* Financial Critique Section */}
+      {/* Financial Critique Analytics Two-Column Flex Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* Issue Card 1: Input Costs vs Market Value */}
-        <div className="bg-base-200 p-6 rounded-2xl border border-base-300 shadow-sm space-y-4">
-          <div className="badge badge-error text-white font-bold">बाजार मूल्य का खेल (3X Price Trap)</div>
-          <h3 className="text-xl font-bold text-base-content">लागत बनाम उपभोक्ता मूल्य</h3>
-          <p className="text-sm leading-relaxed opacity-90 text-justify">
-            यदि रासायनिक खाद, बीज, पानी, जुताई, कृषि श्रम, और कीटनाशक का कुल योग किया जाए तो किसानों को समर्थन मूल्य (MSP) के रूप में कुछ भी प्राप्त नहीं होता। जैसे ही कृषि उत्पाद बाजार या कारखानों के माध्यम से उपभोक्ता तक पहुंचता है, उसका मूल्य खेत के उत्पाद मूल्य की तुलना में <strong>तीन गुना (3x) तक बढ़ जाता है</strong>। सरकारें औद्योगिक उत्पादों पर नियंत्रण नहीं रखतीं, पर कृषि उत्पाद मूल्य दबाती हैं।
+        <div className="bg-base-200 p-6 sm:p-8 rounded-3xl border border-base-300 shadow-lg hover:shadow-xl hover:border-error/30 transition-all duration-300 space-y-4 group transform hover:-translate-y-1">
+          <div className="badge badge-error text-white font-black px-4 py-3 tracking-wide rounded-lg shadow-sm">
+            {t.issues.badge1}
+          </div>
+          <h3 className="text-xl sm:text-2xl font-black text-base-content group-hover:text-error transition-colors">
+            {t.issues.card1Title}
+          </h3>
+          <p className="text-sm sm:text-base leading-relaxed opacity-90 text-justify font-medium">
+            {t.issues.card1Body}
           </p>
         </div>
 
         {/* Issue Card 2: Income Disparity Breakdown */}
-        <div className="bg-base-200 p-6 rounded-2xl border border-base-300 shadow-sm space-y-4">
-          <div className="badge badge-error text-white font-bold">आय में भारी असमानता</div>
-          <h3 className="text-xl font-bold text-base-content">कर्मचारी बनाम 1 हेक्टेयर किसान</h3>
-          <p className="text-sm leading-relaxed opacity-90 text-justify">
-            आज के समय में सबसे छोटे सरकारी कर्मचारी का न्यूनतम वेतन भी ₹25,000 महीने हो चुका है। इसके विपरीत, एक हेक्टेयर जमीन का मालिक किसान अपनी दिन-रात की मेहनत और पूरी पूंजी लगाने के बाद भी ₹2,000 महीना शुद्ध मुनाफा नहीं बचा पाता। इसी कारणवश किसानों पर लगातार भारी कर्ज का बोझ चढ़ता जा रहा है।
+        <div className="bg-base-200 p-6 sm:p-8 rounded-3xl border border-base-300 shadow-lg hover:shadow-xl hover:border-error/30 transition-all duration-300 space-y-4 group transform hover:-translate-y-1">
+          <div className="badge badge-error text-white font-black px-4 py-3 tracking-wide rounded-lg shadow-sm">
+            {t.issues.badge2}
+          </div>
+          <h3 className="text-xl sm:text-2xl font-black text-base-content group-hover:text-error transition-colors">
+            {t.issues.card2Title}
+          </h3>
+          <p className="text-sm sm:text-base leading-relaxed opacity-90 text-justify font-medium">
+            {t.issues.card2Body}
           </p>
         </div>
       </div>
 
-      {/* Global Institution Warning Footer */}
-      <div className="bg-error/10 border border-error/30 text-base-content p-6 rounded-xl max-w-4xl mx-auto text-center font-medium">
-        ⚠️ <strong>वैश्विक संस्थागत चुनौती:</strong> विश्वव्यापी किसान समस्याओं के पीछे विश्व बैंक (World Bank) और अंतरराष्ट्रीय मुद्राकोश (IMF) जैसी वित्तीय संस्थाएं जिम्मेदार हैं, जो कथित रूप से जनकल्याणकारी योजनाएं बनाकर खाद्य व्यवस्था को हथियार की तरह उपयोग कर रही हैं।
+      {/* Global Institution Policy Warning Footer Banner */}
+      <div className="bg-error/10 border-2 border-error/30 text-base-content p-6 sm:p-8 rounded-2xl max-w-4xl mx-auto text-center font-medium shadow-md relative overflow-hidden backdrop-blur-sm">
+        <div className="absolute top-0 left-0 w-1.5 h-full bg-error"></div>
+        <p className="text-sm sm:text-base leading-relaxed">
+          🚨 <strong className="text-error font-black uppercase tracking-wider">{t.issues.footerAlertTitle}</strong> {t.issues.footerAlertBody}
+        </p>
       </div>
+      
     </div>
   )
 }
