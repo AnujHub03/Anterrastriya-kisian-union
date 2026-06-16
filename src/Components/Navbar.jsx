@@ -32,7 +32,7 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li><Link to="/" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">{t.navbar.home}</Link></li>
-      <li><Link to="/team" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">{t.navbar.team}</Link></li>
+      <li><Link to="/Leadership" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">{t.navbar.team}</Link></li>
       <li><Link to="/membership" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">{t.navbar.membership}</Link></li>
       <li><Link to="/activities" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">{t.navbar.events}</Link></li>
       <li><Link to="/IdCard" className="hover:text-amber-400 focus:text-amber-400 font-medium transition-colors">{t.navbar.idCard}</Link></li>
@@ -43,7 +43,8 @@ const Navbar = () => {
   )
 
   return (
-    <div className="navbar bg-green-800 text-white shadow-md px-4 sm:px-6 lg:px-8">
+    /* 👇 Added 'sticky top-0 z-50' to keep the navbar stuck at the top over all page content while scrolling */
+    <div className="navbar bg-green-800 text-white shadow-md px-4 sm:px-6 lg:px-8 sticky top-0 z-50">
       {/* 1. LEFT SIDE: Brand & Mobile Menu */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -80,20 +81,25 @@ const Navbar = () => {
           🌐 {lang === 'hi' ? 'EN' : 'HI'}
         </button>
 
-        {/* Light / Dark Theme Controller */}
-        <label className="btn btn-ghost btn-circle swap swap-rotate text-amber-400 hover:bg-green-700">
-          <input type="checkbox" onChange={handleThemeToggle} checked={theme === 'dark'} />
-          
-          {/* Sun Icon */}
-          <svg className="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.36Zm12,.72a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41l-.71.71a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.77ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,18.36,17ZM12,6a6,6,0,1,0,6,6A6,6,0,0,0,12,6Z"/>
-          </svg>
-          
-          {/* Moon Icon */}
-          <svg className="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Z"/>
-          </svg>
-        </label>
+       {/* Light / Dark Theme Controller */}
+<button 
+  onClick={handleThemeToggle} 
+  className="btn btn-ghost btn-circle text-amber-400 hover:bg-green-700 focus:outline-none"
+  aria-label="Toggle Theme"
+>
+  {theme === 'light' ? (
+    /* Moon Icon (Shows when theme is dark) */
+    <svg className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Z"/>
+    </svg>
+    
+  ) : (
+    /* Sun Icon (Shows when theme is light) */
+    <svg className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.36Zm12,.72a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41l-.71.71a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.77ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,18.36,17ZM12,6a6,6,0,1,0,6,6A6,6,0,0,0,12,6Z"/>
+    </svg>
+  )}
+</button>
 
         {/* Login Button */}
         <button className="btn bg-amber-500 hover:bg-amber-600 border-none text-stone-900 font-bold px-5 btn-sm sm:btn-md rounded-lg shadow transition-all transform active:scale-95">

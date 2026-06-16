@@ -104,7 +104,42 @@ export const LanguageProvider = ({ children }) => {
         res2Bold: "कर्ज माफी नहीं, बल्कि स्थाई कर्ज मुक्ति",
         res2Text: " के लिए ठोस नीति सुझाना।",
         res3: "पारंपरिक और पूर्णतः जैविक खेती (Organic Farming) को बढ़ावा देना।"
-      }
+      },
+      news: {
+        title: "नवीनतम समाचार एवं कृषि चेतना",
+        subtitle: "स्वचालित रूप से अपडेट होने वाली वैश्विक एवं क्षेत्रीय कृषि क्षेत्र की महत्वपूर्ण सूचनाएं।",
+        btnFetch: "🔄 नए समाचार सिंक करें",
+        filterAll: "सभी समाचार",
+        filterUrgent: "🚨 आपातकालीन",
+        filterTech: "🌱 एग्री-टेक",
+        filterPolicy: "⚖️ नीति और व्यापार",
+        badgeUrgent: "आपातकालीन",
+        badgePinned: "पिन किया गया",
+        noNews: "इस श्रेणी में कोई समाचार उपलब्ध नहीं है।",
+        formTitle: "📝 नया लेख जोड़ें",
+        inputTitle: "शीर्षक / Headline",
+        inputCategory: "श्रेणी / Category",
+        inputContent: "मुख्य समाचार विवरण / Content",
+        toggleUrgent: "आपातकालीन अलर्ट है?",
+        btnSubmit: "समाचार प्रकाशित करें",
+        toastFetched: "ताजा कृषि समाचार डेटाबेस से सिंक कर दिया गया है!",
+        toastAdded: "नया समाचार सफलतापूर्वक लाइव कर दिया गया है!"
+      },
+      leadership: {
+      title: "नेतृत्व एवं प्रशासनिक संगठन मंडल",
+      subtitle: "राज्य, जिला और नगर स्तर के आधिकारिक प्रमुखों की निर्देशिका एवं संपर्क विवरण।",
+      filterAll: "सभी स्तर",
+      filterState: "🏛️ राज्य प्रमुख",
+      filterDistrict: "🚜 जिला प्रमुख",
+      filterCity: "🏙️ नगर प्रमुख",
+      searchPlaceholder: "नाम या क्षेत्र से खोजें...",
+      responsibilities: "मुख्य जिम्मेदारियां",
+      btnContact: "📞 संपर्क करें",
+      btnEmail: "✉️ ईमेल",
+      noRecords: "खोजे गए मानदंड के अनुसार कोई नेतृत्व प्रोफ़ाइल नहीं मिली।",
+      scopeLabel: "प्रशासनिक क्षेत्र",
+      joinedLabel: "कार्यकाल प्रारंभ"
+    }
     },
     en: {
       navbar: {
@@ -202,7 +237,42 @@ export const LanguageProvider = ({ children }) => {
         res2Bold: "Debt elimination systems over loan waivers",
         res2Text: " to implement lasting socio-economic solutions.",
         res3: "Advancing indigenous organic cultivation methods and biological farming models."
-      }
+      },
+      news: {
+        title: "Latest Agri-Intelligence & News Feed",
+        subtitle: "Automated, real-time fetching updates tracking global and regional agricultural developments.",
+        btnFetch: "🔄 Sync Live Feeds",
+        filterAll: "All Streams",
+        filterUrgent: "🚨 Urgent Alerts",
+        filterTech: "🌱 Agri-Tech",
+        filterPolicy: "⚖️ Policy & Trade",
+        badgeUrgent: "URGENT",
+        badgePinned: "PINNED",
+        noNews: "No articles found in this category.",
+        formTitle: "📝 Dispatch New Article",
+        inputTitle: "Headline / Title",
+        inputCategory: "Stream Category",
+        inputContent: "Article Body Content",
+        toggleUrgent: "Flag as Urgent Alert?",
+        btnSubmit: "Publish to Global Feed",
+        toastFetched: "Fresh agro-intelligence successfully synchronized!",
+        toastAdded: "New article successfully pushed live!"
+      },
+      leadership: {
+      title: "Leadership & Regional Administration Directory",
+      subtitle: "Official organizational contacts, jurisdictional scopes, and action portfolios across all operational tiers.",
+      filterAll: "All Tiers",
+      filterState: "🏛️ State Heads",
+      filterDistrict: "🚜 District Heads",
+      filterCity: "🏙️ City Heads",
+      searchPlaceholder: "Search by name or region...",
+      responsibilities: "Key Responsibilities",
+      btnContact: "📞 Call Officer",
+      btnEmail: "✉️ Email",
+      noRecords: "No leadership profiles found matching the active criteria.",
+      scopeLabel: "Jurisdiction Scope",
+      joinedLabel: "Tenure Started"
+    }
     }
 
   };

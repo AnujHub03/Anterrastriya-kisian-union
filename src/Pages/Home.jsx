@@ -1,8 +1,9 @@
 import React from 'react'
 import { useLanguage } from './LanguageContext'
+import NewsSection from '../Components/News'
 
 const Home = () => {
-  const { t } = useLanguage() // 👈 Destructured the translation dictionary object
+  const { t } = useLanguage()
 
   // Safety fallback verification logic protection loop
   if (!t || !t.home) {
@@ -10,6 +11,7 @@ const Home = () => {
   }
 
   return (
+    <>
     <div className="space-y-12 pb-12">
       {/* Hero Section */}
       <div className="hero bg-base-200 rounded-3xl overflow-hidden shadow-xl p-6 sm:p-12 border border-base-300">
@@ -52,6 +54,8 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <NewsSection />
+    </>
   )
 }
 

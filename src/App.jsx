@@ -10,6 +10,7 @@ import About from './Pages/About'
 import Issues from './Pages/Issues'
 import Membership from './Pages/Membership'
 import IdGenerator from './Pages/IdCard'
+import LeadershipDirectory from './Pages/LeadershipDir'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +24,7 @@ function App() {
         <Route path='/issues' element={<Issues/>} />
         <Route path='/membership' element={<Membership/>} />
         <Route path='/IdCard' element={<IdGenerator/>} />
+        <Route path='/Leadership' element={<LeadershipDirectory/>} />
       </Routes>
     </>
   )
