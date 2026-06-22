@@ -3,10 +3,8 @@ import React, { createContext, useState, useContext } from 'react';
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [lang, setLang] = useState('hi'); // Defaulting to Hindi
+  const [lang, setLang] = useState('hi');
 
-  // Master Global Dictionary
- // Master Global Dictionary
   const dictionary = {
     hi: {
       navbar: {
@@ -14,12 +12,16 @@ export const LanguageProvider = ({ children }) => {
         home: "मुख्य पृष्ठ",
         team: "टीम और नेतृत्व",
         membership: "सदस्यता",
-        events: "गतिविधियाँ और कार्यक्रम",
-        idCard: "पहचान पत्र (ID Card)",
+        events: "गतिविधियाँ",
+        idCard: "पहचान पत्र",
         issues: "चुनौतियां",
+        blog: "ब्लॉग",
+        gallery: "गैलरी",
+        downloads: "डाउनलोड",
         about: "हमारे बारे में",
         contact: "संपर्क करें",
-        login: "लॉगिन"
+        login: "लॉगिन",
+        more: "और देखें"
       },
       home: {
         stage: "अंतर्राष्ट्रीय मंच",
@@ -39,8 +41,11 @@ export const LanguageProvider = ({ children }) => {
         stat3Desc: "भारत में स्थित मुख्य वैश्विक कार्यालय"
       },
       membership: {
-        title: "यूनियन सदस्यता आवेदन",
+        title: "यूनियन सदस्यता",
         subtitle: '"हम दुनिया भर के छोटे, महिला और आदिवासी किसानों को सशक्त, संगठित और समान स्थान पर लाना चाहते हैं।"',
+        tabApply: "📝 आवेदन करें",
+        tabDirectory: "👥 सदस्य सूची",
+        tabDashboard: "📊 डैशबोर्ड",
         labelName: "किसान का पूरा नाम (Full Name)",
         placeholderName: "अपना नाम दर्ज करें",
         labelMobile: "मोबाइल नंबर (Mobile)",
@@ -51,8 +56,23 @@ export const LanguageProvider = ({ children }) => {
         selectOptionOther: "अन्य / कृषि श्रमिक",
         labelLocation: "राज्य / जिला (State & District)",
         placeholderLocation: "उदा. मेरठ, उत्तर प्रदेश",
+        labelState: "राज्य",
+        labelCity: "शहर / जिला",
         submitBtn: "सदस्यता के लिए आवेदन सबमिट करें",
-        footerNote: "* अंतर्राष्ट्रीय किसान यूनियन एक पूर्णतः गैर-राजनीतिक एवं स्वतंत्र संगठन है।"
+        footerNote: "* अंतर्राष्ट्रीय किसान यूनियन एक पूर्णतः गैर-राजनीतिक एवं स्वतंत्र संगठन है।",
+        searchPlaceholder: "नाम, शहर या राज्य से खोजें...",
+        filterState: "राज्य फ़िल्टर",
+        allStates: "सभी राज्य",
+        statusApproved: "अनुमोदित",
+        statusPending: "प्रतीक्षारत",
+        btnApprove: "✅ अनुमोदित",
+        btnReject: "❌ अस्वीकार",
+        totalMembers: "कुल सदस्य",
+        pendingApprovals: "लंबित अनुमोदन",
+        approvedThisMonth: "इस माह अनुमोदित",
+        statesRepresented: "राज्य प्रतिनिधित्व",
+        noMembers: "कोई सदस्य नहीं मिला।",
+        successMsg: "✅ आवेदन सफलतापूर्वक जमा किया गया! हम जल्द संपर्क करेंगे।"
       },
       idCard: {
         pageTitle: "डिजिटल पहचान पत्र जनरेटर",
@@ -82,10 +102,10 @@ export const LanguageProvider = ({ children }) => {
         warning: "वैश्विक वित्तीय संस्थाओं एवं पूंजीपतियों की नियत का एक विश्लेषणात्मक विवरण।",
         badge1: "बाजार मूल्य का खेल (3X Price Trap)",
         card1Title: "लागत बनाम उपभोक्ता मूल्य",
-        card1Body: "यदि रासायनिक खाद, बीज, पानी, जुताई, कृषि श्रम, और कीटनाशक का कुल योग किया जाए तो किसानों को समर्थन मूल्य (MSP) के रूप में कुछ भी प्राप्त नहीं होता। जैसे ही कृषि उत्पाद बाजार या कारखानों के माध्यम से उपभोक्ता तक पहुंचता है, उसका मूल्य खेत के उत्पाद मूल्य की तुलना में तीन गुना (3x) तक बढ़ जाता है। सरकारें औद्योगिक उत्पादों पर नियंत्रण नहीं रखतीं, पर कृषि उत्पाद मूल्य दबाती हैं।",
+        card1Body: "यदि रासायनिक खाद, बीज, पानी, जुताई, कृषि श्रम, और कीटनाशक का कुल योग किया जाए तो किसानों को समर्थन मूल्य (MSP) के रूप में कुछ भी प्राप्त नहीं होता। जैसे ही कृषि उत्पाद बाजार या कारखानों के माध्यम से उपभोक्ता तक पहुंचता है, उसका मूल्य खेत के उत्पाद मूल्य की तुलना में तीन गुना (3x) तक बढ़ जाता है।",
         badge2: "आय में भारी असमानता",
         card2Title: "कर्मचारी बनाम 1 हेक्टेयर किसान",
-        card2Body: "आज के समय में सबसे छोटे सरकारी कर्मचारी का न्यूनतम वेतन भी ₹25,000 महीने हो चुका है। इसके विपरीत, एक हेक्टेयर जमीन का मालिक किसान अपनी दिन-रात की मेहनत और पूरी पूंजी लगाने के बाद भी ₹2,000 महीना शुद्ध मुनाफा नहीं बचा पाता। इसी कारणवश किसानों पर लगातार भारी कर्ज का बोझ चढ़ता जा रहा है।",
+        card2Body: "आज के समय में सबसे छोटे सरकारी कर्मचारी का न्यूनतम वेतन भी ₹25,000 महीने हो चुका है। इसके विपरीत, एक हेक्टेयर जमीन का मालिक किसान अपनी दिन-रात की मेहनत और पूरी पूंजी लगाने के बाद भी ₹2,000 महीना शुद्ध मुनाफा नहीं बचा पाता।",
         footerAlertTitle: "वैश्विक संस्थागत चुनौती:",
         footerAlertBody: "विश्वव्यापी किसान समस्याओं के पीछे विश्व बैंक (World Bank) और अंतरराष्ट्रीय मुद्राकोश (IMF) जैसी वित्तीय संस्थाएं जिम्मेदार हैं, जो कथित रूप से जनकल्याणकारी योजनाएं बनाकर खाद्य व्यवस्था को हथियार की तरह उपयोग कर रही हैं।"
       },
@@ -126,20 +146,155 @@ export const LanguageProvider = ({ children }) => {
         toastAdded: "नया समाचार सफलतापूर्वक लाइव कर दिया गया है!"
       },
       leadership: {
-      title: "नेतृत्व एवं प्रशासनिक संगठन मंडल",
-      subtitle: "राज्य, जिला और नगर स्तर के आधिकारिक प्रमुखों की निर्देशिका एवं संपर्क विवरण।",
-      filterAll: "सभी स्तर",
-      filterState: "🏛️ राज्य प्रमुख",
-      filterDistrict: "🚜 जिला प्रमुख",
-      filterCity: "🏙️ नगर प्रमुख",
-      searchPlaceholder: "नाम या क्षेत्र से खोजें...",
-      responsibilities: "मुख्य जिम्मेदारियां",
-      btnContact: "📞 संपर्क करें",
-      btnEmail: "✉️ ईमेल",
-      noRecords: "खोजे गए मानदंड के अनुसार कोई नेतृत्व प्रोफ़ाइल नहीं मिली।",
-      scopeLabel: "प्रशासनिक क्षेत्र",
-      joinedLabel: "कार्यकाल प्रारंभ"
-    }
+        title: "नेतृत्व एवं प्रशासनिक संगठन मंडल",
+        subtitle: "राज्य, जिला और नगर स्तर के आधिकारिक प्रमुखों की निर्देशिका एवं संपर्क विवरण।",
+        filterAll: "सभी स्तर",
+        filterState: "🏛️ राज्य प्रमुख",
+        filterDistrict: "🚜 जिला प्रमुख",
+        filterCity: "🏙️ नगर प्रमुख",
+        searchPlaceholder: "नाम या क्षेत्र से खोजें...",
+        responsibilities: "मुख्य जिम्मेदारियां",
+        btnContact: "📞 संपर्क करें",
+        btnEmail: "✉️ ईमेल",
+        noRecords: "खोजे गए मानदंड के अनुसार कोई नेतृत्व प्रोफ़ाइल नहीं मिली।",
+        scopeLabel: "प्रशासनिक क्षेत्र",
+        joinedLabel: "कार्यकाल प्रारंभ"
+      },
+      activities: {
+        title: "गतिविधियाँ और कार्यक्रम",
+        subtitle: "किसान रैलियाँ, बैठकें, कार्यशालाएं और किसान गतिविधियों की झलकियाँ।",
+        tabEvents: "📅 कार्यक्रम",
+        tabPhotos: "📷 फोटो",
+        tabVideos: "🎥 वीडियो",
+        formTitle: "+ नया कार्यक्रम जोड़ें",
+        labelTitle: "कार्यक्रम का नाम",
+        labelDate: "तारीख",
+        labelLocation: "स्थान",
+        labelType: "प्रकार",
+        labelDesc: "विवरण",
+        btnAdd: "जोड़ें",
+        typeRally: "रैली",
+        typeMeeting: "बैठक",
+        typeWorkshop: "कार्यशाला",
+        upcoming: "🗓️ आगामी कार्यक्रम",
+        past: "✅ पूर्व कार्यक्रम",
+        uploadPhoto: "📷 फोटो अपलोड करें",
+        labelCaption: "कैप्शन",
+        btnUpload: "अपलोड करें",
+        addVideoLink: "🔗 वीडियो लिंक जोड़ें",
+        labelVideoTitle: "वीडियो शीर्षक",
+        labelVideoUrl: "YouTube URL",
+        btnAddVideo: "वीडियो जोड़ें",
+        noEvents: "कोई कार्यक्रम उपलब्ध नहीं।",
+        noPhotos: "कोई फोटो उपलब्ध नहीं।",
+        noVideos: "कोई वीडियो उपलब्ध नहीं।"
+      },
+      blog: {
+        title: "ब्लॉग और लेख",
+        subtitle: "किसान मुद्दों पर विचार, विश्लेषण और जागरूकता लेख।",
+        formTitle: "📝 नया ब्लॉग लिखें",
+        labelTitle: "शीर्षक",
+        labelAuthor: "लेखक का नाम",
+        labelCategory: "श्रेणी",
+        labelContent: "लेख सामग्री",
+        btnPublish: "प्रकाशित करें",
+        readMore: "पूरा पढ़ें ›",
+        readLess: "← वापस",
+        share: "📤 शेयर",
+        minRead: "मिनट",
+        catPolicy: "नीति",
+        catFarming: "खेती",
+        catWelfare: "कल्याण",
+        catAwareness: "जागरूकता",
+        noPosts: "कोई ब्लॉग पोस्ट उपलब्ध नहीं।",
+        toastAdded: "नई ब्लॉग पोस्ट प्रकाशित की गई!"
+      },
+      contact: {
+        title: "संपर्क करें",
+        subtitle: "हमसे जुड़ें — आपके सवाल और सुझाव हमारे लिए महत्वपूर्ण हैं।",
+        formTitle: "✉️ संदेश भेजें",
+        labelName: "आपका नाम",
+        labelEmail: "ईमेल पता",
+        labelPhone: "मोबाइल नंबर",
+        labelSubject: "विषय",
+        labelMessage: "संदेश लिखें",
+        btnSend: "संदेश भेजें",
+        officeTitle: "🏢 मुख्य कार्यालय",
+        address: "मेरठ, उत्तर प्रदेश, भारत",
+        emailLabel: "ईमेल",
+        phoneLabel: "फोन",
+        hoursLabel: "कार्यालय समय",
+        hours: "सोम–शनि: 9 AM – 6 PM",
+        successMsg: "✅ आपका संदेश सफलतापूर्वक भेजा गया! हम जल्द संपर्क करेंगे।",
+        whatsapp: "💬 WhatsApp पर संपर्क करें",
+        socialTitle: "🌐 सोशल मीडिया"
+      },
+      gallery: {
+        title: "फोटो और वीडियो गैलरी",
+        subtitle: "किसान रैलियों, कार्यक्रमों और गतिविधियों की तस्वीरें और वीडियो।",
+        tabPhotos: "📷 फोटो गैलरी",
+        tabVideos: "🎥 वीडियो गैलरी",
+        uploadPhoto: "📷 फोटो अपलोड करें",
+        labelCaption: "कैप्शन",
+        btnUpload: "अपलोड करें",
+        addVideoLink: "🔗 वीडियो जोड़ें",
+        labelVideoTitle: "वीडियो शीर्षक",
+        labelVideoUrl: "YouTube / Video URL",
+        btnAdd: "जोड़ें",
+        noPhotos: "अभी तक कोई फोटो अपलोड नहीं की गई।",
+        noVideos: "अभी तक कोई वीडियो नहीं जोड़ा गया।",
+        close: "✕ बंद करें"
+      },
+      downloads: {
+        title: "📥 डाउनलोड केंद्र",
+        subtitle: "यूनियन के नोटिस, घोषणापत्र, फॉर्म और महत्वपूर्ण दस्तावेज़ यहाँ से डाउनलोड करें।",
+        btnDownload: "⬇️ डाउनलोड",
+        filterAll: "सभी",
+        filterNotice: "📢 नोटिस",
+        filterForm: "📋 फॉर्म",
+        filterManifesto: "📜 घोषणापत्र",
+        filterCircular: "🔔 परिपत्र",
+        sizeLabel: "आकार",
+        dateLabel: "दिनांक",
+        noFiles: "कोई दस्तावेज़ उपलब्ध नहीं।"
+      },
+      footer: {
+        tagline: '"समानता - न्याय एवं मानवता"',
+        desc: "अंतर्राष्ट्रीय किसान यूनियन — विश्व के किसानों और वंचित वर्ग के अधिकारों के लिए प्रतिबद्ध।",
+        quickLinks: "त्वरित लिंक",
+        contactInfo: "संपर्क जानकारी",
+        followUs: "हमें फॉलो करें",
+        rights: "© 2026 अंतर्राष्ट्रीय किसान यूनियन। सर्वाधिकार सुरक्षित।",
+        privacyPolicy: "गोपनीयता नीति",
+        terms: "नियम एवं शर्तें",
+        madeWith: "❤️ विश्व के किसानों के लिए बनाया गया"
+      },
+      announcement: {
+        text: "🌾 नई घोषणा: अंतर्राष्ट्रीय किसान सम्मेलन 2026 — मेरठ, 15 जुलाई | सदस्यता अभियान शुरू | अभी जुड़ें!",
+        close: "✕"
+      },
+      privacy: {
+        title: "गोपनीयता नीति",
+        lastUpdated: "अंतिम अपडेट: जून 2026",
+        sections: [
+          { heading: "1. जानकारी का संग्रह", body: "हम आपकी व्यक्तिगत जानकारी (नाम, मोबाइल, पता) केवल सदस्यता प्रक्रिया और यूनियन संचालन के लिए एकत्र करते हैं।" },
+          { heading: "2. जानकारी का उपयोग", body: "एकत्र की गई जानकारी का उपयोग केवल सदस्य पहचान, संचार और यूनियन की गतिविधियों के लिए किया जाएगा। इसे किसी तृतीय पक्ष को नहीं बेचा जाएगा।" },
+          { heading: "3. डेटा सुरक्षा", body: "हम आपकी जानकारी को सुरक्षित रखने के लिए उचित तकनीकी उपाय अपनाते हैं। हमारी वेबसाइट SSL सुरक्षा से लैस है।" },
+          { heading: "4. कुकीज़", body: "हमारी वेबसाइट बेहतर उपयोगकर्ता अनुभव के लिए कुकीज़ का उपयोग करती है। आप अपने ब्राउज़र सेटिंग से इसे नियंत्रित कर सकते हैं।" },
+          { heading: "5. आपके अधिकार", body: "आप किसी भी समय अपनी जानकारी की समीक्षा, संशोधन या हटाने का अनुरोध कर सकते हैं। संपर्क: info@anterrastriyakisanunion.com" }
+        ]
+      },
+      terms: {
+        title: "नियम एवं शर्तें",
+        lastUpdated: "अंतिम अपडेट: जून 2026",
+        sections: [
+          { heading: "1. वेबसाइट उपयोग", body: "इस वेबसाइट का उपयोग करके आप इन नियमों से सहमत होते हैं। यह वेबसाइट केवल जानकारी और सदस्यता प्रक्रिया के लिए है।" },
+          { heading: "2. सदस्यता शर्तें", body: "सदस्यता के लिए आवेदनकर्ता को सही जानकारी प्रदान करनी होगी। गलत जानकारी देने पर सदस्यता रद्द की जा सकती है।" },
+          { heading: "3. बौद्धिक संपदा", body: "इस वेबसाइट पर सभी सामग्री, लोगो और डिजाइन अंतर्राष्ट्रीय किसान यूनियन की संपत्ति है। बिना अनुमति के उपयोग वर्जित है।" },
+          { heading: "4. सामग्री की सटीकता", body: "हम सटीक जानकारी प्रदान करने का प्रयास करते हैं, लेकिन किसी भी त्रुटि के लिए हम उत्तरदायी नहीं हैं।" },
+          { heading: "5. परिवर्तन का अधिकार", body: "यूनियन किसी भी समय इन नियमों को बिना पूर्व सूचना के बदल सकती है। नवीनतम संस्करण वेबसाइट पर प्रकाशित रहेगा।" }
+        ]
+      }
     },
     en: {
       navbar: {
@@ -147,12 +302,16 @@ export const LanguageProvider = ({ children }) => {
         home: "Home",
         team: "Team & Leadership",
         membership: "Membership",
-        events: "Activities & Events",
+        events: "Activities",
         idCard: "ID Card",
         issues: "Issues",
+        blog: "Blog",
+        gallery: "Gallery",
+        downloads: "Downloads",
         about: "About",
         contact: "Contact",
-        login: "Login"
+        login: "Login",
+        more: "More"
       },
       home: {
         stage: "International Platform",
@@ -172,8 +331,11 @@ export const LanguageProvider = ({ children }) => {
         stat3Desc: "Primary global office located in India"
       },
       membership: {
-        title: "Union Membership Application",
+        title: "Union Membership",
         subtitle: '"We aim to empower, organize, and bring small, female, and indigenous farmers worldwide onto a common platform."',
+        tabApply: "📝 Apply",
+        tabDirectory: "👥 Member Directory",
+        tabDashboard: "📊 Dashboard",
         labelName: "Full Name",
         placeholderName: "Enter your full name",
         labelMobile: "Mobile Number",
@@ -184,8 +346,23 @@ export const LanguageProvider = ({ children }) => {
         selectOptionOther: "Other / Agricultural Laborer",
         labelLocation: "State & District",
         placeholderLocation: "e.g. Meerut, Uttar Pradesh",
-        submitBtn: "Submit Application for Membership",
-        footerNote: "* International Farmers Union is a completely non-political and independent organization."
+        labelState: "State",
+        labelCity: "City / District",
+        submitBtn: "Submit Membership Application",
+        footerNote: "* International Farmers Union is a completely non-political and independent organization.",
+        searchPlaceholder: "Search by name, city or state...",
+        filterState: "Filter by State",
+        allStates: "All States",
+        statusApproved: "Approved",
+        statusPending: "Pending",
+        btnApprove: "✅ Approve",
+        btnReject: "❌ Reject",
+        totalMembers: "Total Members",
+        pendingApprovals: "Pending Approvals",
+        approvedThisMonth: "Approved This Month",
+        statesRepresented: "States Represented",
+        noMembers: "No members found.",
+        successMsg: "✅ Application submitted successfully! We will contact you soon."
       },
       idCard: {
         pageTitle: "Digital ID Card Generator",
@@ -259,25 +436,158 @@ export const LanguageProvider = ({ children }) => {
         toastAdded: "New article successfully pushed live!"
       },
       leadership: {
-      title: "Leadership & Regional Administration Directory",
-      subtitle: "Official organizational contacts, jurisdictional scopes, and action portfolios across all operational tiers.",
-      filterAll: "All Tiers",
-      filterState: "🏛️ State Heads",
-      filterDistrict: "🚜 District Heads",
-      filterCity: "🏙️ City Heads",
-      searchPlaceholder: "Search by name or region...",
-      responsibilities: "Key Responsibilities",
-      btnContact: "📞 Call Officer",
-      btnEmail: "✉️ Email",
-      noRecords: "No leadership profiles found matching the active criteria.",
-      scopeLabel: "Jurisdiction Scope",
-      joinedLabel: "Tenure Started"
+        title: "Leadership & Regional Administration Directory",
+        subtitle: "Official organizational contacts, jurisdictional scopes, and action portfolios across all operational tiers.",
+        filterAll: "All Tiers",
+        filterState: "🏛️ State Heads",
+        filterDistrict: "🚜 District Heads",
+        filterCity: "🏙️ City Heads",
+        searchPlaceholder: "Search by name or region...",
+        responsibilities: "Key Responsibilities",
+        btnContact: "📞 Call Officer",
+        btnEmail: "✉️ Email",
+        noRecords: "No leadership profiles found matching the active criteria.",
+        scopeLabel: "Jurisdiction Scope",
+        joinedLabel: "Tenure Started"
+      },
+      activities: {
+        title: "Activities & Events",
+        subtitle: "Farmer rallies, meetings, workshops and activity highlights.",
+        tabEvents: "📅 Events",
+        tabPhotos: "📷 Photos",
+        tabVideos: "🎥 Videos",
+        formTitle: "+ Add New Event",
+        labelTitle: "Event Name",
+        labelDate: "Date",
+        labelLocation: "Location",
+        labelType: "Type",
+        labelDesc: "Description",
+        btnAdd: "Add",
+        typeRally: "Rally",
+        typeMeeting: "Meeting",
+        typeWorkshop: "Workshop",
+        upcoming: "🗓️ Upcoming Events",
+        past: "✅ Past Events",
+        uploadPhoto: "📷 Upload Photo",
+        labelCaption: "Caption",
+        btnUpload: "Upload",
+        addVideoLink: "🔗 Add Video Link",
+        labelVideoTitle: "Video Title",
+        labelVideoUrl: "YouTube URL",
+        btnAddVideo: "Add Video",
+        noEvents: "No events available.",
+        noPhotos: "No photos available.",
+        noVideos: "No videos available."
+      },
+      blog: {
+        title: "Blog & Articles",
+        subtitle: "Analysis, opinions and awareness articles on farmer issues.",
+        formTitle: "📝 Write New Blog",
+        labelTitle: "Title",
+        labelAuthor: "Author Name",
+        labelCategory: "Category",
+        labelContent: "Article Content",
+        btnPublish: "Publish",
+        readMore: "Read More ›",
+        readLess: "← Back",
+        share: "📤 Share",
+        minRead: "min read",
+        catPolicy: "Policy",
+        catFarming: "Farming",
+        catWelfare: "Welfare",
+        catAwareness: "Awareness",
+        noPosts: "No blog posts available.",
+        toastAdded: "New blog post published!"
+      },
+      contact: {
+        title: "Contact Us",
+        subtitle: "Reach out to us — your questions and suggestions matter to us.",
+        formTitle: "✉️ Send Message",
+        labelName: "Your Name",
+        labelEmail: "Email Address",
+        labelPhone: "Mobile Number",
+        labelSubject: "Subject",
+        labelMessage: "Your Message",
+        btnSend: "Send Message",
+        officeTitle: "🏢 Head Office",
+        address: "Meerut, Uttar Pradesh, India",
+        emailLabel: "Email",
+        phoneLabel: "Phone",
+        hoursLabel: "Office Hours",
+        hours: "Mon–Sat: 9 AM – 6 PM",
+        successMsg: "✅ Your message was sent successfully! We will contact you soon.",
+        whatsapp: "💬 Contact via WhatsApp",
+        socialTitle: "🌐 Social Media"
+      },
+      gallery: {
+        title: "Photo & Video Gallery",
+        subtitle: "Photos and videos from farmer rallies, events and activities.",
+        tabPhotos: "📷 Photo Gallery",
+        tabVideos: "🎥 Video Gallery",
+        uploadPhoto: "📷 Upload Photo",
+        labelCaption: "Caption",
+        btnUpload: "Upload",
+        addVideoLink: "🔗 Add Video",
+        labelVideoTitle: "Video Title",
+        labelVideoUrl: "YouTube / Video URL",
+        btnAdd: "Add",
+        noPhotos: "No photos uploaded yet.",
+        noVideos: "No videos added yet.",
+        close: "✕ Close"
+      },
+      downloads: {
+        title: "📥 Download Center",
+        subtitle: "Download union notices, manifestos, forms and important documents.",
+        btnDownload: "⬇️ Download",
+        filterAll: "All",
+        filterNotice: "📢 Notices",
+        filterForm: "📋 Forms",
+        filterManifesto: "📜 Manifesto",
+        filterCircular: "🔔 Circulars",
+        sizeLabel: "Size",
+        dateLabel: "Date",
+        noFiles: "No documents available."
+      },
+      footer: {
+        tagline: '"Equality - Justice & Humanity"',
+        desc: "International Farmers Union — Committed to the rights of farmers and marginalized communities worldwide.",
+        quickLinks: "Quick Links",
+        contactInfo: "Contact Info",
+        followUs: "Follow Us",
+        rights: "© 2026 International Farmers Union. All rights reserved.",
+        privacyPolicy: "Privacy Policy",
+        terms: "Terms & Conditions",
+        madeWith: "❤️ Made for Farmers Worldwide"
+      },
+      announcement: {
+        text: "🌾 New Announcement: International Farmers Conference 2026 — Meerut, July 15 | Membership Drive Active | Join Now!",
+        close: "✕"
+      },
+      privacy: {
+        title: "Privacy Policy",
+        lastUpdated: "Last Updated: June 2026",
+        sections: [
+          { heading: "1. Information Collection", body: "We collect your personal information (name, mobile, address) only for membership processing and union operations." },
+          { heading: "2. Use of Information", body: "Collected information will be used only for member identification, communication and union activities. It will not be sold to any third party." },
+          { heading: "3. Data Security", body: "We employ appropriate technical measures to keep your information secure. Our website is protected with SSL encryption." },
+          { heading: "4. Cookies", body: "Our website uses cookies for a better user experience. You can control this through your browser settings." },
+          { heading: "5. Your Rights", body: "You may request to review, modify, or delete your information at any time. Contact: info@anterrastriyakisanunion.com" }
+        ]
+      },
+      terms: {
+        title: "Terms & Conditions",
+        lastUpdated: "Last Updated: June 2026",
+        sections: [
+          { heading: "1. Website Use", body: "By using this website, you agree to these terms. This website is solely for information and membership processing." },
+          { heading: "2. Membership Terms", body: "Membership applicants must provide accurate information. Providing false information may result in membership cancellation." },
+          { heading: "3. Intellectual Property", body: "All content, logos and designs on this website are the property of International Farmers Union. Unauthorized use is prohibited." },
+          { heading: "4. Content Accuracy", body: "We strive to provide accurate information, but we are not liable for any errors or omissions." },
+          { heading: "5. Right to Modify", body: "The union may change these terms at any time without prior notice. The latest version will always be published on the website." }
+        ]
+      }
     }
-    }
-
   };
 
-  // Dynamic Lookup on every state change ensures "t" updates perfectly live!
   const t = dictionary[lang];
 
   return (
