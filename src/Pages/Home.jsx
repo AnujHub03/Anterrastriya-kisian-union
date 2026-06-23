@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
     <div className="space-y-12 pb-12">
-      {/* Hero Section */}
+      {/* Main Hero Section */}
       <div className="hero bg-base-200 rounded-3xl overflow-hidden shadow-xl p-6 sm:p-12 border border-base-300">
         <div className="hero-content text-center">
           <div className="max-w-3xl">
