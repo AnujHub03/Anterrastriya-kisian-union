@@ -61,8 +61,17 @@ const Navbar = () => {
             {mobileOnlyLinks}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl font-bold text-amber-400 tracking-wide normal-case p-0 hover:bg-transparent">
-          {t.navbar.brand}
+         <Link to="/" className="btn btn-ghost p-0 hover:bg-transparent flex items-center">
+          <img 
+            src="/Logo/logo.png" 
+            // alt={t.navbar.brand} 
+            className="h-14 w-auto object-contain max-h-18"
+            onError={(e) => {
+              // Graceful fallback text if the logo image fails to load
+              e.target.style.display = 'none';
+              e.target.parentNode.innerHTML = `<span className="text-xl font-bold text-amber-400 tracking-wide">${t.navbar.brand}</span>`;
+            }}
+          />
         </Link>
       </div>
 
