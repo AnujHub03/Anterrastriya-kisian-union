@@ -33,6 +33,15 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Image 1 - Full Width Agricultural Landscape */}
+      <div className="rounded-3xl overflow-hidden shadow-xl border border-base-300">
+        <img
+          src="https://picsum.photos/seed/green-farm-field/1400/400.jpg"
+          alt="Lush green agricultural fields stretching to the horizon"
+          className="w-full h-48 sm:h-64 md:h-80 object-cover"
+        />
+      </div>
+
       {/* Global Impact Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="stat bg-base-200 border border-base-300 rounded-2xl p-6 shadow-md text-center">
@@ -77,6 +86,24 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Image 2 - Two Column: Farmer & Crops */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="rounded-3xl overflow-hidden shadow-xl border border-base-300">
+          <img
+            src="https://picsum.photos/seed/farmer-harvest/700/350.jpg"
+            alt="Farmer working in the fields during harvest season"
+            className="w-full h-48 sm:h-56 object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div className="rounded-3xl overflow-hidden shadow-xl border border-base-300">
+          <img
+            src="https://picsum.photos/seed/wheat-golden/700/350.jpg"
+            alt="Golden wheat crops ready for harvest"
+            className="w-full h-48 sm:h-56 object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      </div>
+
       {/* How It Works / Take Action Section */}
       <div className="bg-base-200 border border-base-300 rounded-3xl p-6 sm:p-12 shadow-xl">
         <div className="text-center mb-10">
@@ -101,7 +128,22 @@ const Home = () => {
           <button className="btn btn-accent btn-md sm:btn-lg shadow-lg">{t.home.actionBtn}</button>
         </div>
       </div>
- <NewsSection />
+
+      <NewsSection />
+
+      {/* Image 3 - Full Width with Overlay Text */}
+      <div className="rounded-3xl overflow-hidden shadow-xl border border-base-300 relative group">
+        <img
+          src="https://picsum.photos/seed/rice-paddy-terrace/1400/450.jpg"
+          alt="Terraced rice paddies showcasing sustainable farming"
+          className="w-full h-56 sm:h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-base-900/80 via-base-900/20 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 p-6 sm:p-10">
+          <p className="text-base-100 text-lg sm:text-2xl font-black max-w-xl leading-snug">{t.home.motto}</p>
+        </div>
+      </div>
+
       {/* Voices / Testimonials Section */}
       <div className="bg-base-200 border border-base-300 rounded-3xl p-6 sm:p-12 shadow-xl">
         <div className="text-center mb-10">
@@ -145,6 +187,31 @@ const Home = () => {
             <button className="btn btn-neutral btn-md sm:btn-lg shadow-lg">{t.home.ctaJoinBtn}</button>
             <button className="btn btn-outline btn-md sm:btn-lg border-neutral text-neutral hover:bg-neutral hover:text-primary-content">{t.home.ctaShareBtn}</button>
           </div>
+        </div>
+      </div>
+
+      {/* Image 4 - Three Column: Harvest, Tools, Greenhouse */}
+      <div className="grid grid-cols-3 gap-3 sm:gap-6">
+        <div className="rounded-2xl overflow-hidden shadow-lg border border-base-300">
+          <img
+            src="https://picsum.photos/seed/vegetable-harvest/500/400.jpg"
+            alt="Fresh vegetable harvest from organic farm"
+            className="w-full h-32 sm:h-48 object-cover hover:scale-110 transition-transform duration-500"
+          />
+        </div>
+        <div className="rounded-2xl overflow-hidden shadow-lg border border-base-300">
+          <img
+            src="https://picsum.photos/seed/plow-tractor/500/400.jpg"
+            alt="Tractor plowing the farmland"
+            className="w-full h-32 sm:h-48 object-cover hover:scale-110 transition-transform duration-500"
+          />
+        </div>
+        <div className="rounded-2xl overflow-hidden shadow-lg border border-base-300">
+          <img
+            src="https://picsum.photos/seed/greenhouse-plants/500/400.jpg"
+            alt="Greenhouse with thriving plants"
+            className="w-full h-32 sm:h-48 object-cover hover:scale-110 transition-transform duration-500"
+          />
         </div>
       </div>
 
@@ -263,6 +330,19 @@ const Home = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Image 5 - Final Closing Banner with Overlay */}
+      <div className="rounded-3xl overflow-hidden shadow-xl border border-base-300 relative group">
+        <img
+          src="https://picsum.photos/seed/sunrise-farmland/1400/350.jpg"
+          alt="Sunrise over farmland symbolizing a new era for agriculture"
+          className="w-full h-40 sm:h-56 md:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-base-900/70 via-transparent to-base-900/30"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-base-100 text-lg sm:text-2xl font-black text-center px-4 drop-shadow-lg">{t.home.brand} — {t.home.motto}</p>
         </div>
       </div>
 
