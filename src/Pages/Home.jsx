@@ -13,6 +13,61 @@ const Home = () => {
   return (
     <>
     <div className="space-y-12 pb-12">
+
+      {/* Farming Image Marquee Strip - Above Hero */}
+      <div className="relative -mx-2 sm:-mx-4">
+        <div className="overflow-hidden py-1">
+          <div className="flex gap-2 animate-[scroll_30s_linear_infinite] w-max">
+            {[
+              { src: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=300&h=180&q=80', label: '🌾 Harvest' },
+              { src: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=300&h=180&q=80', label: '🌿 Fields' },
+              { src: 'https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?auto=format&fit=crop&w=300&h=180&q=80', label: '🥬 Produce' },
+              { src: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ce?auto=format&fit=crop&w=300&h=180&q=80', label: '🚜 Tractor' },
+              { src: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=300&h=180&q=80', label: '🌾 Wheat' },
+              { src: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=300&h=180&q=80', label: '🌱 Greenhouse' },
+              { src: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=300&h=180&q=80', label: '🌅 Sunrise' },
+              { src: 'https://images.unsplash.com/photo-1622484211148-59ed3c755a2d?auto=format&fit=crop&w=300&h=180&q=80', label: '🏔️ Terraces' },
+              { src: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=300&h=180&q=80', label: '🌻 Farmland' },
+              { src: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=300&h=180&q=80', label: '🌾 Harvest' },
+              { src: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=300&h=180&q=80', label: '🌿 Fields' },
+              { src: 'https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?auto=format&fit=crop&w=300&h=180&q=80', label: '🥬 Produce' },
+              { src: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ce?auto=format&fit=crop&w=300&h=180&q=80', label: '🚜 Tractor' },
+              { src: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=300&h=180&q=80', label: '🌾 Wheat' },
+              { src: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=300&h=180&q=80', label: '🌱 Greenhouse' },
+              { src: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=300&h=180&q=80', label: '🌅 Sunrise' },
+              { src: 'https://images.unsplash.com/photo-1622484211148-59ed3c755a2d?auto=format&fit=crop&w=300&h=180&q=80', label: '🏔️ Terraces' },
+              { src: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=300&h=180&q=80', label: '🌻 Farmland' },
+            ].map((img, i) => (
+              <div
+                key={i}
+                className="relative flex-shrink-0 w-[180px] sm:w-[220px] md:w-[260px] h-[90px] sm:h-[110px] md:h-[130px] rounded-xl overflow-hidden border border-base-300 group cursor-pointer shadow-sm hover:shadow-md transition-shadow"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-base-900/70 via-base-900/20 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 px-3 py-2">
+                  <span className="text-[10px] sm:text-xs font-bold text-base-100 tracking-wider">{img.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Fade edges */}
+        <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-base-100 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-base-100 to-transparent pointer-events-none z-10"></div>
+      </div>
+
+      <style>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+
       {/* Main Hero Section */}
       <div className="hero rounded-3xl overflow-hidden shadow-xl p-6 sm:p-12 border border-base-300 relative">
         <div
@@ -34,14 +89,12 @@ const Home = () => {
               {t.home.desc}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="btn btn-primary bg-slate-100 p-2 btn-md sm:btn-lg shadow-lg">{t.home.joinBtn}</button>
-              <button className="btn btn-outline bg-slate-100 p-2 btn-md sm:btn-lg"> {t.home.manifestoBtn}</button>
+              <button className="btn btn-primary bg-slate-100 text-black p-2 btn-md sm:btn-lg shadow-lg">{t.home.joinBtn}</button>
+              <button className="btn btn-outline bg-slate-100 text-black p-2 btn-md sm:btn-lg"> {t.home.manifestoBtn}</button>
             </div>
           </div>
         </div>
       </div>
-
- 
 
       {/* Global Impact Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -64,7 +117,7 @@ const Home = () => {
         </div>
       </div>
 
-     {/* Image 1 - Full Width Agricultural Landscape */}
+      {/* Image 1 - Full Width Agricultural Landscape */}
       <div className="rounded-3xl overflow-hidden shadow-xl border border-base-300">
         <img
           src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&h=400&q=80"
