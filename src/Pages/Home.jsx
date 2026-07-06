@@ -21,17 +21,12 @@ const Home = () => {
             {[
               { src: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=300&h=180&q=80', label: '🌾 Harvest' },
               { src: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=300&h=180&q=80', label: '🌿 Fields' },
-              { src: 'https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?auto=format&fit=crop&w=300&h=180&q=80', label: '🥬 Produce' },
-              { src: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ce?auto=format&fit=crop&w=300&h=180&q=80', label: '🚜 Tractor' },
               { src: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=300&h=180&q=80', label: '🌾 Wheat' },
               { src: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=300&h=180&q=80', label: '🌱 Greenhouse' },
               { src: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=300&h=180&q=80', label: '🌅 Sunrise' },
-              { src: 'https://images.unsplash.com/photo-1622484211148-59ed3c755a2d?auto=format&fit=crop&w=300&h=180&q=80', label: '🏔️ Terraces' },
               { src: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=300&h=180&q=80', label: '🌻 Farmland' },
               { src: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=300&h=180&q=80', label: '🌾 Harvest' },
               { src: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=300&h=180&q=80', label: '🌿 Fields' },
-              { src: 'https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?auto=format&fit=crop&w=300&h=180&q=80', label: '🥬 Produce' },
-              { src: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ce?auto=format&fit=crop&w=300&h=180&q=80', label: '🚜 Tractor' },
               { src: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=300&h=180&q=80', label: '🌾 Wheat' },
               { src: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=300&h=180&q=80', label: '🌱 Greenhouse' },
               { src: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=300&h=180&q=80', label: '🌅 Sunrise' },
@@ -197,7 +192,7 @@ const Home = () => {
       {/* Image 3 - Full Width with Overlay Text */}
       <div className="rounded-3xl overflow-hidden shadow-xl border border-base-300 relative group">
         <img
-          src="https://images.unsplash.com/photo-1622484211148-59ed3c755a2d?auto=format&fit=crop&w=1400&h=450&q=80"
+          src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=300&h=180&q=80"
           alt="Terraced rice paddies showcasing sustainable farming"
           className="w-full h-56 sm:h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
         />
@@ -257,14 +252,14 @@ const Home = () => {
       <div className="grid grid-cols-3 gap-3 sm:gap-6">
         <div className="rounded-2xl overflow-hidden shadow-lg border border-base-300">
           <img
-            src="https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?auto=format&fit=crop&w=500&h=400&q=80"
+            src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=300&h=180&q=80"
             alt="Fresh vegetable harvest from organic farm"
             className="w-full h-32 sm:h-48 object-cover hover:scale-110 transition-transform duration-500"
           />
         </div>
         <div className="rounded-2xl overflow-hidden shadow-lg border border-base-300">
           <img
-            src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?auto=format&fit=crop&w=500&h=400&q=80"
+            src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=300&h=180&q=80"
             alt="Tractor plowing the farmland"
             className="w-full h-32 sm:h-48 object-cover hover:scale-110 transition-transform duration-500"
           />
@@ -399,13 +394,13 @@ const Home = () => {
       {/* Image 5 - Final Closing Banner with Overlay */}
       <div className="rounded-3xl overflow-hidden shadow-xl border border-base-300 relative group">
         <img
-          src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1400&h=350&q=80"
+          src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=300&h=180&q=80"
           alt="Sunrise over farmland symbolizing a new era for agriculture"
           className="w-full h-40 sm:h-56 md:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-base-900/70 via-transparent to-base-900/30"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-base-100 text-lg sm:text-2xl font-black text-center px-4 drop-shadow-lg">{t.home.brand} — {t.home.motto}</p>
+          <p className="text-base-100 text-lg sm:text-2xl font-black text-black text-center px-4 drop-shadow-lg">{t.home.brand} — {t.home.motto}</p>
         </div>
       </div>
 
