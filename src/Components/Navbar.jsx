@@ -127,10 +127,11 @@ const Navbar = () => {
             </svg>
           )}
         </button>
-
-        <button className="btn bg-amber-500 hover:bg-amber-600 border-none text-stone-900 font-bold px-4 btn-sm sm:btn-md rounded-lg shadow transition-all transform active:scale-95">
-          {t.navbar.login}
-        </button>
+        <Link to="/login">
+          <button className="btn bg-amber-500 hover:bg-amber-600 border-none text-stone-900 font-bold px-4 btn-sm sm:btn-md rounded-lg shadow transition-all transform active:scale-95">
+            {t.navbar.login}
+          </button>
+        </Link>
       </div>
     </div>
   )

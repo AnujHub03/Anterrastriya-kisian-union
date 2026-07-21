@@ -16,6 +16,7 @@ import Downloads from './Pages/Downloads'
 import Footer from './Components/Footer'
 import WhatsAppButton from './Components/WhatsAppButton'
 import AnnouncementBar from './Components/AnnouncementBar'
+import Login from './Pages/LoginPage'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path='/terms' element={<TermsConditions />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/downloads' element={<Downloads />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </main>
       <Footer />

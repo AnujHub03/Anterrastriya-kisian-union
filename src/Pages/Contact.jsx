@@ -115,7 +115,7 @@ const Contact = () => {
                 <span className="text-2xl">📞</span>
                 <div>
                   <p className="font-black text-[10px] uppercase tracking-widest text-black mb-0.5">{c.phoneLabel}</p>
-                  <a href="tel:+919012345678" className="text-green-700 dark:text-green-400 font-bold hover:underline text-sm">+91 6395103639</a>
+                  <a href="tel:+916395103639" className="text-green-700 dark:text-green-400 font-bold hover:underline text-sm">+91 6395103639</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
