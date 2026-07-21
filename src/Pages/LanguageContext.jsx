@@ -264,6 +264,72 @@ export const LanguageProvider = ({ children }) => {
         res2Bold: "कर्ज माफी नहीं, बल्कि स्थाई कर्ज मुक्ति",
         res2Text: " के लिए ठोस नीति सुझाना।",
         res3: "पारंपरिक और पूर्णतः जैविक खेती (Organic Farming) को बढ़ावा देना।",
+        //  किसान कोष Hero
+        koshBadge: "किसान कोष",
+        koshTitle: "हम एक किसान कोष का निर्माण करेंगे",
+        koshDesc:
+          "सिर्फ विश्व के गरीब किसान और मजदूरों को आर्थिक सहायता प्रदान करने के लिए — ताकि कोई भी किसान भूखा न सोए, कोई भी मजदूर असहाय न रहे।",
+        koshBtn: "कोष जानें",
+        koshJoinBtn: "शामिल हों",
+
+        // माँगें
+        demandsBadge: "हमारी माँगें",
+        demandsTitle: "किसानों को क्या चाहिए?",
+        demandsSubtitle:
+          "बड़े-बड़े वादे नहीं, आधुनिक तकनीक और खेती के संसाधन चाहिए, तभी खेत और देश दोनों समृद्ध होंगे।",
+        demand1: "समय पर खाद",
+        demand2: "बिजली",
+        demand3: "पानी",
+        demand4: "सस्ता पेट्रोल-डीजल",
+        demand5: "आधुनिक तकनीक",
+        philosophyQuote:
+          "किसानों को बड़े-बड़े वादे नहीं, आधुनिक तकनीक और खेती के संसाधन चाहिए, तभी खेत और देश दोनों समृद्ध होंगे।",
+
+        //  चुनौतियाँ
+        challengesBadge: "गंभीर चुनौतियाँ",
+        challengesTitle: "जिन मुद्दों पर गंभीर चिंतन किया",
+        challengesSubtitle:
+          "ये वो चुनौतियाँ हैं जो हर किसान की ज़िंदगी को प्रभावित करती हैं।",
+        ch1Title: "जलवायु परिवर्तन",
+        ch1Desc:
+          "बदलते मौसम और अनियमित बारिश से फसलों को भारी नुकसान, किसानों की मेहनत पर पानी फिर रहा है।",
+        ch2Title: "मिट्टी की गिरती उत्पादकता",
+        ch2Desc:
+          "लगातार रासायनिक खादों के अत्यधिक प्रयोग से मिट्टी बंजर होती जा रही है, उत्पादकता गिर रही है।",
+        ch3Title: "रासायनिक खादों का असंतुलित प्रयोग",
+        ch3Desc:
+          "न जाने के बिना ज़हरीले रसायनों का इस्तेमाल ज़मीन और सेहत दोनों को नुकसान पहुँचा रहा है।",
+        ch4Title: "बाजार की अस्थिरता",
+        ch4Desc:
+          "फसलों का उचित दाम न मिलना, मंडियों में भ्रष्टाचार और बिचौलियों का शोषण — किसान को सही कीमत नहीं मिल पा रही।",
+
+        // ग्राम इकाई
+        gramBadge: "संगठन का आधार",
+        gramTitle: "ग्राम इकाई ही",
+        gramTitleHighlight: "संगठन का आधार है",
+        gramDesc1: "जब गाँव मज़बूत होंगे, तभी संगठन मज़बूत होगा।",
+        gramDesc2:
+          "हर किसान की भागीदारी, हर ग्राम इकाई की एकता — यही संगठन की ताक़त है।",
+        gramP1Title: "गाँव की मज़बूती",
+        gramP1Desc:
+          "ग्राम स्तर पर संगठन को मजबूत करने का प्रयास करें। हर गाँव को एक इकाई बनाकर किसानों को एकजुट करें।",
+        gramP2Title: "हर किसान की भागीदारी",
+        gramP2Desc:
+          "कोई भी किसान छोटा या बड़ा नहीं होता — सबकी भागीदारी बराबर है। सबकी आवाज़ सुनी जाएगी।",
+        gramP3Title: "एकता ही ताकत",
+        gramP3Desc:
+          "अकेला किसान कमज़ोर है, लेकिन गाँव की एकजुट इकाई अजेय है। यही हमारी शक्ति का स्रोत है।",
+
+        // CTA
+        ctaTitle: "ग्राम स्तर पर संगठन को मजबूत करने का प्रयास करें",
+        ctaDesc:
+          "अपने गाँव की ग्राम इकाई बनाएं, किसानों को जोड़ें, और इस आंदोलन को धरती की ज़मीन से मज़बूत करें।",
+        ctaBtn1: "ग्राम इकाई बनाएं",
+        ctaBtn2: "अभी जुड़ें",
+
+        //  Badges for old cards
+        scopeBadge: "संगठन प्रोफ़ाइल",
+        resBadge: "संकल्प",
       },
       news: {
         title: "नवीनतम समाचार एवं कृषि चेतना",
@@ -771,6 +837,73 @@ export const LanguageProvider = ({ children }) => {
         res2Bold: "Debt elimination systems over loan waivers",
         res2Text: " to implement lasting socio-economic solutions.",
         res3: "Advancing indigenous organic cultivation methods and biological farming models.",
+        // Kisan Kosh Hero
+        koshBadge: "Kisan Kosh",
+        koshTitle: "We Will Build a Farmers' Fund",
+        koshDesc:
+          "Dedicated solely to providing financial assistance to poor farmers and laborers worldwide — so no farmer sleeps hungry, and no laborer remains helpless.",
+        koshBtn: "Explore the Fund",
+        koshJoinBtn: "Join Us",
+
+        // Demands
+        demandsBadge: "Our Demands",
+        demandsTitle: "What Do Farmers Need?",
+        demandsSubtitle:
+          "Not big promises, but modern technology and farming resources—only then will both the fields and the nation prosper.",
+        demand1: "Timely Fertilizers",
+        demand2: "Electricity",
+        demand3: "Water",
+        demand4: "Affordable Petrol-Diesel",
+        demand5: "Modern Technology",
+        philosophyQuote:
+          "Farmers don't need big promises, they need modern technology and farming resources—only then will both the fields and the nation prosper.",
+
+        // Challenges
+        challengesBadge: "Serious Challenges",
+        challengesTitle: "Issues Requiring Deep Deliberation",
+        challengesSubtitle:
+          "These are the challenges that affect every farmer's life.",
+        ch1Title: "Climate Change",
+        ch1Desc:
+          "Changing weather patterns and erratic rainfall are causing massive damage to crops, washing away the hard work of farmers.",
+        ch2Title: "Declining Soil Productivity",
+        ch2Desc:
+          "Excessive use of chemical fertilizers is turning the soil barren, and productivity is continuously falling.",
+        ch3Title: "Imbalanced Use of Chemical Fertilizers",
+        ch3Desc:
+          "Using toxic chemicals without proper knowledge is harming both the land and human health.",
+        ch4Title: "Market Instability",
+        ch4Desc:
+          "Not getting fair prices for crops, corruption in mandis, and exploitation by middlemen—farmers are being deprived of their rightful earnings.",
+
+        // Gram Unit
+        gramBadge: "Foundation of the Organization",
+        gramTitle: "The Village Unit is",
+        gramTitleHighlight: "The Foundation of the Organization",
+        gramDesc1:
+          "When villages are strong, only then will the organization be strong.",
+        gramDesc2:
+          "Every farmer's participation, every village unit's unity—this is the strength of the organization.",
+        gramP1Title: "Strengthening the Village",
+        gramP1Desc:
+          "Strive to strengthen the organization at the village level. Unite farmers by making every village a unit.",
+        gramP2Title: "Every Farmer's Participation",
+        gramP2Desc:
+          "No farmer is small or big—everyone's participation is equal. Every voice will be heard.",
+        gramP3Title: "Unity is Strength",
+        gramP3Desc:
+          "A lone farmer is weak, but a united village unit is invincible. This is the source of our power.",
+
+        // CTA
+        ctaTitle: "Strive to Strengthen the Organization at the Village Level",
+        ctaDesc:
+          "Create your village unit, connect farmers, and strengthen this movement right from the grassroots.",
+        ctaBtn1: "Create Village Unit",
+        ctaBtn2: "Join Now",
+
+        // Badges for old cards
+        scopeBadge: "Organization Profile",
+        resBadge: "Resolution",
       },
       news: {
         title: "Latest Agri-Intelligence & News Feed",

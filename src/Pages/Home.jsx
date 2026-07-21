@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLanguage } from './LanguageContext'
 import NewsSection from '../Components/News'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const { t } = useLanguage()
@@ -84,8 +85,8 @@ const Home = () => {
               {t.home.desc}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="btn btn-primary bg-slate-100 text-black p-2 btn-md sm:btn-lg shadow-lg">{t.home.joinBtn}</button>
-              <button className="btn btn-outline bg-slate-100 text-black p-2 btn-md sm:btn-lg"> {t.home.manifestoBtn}</button>
+             <Link to="/login"> <button className="btn btn-primary bg-slate-100 text-black p-2 btn-md sm:btn-lg shadow-lg">{t.home.joinBtn}</button> </Link>
+              <Link to="/about"> <button className="btn btn-outline bg-slate-100 text-black p-2 btn-md sm:btn-lg"> {t.home.manifestoBtn}</button> </Link>
             </div>
           </div>
         </div>
