@@ -82,16 +82,16 @@ const Footer = () => {
             <div className="space-y-3 text-sm opacity-80">
               <div className="flex items-start gap-2">
                 <span className="text-amber-400 mt-0.5">📍</span>
-                <span>मेरठ, उत्तर प्रदेश, भारत<br /><span className="text-xs opacity-70">Meerut, Uttar Pradesh, India</span></span>
+                <span>मेरठ, उत्तर प्रदेश, भारत<br /><span className="text-xs opacity-70">Village Brala, District Meerut, Uttar Pradesh, India — 250221</span></span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-amber-400 mt-0.5">📞</span>
-                <a href="tel:+919012345678" className="hover:text-amber-400 transition-colors">+91 90123 45678</a>
+                <a href="tel:+919012345678" className="hover:text-amber-400 transition-colors">+91 6395103639</a>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-amber-400 mt-0.5">✉️</span>
                 <div>
-                  <a href="mailto:info@anterrastriyakisanunion.com" className="hover:text-amber-400 transition-colors block">info@anterrastriyakisanunion.com</a>
+                  <a href="mailto:anterrastriyakisanunion@gmail.com" className="hover:text-amber-400 transition-colors block">anterrastriyakisanunion@gmail.com</a>
                   <a href="mailto:support@anterrastriyakisanunion.com" className="hover:text-amber-400 transition-colors block text-xs opacity-70">support@anterrastriyakisanunion.com</a>
                 </div>
               </div>

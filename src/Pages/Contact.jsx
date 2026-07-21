@@ -52,7 +52,7 @@ const Contact = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         {/* Contact Form */}
-        <div className="lg:col-span-2 bg-white/70 dark:bg-base-900/70 backdrop-blur-sm border border-white/40 dark:border-white/10 rounded-[2rem] shadow-xl p-6 sm:p-8">
+        <div className="lg:col-span-2 bg-slate-100 dark:bg-base-900/70 backdrop-blur-sm border border-white/40 dark:border-white/10 rounded-[2rem] shadow-xl p-6 sm:p-8">
           <div className="flex items-center gap-2 text-green-800 dark:text-green-400 text-xs font-extrabold uppercase tracking-widest border-b border-base-300/40 pb-4 mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
             {c.formTitle}
@@ -61,24 +61,24 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="form-control">
-                <label className="label text-xs font-bold"><span className="label-text">{c.labelName} *</span></label>
+                <label className="label text-xs font-bold"><span className="label-text text-black">{c.labelName} *</span></label>
                 <input type="text" value={form.name} onChange={e => setForm(p => ({...p, name: e.target.value}))} className="input input-bordered bg-base-100/80 dark:bg-base-900/80 font-medium w-full focus:border-green-800 focus:ring-1 focus:ring-green-800/20 transition-all" required />
               </div>
               <div className="form-control">
-                <label className="label text-xs font-bold"><span className="label-text">{c.labelPhone}</span></label>
+                <label className="label text-xs font-bold"><span className="label-text text-black">{c.labelPhone}</span></label>
                 <input type="tel" value={form.phone} onChange={e => setForm(p => ({...p, phone: e.target.value}))} placeholder="98765XXXXX" className="input input-bordered bg-base-100/80 dark:bg-base-900/80 font-medium w-full focus:border-green-800 focus:ring-1 focus:ring-green-800/20 transition-all" />
               </div>
             </div>
             <div className="form-control">
-              <label className="label text-xs font-bold"><span className="label-text">{c.labelEmail} *</span></label>
+              <label className="label text-xs font-bold"><span className="label-text text-black">{c.labelEmail} *</span></label>
               <input type="email" value={form.email} onChange={e => setForm(p => ({...p, email: e.target.value}))} className="input input-bordered bg-base-100/80 dark:bg-base-900/80 font-medium w-full focus:border-green-800 focus:ring-1 focus:ring-green-800/20 transition-all" required />
             </div>
             <div className="form-control">
-              <label className="label text-xs font-bold"><span className="label-text">{c.labelSubject} *</span></label>
+              <label className="label text-xs font-bold"><span className="label-text text-black">{c.labelSubject} *</span></label>
               <input type="text" value={form.subject} onChange={e => setForm(p => ({...p, subject: e.target.value}))} className="input input-bordered bg-base-100/80 dark:bg-base-900/80 font-medium w-full focus:border-green-800 focus:ring-1 focus:ring-green-800/20 transition-all" required />
             </div>
             <div className="form-control">
-              <label className="label text-xs font-bold"><span className="label-text">{c.labelMessage} *</span></label>
+              <label className="label text-xs font-bold"><span className="label-text text-black">{c.labelMessage} *</span></label>
               <textarea value={form.message} onChange={e => setForm(p => ({...p, message: e.target.value}))} className="textarea textarea-bordered bg-base-100/80 dark:bg-base-900/80 font-medium h-36 leading-relaxed w-full focus:border-green-800 focus:ring-1 focus:ring-green-800/20 transition-all" required />
             </div>
             <button type="submit" className="btn bg-green-800 hover:bg-green-700 text-white border-none w-full font-black rounded-full shadow-lg shadow-green-800/20 text-base hover:scale-[1.02] active:scale-95 transition-transform duration-300">
@@ -91,22 +91,22 @@ const Contact = () => {
         <div className="space-y-6">
           
           {/* Office Info */}
-          <div className="bg-white/70 dark:bg-base-900/70 backdrop-blur-sm border border-white/40 dark:border-white/10 rounded-[2rem] p-6 shadow-xl space-y-5">
+          <div className="bg-slate-100 dark:bg-base-900/70 backdrop-blur-sm border border-white/40 dark:border-white/10 rounded-[2rem] p-6 shadow-xl space-y-5">
             <h3 className="text-lg font-black text-green-700 dark:text-green-400">{c.officeTitle}</h3>
             <div className="space-y-4 text-sm font-medium">
               <div className="flex items-start gap-3">
                 <span className="text-2xl">📍</span>
                 <div>
-                  <p className="font-black text-[10px] uppercase tracking-widest text-base-content/50 mb-0.5">Address</p>
-                  <p className="font-bold">अंतर्राष्ट्रीय किसान यूनियन</p>
-                  <p className="opacity-80 text-sm">{c.address}</p>
+                  <p className="font-black text-[10px] uppercase tracking-widest text-black mb-0.5">Address</p>
+                  <p className="font-bold text-black">अंतर्राष्ट्रीय किसान यूनियन</p>
+                  <p className="opacity-80 text-sm text-black">{c.address}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-2xl">✉️</span>
                 <div>
-                  <p className="font-black text-[10px] uppercase tracking-widest text-base-content/50 mb-0.5">{c.emailLabel}</p>
-                  <a href="mailto:info@anterrastriyakisanunion.com" className="text-green-700 dark:text-green-400 font-bold hover:underline text-sm">info@anterrastriyakisanunion.com</a>
+                  <p className="font-black text-[10px] uppercase tracking-widest text-black mb-0.5">{c.emailLabel}</p>
+                  <a href="mailto:anterrastriyakisanunion@gmail.com" className="text-green-700 dark:text-green-400 font-bold hover:underline text-sm">anterrastriyakisanunion@gmail.com</a>
                   <br />
                   <a href="mailto:support@anterrastriyakisanunion.com" className="text-green-700 dark:text-green-400 font-bold hover:underline text-sm">support@anterrastriyakisanunion.com</a>
                 </div>
@@ -114,15 +114,15 @@ const Contact = () => {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">📞</span>
                 <div>
-                  <p className="font-black text-[10px] uppercase tracking-widest text-base-content/50 mb-0.5">{c.phoneLabel}</p>
-                  <a href="tel:+919012345678" className="text-green-700 dark:text-green-400 font-bold hover:underline text-sm">+91 90123 45678</a>
+                  <p className="font-black text-[10px] uppercase tracking-widest text-black mb-0.5">{c.phoneLabel}</p>
+                  <a href="tel:+919012345678" className="text-green-700 dark:text-green-400 font-bold hover:underline text-sm">+91 6395103639</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-2xl">🕐</span>
                 <div>
-                  <p className="font-black text-[10px] uppercase tracking-widest text-base-content/50 mb-0.5">{c.hoursLabel}</p>
-                  <p className="opacity-80 text-sm">{c.hours}</p>
+                  <p className="font-black text-[10px] uppercase tracking-widest text-black mb-0.5">{c.hoursLabel}</p>
+                  <p className="opacity-80 text-sm text-black">{c.hours}</p>
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@ const Contact = () => {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/919012345678"
+            href="https://wa.me/916395103639"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 text-white font-black py-4 rounded-[1.5rem] shadow-lg shadow-green-600/25 transition-all transform hover:scale-105 active:scale-95"
