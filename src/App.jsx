@@ -17,6 +17,7 @@ import Footer from './Components/Footer'
 import WhatsAppButton from './Components/WhatsAppButton'
 import AnnouncementBar from './Components/AnnouncementBar'
 import Login from './Pages/LoginPage'
+import SankalpPatra from './Pages/SankalpPatra'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/issues' element={<Issues />} />
           <Route path='/membership' element={<Membership />} />
+          <Route path='/sankalp' element={<SankalpPatra />} />
           <Route path='/IdCard' element={<IdGenerator />} />
           <Route path='/Leadership' element={<LeadershipDirectory />} />
           <Route path='/activities' element={<Activities />} />

@@ -21,6 +21,7 @@ export const LanguageProvider = ({ children }) => {
         about: "हमारे बारे में",
         contact: "संपर्क करें",
         login: "लॉगिन",
+        sankalp: "संकल्प",
         more: "और देखें",
       },
       home: {
@@ -258,7 +259,7 @@ export const LanguageProvider = ({ children }) => {
         labelScope: "कार्यक्षेत्र:",
         valueScope: "सम्पूर्ण विश्व (Global)",
         labelOffice: "मुख्य कार्यालय:",
-        valueOffice: "मेरठ (उत्तर प्रदेश), भारत",
+        valueOffice: "गाँव बराला,मेरठ (उत्तर प्रदेश), भारत",
         resolutionHeading: "🌱 हमारे मुख्य संकल्प",
         res1: "किसानों को तकनीकी, कानूनी और बाजार की सही जानकारी प्रदान करना।",
         res2Bold: "कर्ज माफी नहीं, बल्कि स्थाई कर्ज मुक्ति",
@@ -433,7 +434,7 @@ export const LanguageProvider = ({ children }) => {
         emailLabel: "ईमेल",
         phoneLabel: "फोन",
         hoursLabel: "कार्यालय समय",
-        hours: "सोम–शनि: 9 AM – 6 PM",
+        hours: "कार्य समय - 24/7 उपलब्ध",
         successMsg:
           "✅ आपका संदेश सफलतापूर्वक भेजा गया! हम जल्द संपर्क करेंगे।",
         whatsapp: "💬 WhatsApp पर संपर्क करें",
@@ -574,6 +575,92 @@ export const LanguageProvider = ({ children }) => {
         stat2: "जीडीपी",
         stat3: "राज्य सक्रिय",
       },
+      sankalp: {
+        heroBadge: "संकल्प पत्र",
+        heroTitle: "संकल्प पत्र",
+        heroDesc:
+          "अंतर्राष्ट्रीय किसान यूनियन™️ यह संकल्प लेती है कि विश्व के किसानों, खेत मजदूरों एवं कृषि आधारित परिवारों के सम्मान, सुरक्षा और समृद्धि के लिए निम्नलिखित 25 संकल्पों पर निरंतर कार्य करेगी—",
+        heroBtn1: "25 संकल्प पढ़ें",
+        heroBtn2: "सहमति दें",
+        agreedText: "सहमति दी गई",
+        counterText: "लोगों ने सहमति दी",
+
+        gridBadge: "25 संकल्प",
+        gridTitle: "हमारे 25 संकल्प",
+        gridSubtitle: "किसानों के अधिकारों और समृद्धि के लिए 25 अटल संकल्प",
+
+        r1Title: "किसान की आय की गारंटी",
+        r1Desc:
+          "प्रत्येक किसान परिवार की न्यूनतम वार्षिक आय सुनिश्चित कराने का संघर्ष।",
+        r2Title: "कानूनी MSP",
+        r2Desc:
+          "सभी कृषि उपज पर स्वामीनाथन आयोग (C2+50%) के आधार पर कानूनी न्यूनतम समर्थन मूल्य।",
+        r3Title: "फसल खरीद की गारंटी",
+        r3Desc: "हर जिले में सरकारी खरीद केंद्र और समय पर भुगतान।",
+        r4Title: "लागत कम करने का संकल्प",
+        r4Desc: "बीज, खाद, डीजल, बिजली, कीटनाशक और सिंचाई पर राहत।",
+        r5Title: "किसान कर्ज़ समाधान",
+        r5Desc:
+          "प्राकृतिक आपदा या बाजार संकट में किसानों के लिए कर्ज़ राहत नीति।",
+        r6Title: "समय पर मुआवजा",
+        r6Desc: "फसल नुकसान का 30 दिनों के भीतर सर्वे और भुगतान।",
+        r7Title: "सिंचाई का अधिकार",
+        r7Desc: "हर खेत तक पानी, नहरों का सुधार और भूजल संरक्षण।",
+        r8Title: "मुफ्त एवं गुणवत्तापूर्ण कृषि सलाह",
+        r8Desc: "प्रत्येक ब्लॉक में कृषि विशेषज्ञ और आधुनिक तकनीक की सुविधा।",
+        r9Title: "आवारा पशु समाधान",
+        r9Desc: "फसल सुरक्षा और स्थायी पशु प्रबंधन नीति।",
+        r10Title: "भूमि अधिकार",
+        r10Desc:
+          "किसानों की भूमि का जबरन अधिग्रहण नहीं; उचित मुआवजा और सहमति अनिवार्य।",
+        r11Title: "किसान स्वास्थ्य सुरक्षा",
+        r11Desc: "प्रत्येक किसान परिवार को मुफ्त स्वास्थ्य बीमा।",
+        r12Title: "किसान पेंशन",
+        r12Desc: "60 वर्ष के बाद सम्मानजनक मासिक पेंशन।",
+        r13Title: "महिला किसान सम्मान",
+        r13Desc: "महिला किसानों को कानूनी पहचान, प्रशिक्षण और आर्थिक सहायता।",
+        r14Title: "युवा किसान प्रोत्साहन",
+        r14Desc: "कृषि स्टार्टअप, ड्रोन, एग्री-टेक और स्वरोजगार के अवसर।",
+        r15Title: "प्राकृतिक एवं जैविक खेती",
+        r15Desc:
+          "मिट्टी की उर्वरता बढ़ाने और लागत घटाने वाली प्राकृतिक एवं जैविक खेती को बढ़ावा।",
+        r16Title: "किसान मंडी सुधार",
+        r16Desc: "बिचौलियों पर नियंत्रण और किसान को उचित बाजार।",
+        r17Title: "डेयरी एवं पशुपालन",
+        r17Desc: "दूध का लाभकारी मूल्य और पशुपालकों के लिए विशेष योजनाएँ।",
+        r18Title: "किसान शिक्षा",
+        r18Desc: "कृषि प्रशिक्षण, डिजिटल जानकारी और आधुनिक तकनीक तक पहुँच।",
+        r19Title: "किसान सम्मान",
+        r19Desc:
+          "आंदोलन कर रहे किसानों के साथ सम्मानजनक व्यवहार तथा शांतिपूर्ण विरोध के अधिकार की रक्षा।",
+        r20Title: "पारदर्शी संगठन",
+        r20Desc: "संगठन में लोकतंत्र, वित्तीय पारदर्शिता और जवाबदेही।",
+        r21Title: "भ्रष्टाचार मुक्त व्यवस्था",
+        r21Desc:
+          "कृषि विभाग, मंडियों और सहकारी समितियों में भ्रष्टाचार के विरुद्ध संघर्ष।",
+        r22Title: "जलवायु परिवर्तन से सुरक्षा",
+        r22Desc: "मौसम आधारित बीमा, सूखा-बाढ़ राहत और जल संरक्षण।",
+        r23Title: "मजदूर-किसान एकता",
+        r23Desc: "खेत मजदूर और किसान दोनों के अधिकारों की रक्षा।",
+        r24Title: "वैश्विक किसान सहयोग",
+        r24Desc: "विश्व के किसानों के बीच ज्ञान, तकनीक और व्यापारिक सहयोग।",
+        r25Title: "किसान पहले",
+        r25Desc: "किसी राजनीतिक दल का नहीं, केवल किसान हित का समर्थन।",
+
+        pledgeBadge: "मूल संकल्प",
+        pledgeQuote1:
+          "हम संकल्प लेते हैं कि किसान की मेहनत का पूरा सम्मान, उसकी उपज का उचित मूल्य, उसकी भूमि की सुरक्षा, उसके परिवार का सम्मान और उसके अधिकारों की रक्षा के लिए सदैव संघर्ष करेंगे।",
+        pledgeQuote2: "हमारा संगठन किसी दल का नहीं, बल्कि हर किसान का होगा।",
+        motto1: "हर खेत सुरक्षित",
+        motto2: "हर किसान समृद्ध",
+        motto3: "हर किसान परिवार सम्मानित",
+
+        ctaTitle: "क्या आप इन 25 संकल्पों से सहमत हैं?",
+        ctaDesc:
+          "अपनी सहमति दर्ज करें और किसान आंदोलन को अपना साथ दें। संगठन जुटेगा, तभी आवाज़ बुलंद होगी।",
+        ctaBtn1: "मैं सहमत हूँ ✊",
+        ctaBtn2: "अभी जुड़ें",
+      },
     },
     en: {
       navbar: {
@@ -590,6 +677,7 @@ export const LanguageProvider = ({ children }) => {
         about: "About",
         contact: "Contact",
         login: "Login",
+        sankalp: "Sankalp",
         more: "More",
       },
       home: {
@@ -831,7 +919,7 @@ export const LanguageProvider = ({ children }) => {
         labelScope: "Jurisdiction:",
         valueScope: "Global (Worldwide)",
         labelOffice: "Headquarters:",
-        valueOffice: "Meerut (Uttar Pradesh), India",
+        valueOffice: "Village Brala, District MeerutMeerut (Uttar Pradesh), India",
         resolutionHeading: "🌱 Strategic Resolutions",
         res1: "Equipping farmers with modern agritech, regulatory pathways, and transparent pricing strategies.",
         res2Bold: "Debt elimination systems over loan waivers",
@@ -1009,7 +1097,7 @@ export const LanguageProvider = ({ children }) => {
         emailLabel: "Email",
         phoneLabel: "Phone",
         hoursLabel: "Office Hours",
-        hours: "Mon–Sat: 9 AM – 6 PM",
+        hours: "Office hours-always Open",
         successMsg:
           "✅ Your message was sent successfully! We will contact you soon.",
         whatsapp: "💬 Contact via WhatsApp",
@@ -1149,6 +1237,104 @@ export const LanguageProvider = ({ children }) => {
         stat1: "Farmers",
         stat2: "GDP",
         stat3: "States Active",
+      },
+      sankalp: {
+        heroBadge: "Resolution Charter",
+        heroTitle: "Sankalp Patra",
+        heroDesc:
+          "International Farmers' Union™ hereby resolves to work continuously on the following 25 resolutions for the dignity, security, and prosperity of the world's farmers, farm laborers, and agriculture-based families—",
+        heroBtn1: "Read 25 Resolutions",
+        heroBtn2: "Give Consent",
+        agreedText: "Consent Given",
+        counterText: "people have agreed",
+
+        gridBadge: "25 Resolutions",
+        gridTitle: "Our 25 Resolutions",
+        gridSubtitle: "25 firm resolutions for farmers' rights and prosperity",
+
+        r1Title: "Guaranteed Farmer Income",
+        r1Desc:
+          "Struggle to ensure minimum annual income for every farmer family.",
+        r2Title: "Legal MSP",
+        r2Desc:
+          "Legal Minimum Support Price for all agricultural produce based on Swaminathan Commission (C2+50%).",
+        r3Title: "Guaranteed Crop Purchase",
+        r3Desc:
+          "Government procurement centers in every district and timely payment.",
+        r4Title: "Resolution to Reduce Costs",
+        r4Desc:
+          "Relief on seeds, fertilizers, diesel, electricity, pesticides, and irrigation.",
+        r5Title: "Farmer Debt Resolution",
+        r5Desc:
+          "Debt relief policy for farmers during natural disasters or market crises.",
+        r6Title: "Timely Compensation",
+        r6Desc: "Crop damage survey and payment within 30 days.",
+        r7Title: "Right to Irrigation",
+        r7Desc:
+          "Water to every field, canal improvement, and groundwater conservation.",
+        r8Title: "Free & Quality Agricultural Advice",
+        r8Desc:
+          "Agricultural experts and modern technology facilities in every block.",
+        r9Title: "Stray Animal Solution",
+        r9Desc: "Crop protection and sustainable animal management policy.",
+        r10Title: "Land Rights",
+        r10Desc:
+          "No forced acquisition of farmers' land; proper compensation and consent mandatory.",
+        r11Title: "Farmer Health Security",
+        r11Desc: "Free health insurance for every farmer family.",
+        r12Title: "Farmer Pension",
+        r12Desc: "Dignified monthly pension after 60 years of age.",
+        r13Title: "Women Farmer Dignity",
+        r13Desc:
+          "Legal recognition, training, and financial assistance for women farmers.",
+        r14Title: "Youth Farmer Incentive",
+        r14Desc:
+          "Agriculture startups, drones, agri-tech, and self-employment opportunities.",
+        r15Title: "Natural & Organic Farming",
+        r15Desc:
+          "Promoting natural and organic farming to increase soil fertility and reduce costs.",
+        r16Title: "Farmer Market Reform",
+        r16Desc: "Controlling middlemen and ensuring fair markets for farmers.",
+        r17Title: "Dairy & Animal Husbandry",
+        r17Desc:
+          "Profitable milk prices and special schemes for livestock farmers.",
+        r18Title: "Farmer Education",
+        r18Desc:
+          "Agricultural training, digital information, and access to modern technology.",
+        r19Title: "Farmer Dignity",
+        r19Desc:
+          "Dignified treatment of protesting farmers and protection of the right to peaceful protest.",
+        r20Title: "Transparent Organization",
+        r20Desc:
+          "Democracy, financial transparency, and accountability within the organization.",
+        r21Title: "Corruption-Free System",
+        r21Desc:
+          "Struggle against corruption in agriculture departments, mandis, and cooperative societies.",
+        r22Title: "Climate Change Protection",
+        r22Desc:
+          "Weather-based insurance, drought-flood relief, and water conservation.",
+        r23Title: "Laborer-Farmer Unity",
+        r23Desc: "Protection of rights for both farm laborers and farmers.",
+        r24Title: "Global Farmer Cooperation",
+        r24Desc:
+          "Knowledge, technology, and trade cooperation among farmers worldwide.",
+        r25Title: "Farmers First",
+        r25Desc: "Supporting only farmer interests, not any political party.",
+
+        pledgeBadge: "Core Pledge",
+        pledgeQuote1:
+          "We resolve to always struggle for the full respect of the farmer's labor, the fair price of their produce, the protection of their land, the dignity of their family, and the defense of their rights.",
+        pledgeQuote2:
+          "Our organization will not belong to any party, but to every farmer.",
+        motto1: "Every Field Secure",
+        motto2: "Every Farmer Prosperous",
+        motto3: "Every Farmer Family Honored",
+
+        ctaTitle: "Do You Agree With These 25 Resolutions?",
+        ctaDesc:
+          "Register your consent and stand with the farmer movement. Only when the organization unites will the voice be heard.",
+        ctaBtn1: "I Agree ✊",
+        ctaBtn2: "Join Now",
       },
     },
   };

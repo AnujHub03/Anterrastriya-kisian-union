@@ -33,6 +33,7 @@ const Navbar = () => {
       <li><Link to="/issues" className="hover:text-amber-400 font-medium transition-colors">{t.navbar.issues}</Link></li>
       <li><Link to="/about" className="hover:text-amber-400 font-medium transition-colors">{t.navbar.about}</Link></li>
       <li><Link to="/contact" className="hover:text-amber-400 font-medium transition-colors">{t.navbar.contact}</Link></li>
+      <li><Link to="/Sankalp" className="hover:text-amber-400 font-medium transition-colors">{t.navbar.sankalp}</Link></li>
     </>
   )
 
@@ -85,6 +86,7 @@ const Navbar = () => {
           <li><Link to="/blog" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.blog}</Link></li>
           <li><Link to="/IdCard" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.idCard}</Link></li>
           <li><Link to="/about" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.about}</Link></li>
+          <li><Link to="/sankalp" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.sankalp}</Link></li>
           <li><Link to="/contact" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.contact}</Link></li>
           {/* More Dropdown */}
           <li className="dropdown dropdown-end">
