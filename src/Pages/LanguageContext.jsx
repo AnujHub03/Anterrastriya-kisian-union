@@ -18,6 +18,7 @@ export const LanguageProvider = ({ children }) => {
         blog: "ब्लॉग",
         gallery: "गैलरी",
         downloads: "डाउनलोड",
+        kisanKosh: "किसान कोष",
         about: "हमारे बारे में",
         contact: "संपर्क करें",
         login: "लॉगिन",
@@ -249,7 +250,7 @@ export const LanguageProvider = ({ children }) => {
         footerAlertBody:
           "विश्वव्यापी किसान समस्याओं के पीछे विश्व बैंक (World Bank) और अंतरराष्ट्रीय मुद्राकोश (IMF) जैसी वित्तीय संस्थाएं जिम्मेदार हैं, जो कथित रूप से जनकल्याणकारी योजनाएं बनाकर खाद्य व्यवस्था को हथियार की तरह उपयोग कर रही हैं।",
       },
-      about: {
+      kosh: {
         preambleTitle: "प्रस्तावना (Preamble)",
         preambleBody:
           "यह संघ किसी राजनीतिक दल से नहीं जुड़ेगा और केवल किसान मुद्दों, सामाजिक विषयों ओर वंचित वर्ग के लिए काम करेगा। हम, विश्व के किसान ओर वंचित वर्ग, अपनी आर्थिक-सामाजिक स्थिति सुधारने, कृषि को लाभकारी बनाने और किसानों ओर शोषित वर्ग के हितों की रक्षा के लिए इस गैर-राजनीतिक संगठन का गठन करते हैं।",
@@ -331,6 +332,123 @@ export const LanguageProvider = ({ children }) => {
         //  Badges for old cards
         scopeBadge: "संगठन प्रोफ़ाइल",
         resBadge: "संकल्प",
+      },
+      about: {
+        // 1. Preamble / प्रस्तावना
+        preambleBadge: "हमारी प्रस्तावना",
+        preambleTitle: "हमारा संकल्प",
+        pre1: "हम, विश्व के किसान, मजदूर, श्रमिक, दलित, आदिवासी, वंचित, शोषित एवं पीड़ित वर्ग के लोग, मानवता, समानता, न्याय, स्वतंत्रता, बंधुत्व तथा सम्मानपूर्ण जीवन के मौलिक अधिकारों को सर्वोपरि मानते हुए यह दृढ़ संकल्प लेते हैं कि हम अन्याय, शोषण, भेदभाव, भूख, बेरोज़गारी, गरीबी एवं सामाजिक असमानता के विरुद्ध संगठित, शांतिपूर्ण और लोकतांत्रिक संघर्ष करेंगे।",
+        pre2: "हम मानते हैं कि किसान और श्रमिक ही विश्व की वास्तविक शक्ति हैं। धरती का अन्न, उत्पादन, श्रम, समृद्धि और विकास उनके अथक परिश्रम का परिणाम है। फिर भी यही वर्ग सबसे अधिक उपेक्षा, आर्थिक असुरक्षा और सामाजिक शोषण का सामना करता है। इसलिए हमारा संगठन किसानों, मजदूरों तथा सभी वंचित एवं पीड़ित समुदायों को सम्मान, शिक्षा, स्वास्थ्य, रोजगार, उचित मूल्य, सामाजिक सुरक्षा, मानवाधिकार तथा न्याय दिलाने के लिए निरंतर कार्य करेगा।",
+        pre3: "हम जाति, धर्म, भाषा, रंग, लिंग, क्षेत्र और राष्ट्र की सीमाओं से ऊपर उठकर विश्वबंधुत्व, सहयोग, अहिंसा, लोकतंत्र, संवैधानिक मूल्यों तथा मानव गरिमा में विश्वास रखते हैं। हमारा उद्देश्य ऐसा समतामूलक समाज स्थापित करना है जहाँ प्रत्येक व्यक्ति को समान अवसर, सम्मान और न्याय प्राप्त हो तथा किसी भी प्रकार का शोषण, भेदभाव या अन्याय न हो।",
+        finalPledgeBadge: "अंतिम संकल्प",
+        pre4: "अंतर्राष्ट्रीय किसान यूनियन™️ यह संकल्प लेती है कि वह विश्वभर के किसानों, मजदूरों, श्रमिकों, दलितों, आदिवासियों, वंचित, शोषित एवं पीड़ित वर्ग की सशक्त आवाज़ बनकर उनके अधिकारों की रक्षा करेगी तथा न्यायपूर्ण, समतामूलक, लोकतांत्रिक और मानव कल्याणकारी विश्व व्यवस्था के निर्माण हेतु सदैव समर्पित रहेगी।",
+        readMore: "पूरी प्रस्तावना पढ़ें",
+        readLess: "संक्षिप्त देखें",
+
+        // 2. Core Values / मूल्य बैज
+        val1: "मानवता",
+        val2: "समानता",
+        val3: "न्याय",
+        val4: "स्वतंत्रता",
+        val5: "बंधुत्व",
+        val6: "सम्मान",
+        val7: "लोकतंत्र",
+        val8: "अहिंसा",
+
+        // 3. Kisan Kosh / किसान कोष
+        koshBadge: "किसान कोष",
+        koshTitle: "हम एक किसान कोष का निर्माण करेंगे",
+        koshDesc:
+          "सिर्फ विश्व के गरीब किसान और मजदूरों को आर्थिक सहायता प्रदान करने के लिए — ताकि कोई भी किसान भूखा न सोए, कोई भी मजदूर असहाय न रहे।",
+        koshBtn: "कोष जानें",
+
+        // 4. Demands / माँगें
+        demandsBadge: "हमारी माँगें",
+        demandsTitle: "किसानों को क्या चाहिए?",
+        demandsSubtitle:
+          "बड़े-बड़े वादे नहीं, आधुनिक तकनीक और खेती के संसाधन चाहिए, तभी खेत और देश दोनों समृद्ध होंगे।",
+        demand1: "समय पर खाद",
+        demand2: "बिजली",
+        demand3: "पानी",
+        demand4: "सस्ता पेट्रोल-डीजल",
+        demand5: "आधुनिक तकनीक",
+        philosophyQuote:
+          "किसानों को बड़े-बड़े वादे नहीं, आधुनिक तकनीक और खेती के संसाधन चाहिए, तभी खेत और देश दोनों समृद्ध होंगे।",
+
+        // 5. Challenges / चुनौतियाँ
+        challengesBadge: "गंभीर चुनौतियाँ",
+        challengesTitle: "जिन मुद्दों पर गंभीर चिंतन किया",
+        ch1Title: "जलवायु परिवर्तन",
+        ch1Desc:
+          "बदलते मौसम और अनियमित बारिश से फसलों को भारी नुकसान, किसानों की मेहनत पर पानी फिर रहा है।",
+        ch2Title: "मिट्टी की गिरती उत्पादकता",
+        ch2Desc:
+          "लगातार रासायनिक खादों के अत्यधिक प्रयोग से मिट्टी बंजर होती जा रही है, उत्पादकता गिर रही है।",
+        ch3Title: "रासायनिक खादों का असंतुलित प्रयोग",
+        ch3Desc:
+          "न जाने के बिना ज़हरीले रसायनों का इस्तेमाल ज़मीन और सेहत दोनों को नुकसान पहुँचा रहा है।",
+        ch4Title: "बाजार की अस्थिरता",
+        ch4Desc:
+          "फसलों का उचित दाम न मिलना, मंडियों में भ्रष्टाचार और बिचौलियों का शोषण — किसान को सही कीमत नहीं मिल पा रही।",
+
+        // 6. Gram Unit / ग्राम इकाई
+        gramBadge: "संगठन का आधार",
+        gramTitle: "ग्राम इकाई ही",
+        gramTitleHighlight: "संगठन का आधार है",
+        gramDesc1: "जब गाँव मज़बूत होंगे, तभी संगठन मज़बूत होगा।",
+        gramDesc2:
+          "हर किसान की भागीदारी, हर ग्राम इकाई की एकता — यही संगठन की ताक़त है।",
+        gramP1Title: "गाँव की मज़बूती",
+        gramP1Desc:
+          "ग्राम स्तर पर संगठन को मजबूत करने का प्रयास करें। हर गाँव को एक इकाई बनाकर किसानों को एकजुट करें।",
+        gramP2Title: "हर किसान की भागीदारी",
+        gramP2Desc:
+          "कोई भी किसान छोटा या बड़ा नहीं होता — सबकी भागीदारी बराबर है। सबकी आवाज़ सुनी जाएगी।",
+        gramP3Title: "एकता ही ताकत",
+        gramP3Desc:
+          "अकेला किसान कमज़ोर है, लेकिन गाँव की एकजुट इकाई अजेय है। यही हमारी शक्ति का स्रोत है।",
+
+        // 7. Scope & Resolution / प्रोफ़ाइल और संकल्प
+        scopeBadge: "संगठन प्रोफ़ाइल",
+        scopeHeading: "संगठन का दायरा",
+        labelName: "संगठन का नाम",
+        valueName: "अंतर्राष्ट्रीय किसान यूनियन™️",
+        labelScope: "दायरा",
+        valueScope: "वैश्विक (अंतर्राष्ट्रीय)",
+        labelOffice: "मुख्यालय",
+        valueOffice: "बराला, मेरठ, भारत",
+        resBadge: "संकल्प",
+        resolutionHeading: "प्रमुख संकल्प",
+        res1: "किसानों और मजदूरों के अधिकारों के लिए निरंतर संघर्ष करना।",
+        res2Bold: "सभी वंचित वर्गों को ",
+        res2Text: "सम्मान, शिक्षा और सामाजिक सुरक्षा दिलाना।",
+        res3: "जाति, धर्म और भेदभाव से परे एकजुट होकर न्याय के लिए खड़े रहना।",
+
+        // 8. Contact / संपर्क
+        contactBadge: "संपर्क करें",
+        contactTitle: "हमसे जुड़ें",
+        contactSubtitle: "कोई सवाल, सुझाव या सहयोग करना हो — हमसे संपर्क करें।",
+        ci1Title: "पता",
+        ci1Value: "बराला, मेरठ, उत्तर प्रदेश — 250221",
+        ci2Title: "ईमेल",
+        ci2Value: "contact@ikunion.org",
+        ci3Title: "फ़ोन",
+        ci3Value: "+91 XXXXX XXXXX",
+        ci4Title: "कार्य समय",
+        ci4Value: "हमेशा खुला",
+        socialLabel: "सोशल मीडिया",
+        cfName: "आपका नाम",
+        cfEmail: "ईमेल पता",
+        cfSubject: "विषय",
+        cfMessage: "अपना संदेश लिखें",
+        cfBtn: "संदेश भेजें",
+
+        // 9. CTA / कॉल टू एक्शन
+        ctaTitle: "ग्राम स्तर पर संगठन को मजबूत करने का प्रयास करें",
+        ctaDesc:
+          "अपने गाँव की ग्राम इकाई बनाएं, किसानों को जोड़ें, और इस आंदोलन को धरती की ज़मीन से मज़बूत करें।",
+        ctaBtn1: "ग्राम इकाई बनाएं",
+        ctaBtn2: "अभी जुड़ें",
       },
       news: {
         title: "नवीनतम समाचार एवं कृषि चेतना",
@@ -674,6 +792,7 @@ export const LanguageProvider = ({ children }) => {
         blog: "Blog",
         gallery: "Gallery",
         downloads: "Downloads",
+        kisanKosh: "Kisan Kosh",
         about: "About",
         contact: "Contact",
         login: "Login",
@@ -909,7 +1028,7 @@ export const LanguageProvider = ({ children }) => {
         footerAlertBody:
           "Global agricultural disruptions are systemically driven by conditions tied to financial networks like the World Bank and IMF, structuring public policy initiatives that convert resource networks into market leverage tools.",
       },
-      about: {
+      kosh: {
         preambleTitle: "Preamble",
         preambleBody:
           "This union remains entirely independent of political parties, working solely on behalf of agricultural reforms, civic welfare, and marginalized populations. We, the farmers and underserved global workforces, establish this independent framework to secure socio-economic advancement, ensure fair market yield returns, and protect trade livelihoods.",
@@ -919,7 +1038,8 @@ export const LanguageProvider = ({ children }) => {
         labelScope: "Jurisdiction:",
         valueScope: "Global (Worldwide)",
         labelOffice: "Headquarters:",
-        valueOffice: "Village Brala, District MeerutMeerut (Uttar Pradesh), India",
+        valueOffice:
+          "Village Brala, District MeerutMeerut (Uttar Pradesh), India",
         resolutionHeading: "🌱 Strategic Resolutions",
         res1: "Equipping farmers with modern agritech, regulatory pathways, and transparent pricing strategies.",
         res2Bold: "Debt elimination systems over loan waivers",
@@ -1079,6 +1199,125 @@ export const LanguageProvider = ({ children }) => {
         catAwareness: "Awareness",
         noPosts: "No blog posts available.",
         toastAdded: "New blog post published!",
+      },
+      about: {
+        // 1. Preamble
+        preambleBadge: "Our Preamble",
+        preambleTitle: "Our Resolve",
+        pre1: "We, the farmers, laborers, workers, dalits, tribals, marginalized, oppressed, and suffering people of the world, holding the fundamental rights of humanity, equality, justice, liberty, fraternity, and a dignified life as supreme, firmly resolve to carry out organized, peaceful, and democratic struggle against injustice, exploitation, discrimination, hunger, unemployment, poverty, and social inequality.",
+        pre2: "We believe that farmers and workers are the real power of the world. The earth's food, production, labor, prosperity, and development are the result of their tireless efforts. Yet this class faces the most neglect, economic insecurity, and social exploitation. Therefore, our organization will continuously work to bring dignity, education, health, employment, fair prices, social security, human rights, and justice to farmers, laborers, and all marginalized and suffering communities.",
+        pre3: "Rising above the boundaries of caste, religion, language, color, gender, region, and nation, we believe in universal brotherhood, cooperation, non-violence, democracy, constitutional values, and human dignity. Our aim is to establish an egalitarian society where every individual gets equal opportunity, respect, and justice, and there is no exploitation, discrimination, or injustice of any kind.",
+        finalPledgeBadge: "Final Pledge",
+        pre4: "International Farmers' Union™ hereby resolves to become the powerful voice of farmers, laborers, workers, dalits, tribals, marginalized, oppressed, and suffering classes across the world, protecting their rights and remaining forever dedicated to building a just, egalitarian, democratic, and humanitarian world order.",
+        readMore: "Read Full Preamble",
+        readLess: "Show Less",
+
+        // 2. Core Values
+        val1: "Humanity",
+        val2: "Equality",
+        val3: "Justice",
+        val4: "Liberty",
+        val5: "Fraternity",
+        val6: "Dignity",
+        val7: "Democracy",
+        val8: "Non-violence",
+
+        // 3. Kisan Kosh
+        koshBadge: "Kisan Kosh",
+        koshTitle: "We Will Build a Farmers' Fund",
+        koshDesc:
+          "Dedicated solely to providing financial assistance to poor farmers and laborers worldwide — so no farmer sleeps hungry, and no laborer remains helpless.",
+        koshBtn: "Explore the Fund",
+
+        // 4. Demands
+        demandsBadge: "Our Demands",
+        demandsTitle: "What Do Farmers Need?",
+        demandsSubtitle:
+          "Not big promises, but modern technology and farming resources—only then will both the fields and the nation prosper.",
+        demand1: "Timely Fertilizers",
+        demand2: "Electricity",
+        demand3: "Water",
+        demand4: "Affordable Petrol-Diesel",
+        demand5: "Modern Technology",
+        philosophyQuote:
+          "Farmers don't need big promises, they need modern technology and farming resources—only then will both the fields and the nation prosper.",
+
+        // 5. Challenges
+        challengesBadge: "Serious Challenges",
+        challengesTitle: "Issues Requiring Deep Deliberation",
+        ch1Title: "Climate Change",
+        ch1Desc:
+          "Changing weather patterns and erratic rainfall are causing massive damage to crops, washing away the hard work of farmers.",
+        ch2Title: "Declining Soil Productivity",
+        ch2Desc:
+          "Excessive use of chemical fertilizers is turning the soil barren, and productivity is continuously falling.",
+        ch3Title: "Imbalanced Use of Chemical Fertilizers",
+        ch3Desc:
+          "Using toxic chemicals without proper knowledge is harming both the land and human health.",
+        ch4Title: "Market Instability",
+        ch4Desc:
+          "Not getting fair prices for crops, corruption in mandis, and exploitation by middlemen—farmers are being deprived of their rightful earnings.",
+
+        // 6. Gram Unit
+        gramBadge: "Foundation of the Organization",
+        gramTitle: "The Village Unit is",
+        gramTitleHighlight: "The Foundation of the Organization",
+        gramDesc1:
+          "When villages are strong, only then will the organization be strong.",
+        gramDesc2:
+          "Every farmer's participation, every village unit's unity—this is the strength of the organization.",
+        gramP1Title: "Strengthening the Village",
+        gramP1Desc:
+          "Strive to strengthen the organization at the village level. Unite farmers by making every village a unit.",
+        gramP2Title: "Every Farmer's Participation",
+        gramP2Desc:
+          "No farmer is small or big—everyone's participation is equal. Every voice will be heard.",
+        gramP3Title: "Unity is Strength",
+        gramP3Desc:
+          "A lone farmer is weak, but a united village unit is invincible. This is the source of our power.",
+
+        // 7. Scope & Resolution
+        scopeBadge: "Organization Profile",
+        scopeHeading: "Organization's Scope",
+        labelName: "Organization Name",
+        valueName: "International Farmers' Union™️",
+        labelScope: "Scope",
+        valueScope: "Global (International)",
+        labelOffice: "Headquarters",
+        valueOffice: "Brala, Meerut, India",
+        resBadge: "Resolution",
+        resolutionHeading: "Key Resolutions",
+        res1: "To continuously struggle for the rights of farmers and laborers.",
+        res2Bold: "To provide dignity, education, and social security ",
+        res2Text: "to all marginalized classes.",
+        res3: "To stand united for justice, beyond caste, religion, and discrimination.",
+
+        // 8. Contact
+        contactBadge: "Contact Us",
+        contactTitle: "Get In Touch",
+        contactSubtitle:
+          "Questions, suggestions, or want to contribute — reach out to us.",
+        ci1Title: "Address",
+        ci1Value: "Brala, Meerut, Uttar Pradesh — 250221",
+        ci2Title: "Email",
+        ci2Value: "contact@ikunion.org",
+        ci3Title: "Phone",
+        ci3Value: "+91 XXXXX XXXXX",
+        ci4Title: "Office Hours",
+        ci4Value: "Always Open",
+        socialLabel: "Social Media",
+        cfName: "Your Name",
+        cfEmail: "Email Address",
+        cfSubject: "Subject",
+        cfMessage: "Write your message",
+        cfBtn: "Send Message",
+
+        // 9. CTA
+        ctaTitle: "Strive to Strengthen the Organization at the Village Level",
+        ctaDesc:
+          "Create your village unit, connect farmers, and strengthen this movement right from the grassroots.",
+        ctaBtn1: "Create Village Unit",
+        ctaBtn2: "Join Now",
       },
       contact: {
         title: "Contact Us",

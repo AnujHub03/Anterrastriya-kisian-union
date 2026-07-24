@@ -85,6 +85,7 @@ const Navbar = () => {
           <li><Link to="/activities" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.events}</Link></li>
           <li><Link to="/blog" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.blog}</Link></li>
           <li><Link to="/IdCard" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.idCard}</Link></li>
+          <li><Link to="/kisanKosh" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.kisanKosh}</Link></li>
           <li><Link to="/about" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.about}</Link></li>
           <li><Link to="/sankalp" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.sankalp}</Link></li>
           <li><Link to="/contact" className="hover:text-amber-400 font-medium transition-colors px-2 py-1.5">{t.navbar.contact}</Link></li>

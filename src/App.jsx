@@ -18,6 +18,7 @@ import WhatsAppButton from './Components/WhatsAppButton'
 import AnnouncementBar from './Components/AnnouncementBar'
 import Login from './Pages/LoginPage'
 import SankalpPatra from './Pages/SankalpPatra'
+import KisanKosh from './Pages/KisanKosh'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path='/issues' element={<Issues />} />
           <Route path='/membership' element={<Membership />} />
           <Route path='/sankalp' element={<SankalpPatra />} />
+          <Route path='/kisanKosh' element={<KisanKosh />} />
           <Route path='/IdCard' element={<IdGenerator />} />
           <Route path='/Leadership' element={<LeadershipDirectory />} />
           <Route path='/activities' element={<Activities />} />
