@@ -1,22 +1,38 @@
 import React, { useState } from 'react'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from './LanguageContext';
+import img1 from "../../public/Gallery/img1.jpg";
+import img2 from "../../public/Gallery/img2.jpg";
+import img3 from "../../public/Gallery/img3.jpg";
+import img4 from "../../public/Gallery/img4.jpg";
+import img5 from "../../public/Gallery/img5.jpg";
+import img6 from "../../public/Gallery/img6.jpg";
+import img7 from "../../public/Gallery/img7.jpg";
+import img8 from "../../public/Gallery/img8.jpg";
+import img9 from "../../public/Gallery/img9.jpg";
+import img10 from "../../public/Gallery/img10.jpg";
+import img11 from "../../public/Gallery/img11.jpg";
+import img12 from "../../public/Gallery/img12.jpg";
+import img13 from "../../public/Gallery/img13.jpg";
+import img14 from "../../public/Gallery/img14.jpg";
+import img15 from "../../public/Gallery/img15.jpg";
+
 
 const initialPhotos = [
-  { id: 1, url: "../public/Gallery/img1.jpg", caption: "राजा चरत प्रताप सिंह जी , इंटरनेशनल चेयरमैन | Raja Chatar Pratap Singh ji , International Chairperson" },
-  { id: 2, url: "../public/Gallery/img2.jpg", caption: "जैविक खेती प्रशिक्षण | Organic Farming Training" },
-  { id: 3, url: "../public/Gallery/img3.jpg", caption: "नवनीत कुमार ,संस्थापक सदस्य | Naveen Kumar, Founding Member" },
-  { id: 4, url: "../public/Gallery/img4.jpg", caption: "संजीव कुमार , संस्थापक सदस्य | Sanjeev Kumar, Founding Member" },
-  { id: 5, url: "../public/Gallery/img5.jpg", caption: "प्रदीप कुमार , संस्थापक सदस्य | Pradeep Kumar, Founding Member" },
-  { id: 6, url: "../public/Gallery/img6.jpg", caption: "रवि पंवार , संस्थापक सदस्य | Ravi Pande, Founding Member" },
-  { id: 7, url: "../public/Gallery/img7.jpg", caption: "संजीव दांगी , संस्थापक सदस्य | Sanjeev Dangi, Founding Member" },
-  { id: 8, url: "../public/Gallery/img8.jpg", caption: "मुकेश सिंह बिष्ट , संस्थापक सदस्य | Mukesha Singh Bist, Founding Member" },
-  { id: 9, url: "../public/Gallery/img9.jpg", caption: "अशोक कुमार , संस्थापक सदस्य | Ashok Kumar, Founding Member" },
-  { id: 10, url: "../public/Gallery/img10.jpg", caption: "राजेंद्र सिंह पंवार , संस्थापक सदस्य | Rajendra Singh Pande, Founding Member" },
-  { id: 11, url: "../public/Gallery/img11.jpg", caption: "विनोद तोमर , संस्थापक सदस्य | Vinod Tomar, Founding Member" },
-  { id: 12, url: "../public/Gallery/img12.jpg", caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Raut, Founding Member" },
-  { id: 13, url: "../public/Gallery/img13.jpg", caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
-  { id: 14, url: "../public/Gallery/img14.jpg", caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Raut, Founding Member" },
-  { id: 15, url: "../public/Gallery/img15.jpg", caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
+  { id: 1, url: img1, caption: "राजा चरत प्रताप सिंह जी , इंटरनेशनल चेयरमैन | Raja Chatar Pratap Singh ji , International Chairperson" },
+  { id: 2, url: img2, caption: "जैविक खेती प्रशिक्षण | Organic Farming Training" },
+  { id: 3, url: img3, caption: "नवनीत कुमार ,संस्थापक सदस्य | Naveen Kumar, Founding Member" },
+  { id: 4, url: img4, caption: "संजीव कुमार , संस्थापक सदस्य | Sanjeev Kumar, Founding Member" },
+  { id: 5, url: img5, caption: "प्रदीप कुमार , संस्थापक सदस्य | Pradeep Kumar, Founding Member" },
+  { id: 6, url: img6, caption: "रवि पंवार , संस्थापक सदस्य | Ravi Pande, Founding Member" },
+  { id: 7, url: img7, caption: "संजीव दांगी , संस्थापक सदस्य | Sanjeev Dangi, Founding Member" },
+  { id: 8, url: img8, caption: "मुकेश सिंह बिष्ट , संस्थापक सदस्य | Mukesha Singh Bist, Founding Member" },
+  { id: 9, url: img9, caption: "अशोक कुमार , संस्थापक सदस्य | Ashok Kumar, Founding Member" },
+  { id: 10, url: img10, caption: "राजेंद्र सिंह पंवार , संस्थापक सदस्य | Rajendra Singh Pande, Founding Member" },
+  { id: 11, url: img11, caption: "विनोद तोमर , संस्थापक सदस्य | Vinod Tomar, Founding Member" },
+  { id: 12, url: img12, caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Raut, Founding Member" },
+  { id: 13, url: img13, caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
+  { id: 14, url: img14, caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Raut, Founding Member" },
+  { id: 15, url: img15, caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
 ]
 
 const initialVideos = [
