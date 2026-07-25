@@ -2,14 +2,21 @@ import React, { useState } from 'react'
 import { useLanguage } from './LanguageContext'
 
 const initialPhotos = [
-  { id: 1, url: "https://picsum.photos/seed/g1/500/375", caption: "किसान महारैली — मेरठ 2026 | Grand Farmer Rally — Meerut 2026" },
-  { id: 2, url: "https://picsum.photos/seed/g2/500/375", caption: "जैविक खेती प्रशिक्षण | Organic Farming Training" },
-  { id: 3, url: "https://picsum.photos/seed/g3/500/375", caption: "अंतर्राष्ट्रीय किसान सम्मेलन 2025 | IFU Conference 2025" },
-  { id: 4, url: "https://picsum.photos/seed/g4/500/375", caption: "महिला किसान सशक्तिकरण | Women Farmer Empowerment" },
-  { id: 5, url: "https://picsum.photos/seed/g5/500/375", caption: "मृदा परीक्षण शिविर | Soil Testing Camp" },
-  { id: 6, url: "https://picsum.photos/seed/g6/500/375", caption: "फसल बाजार निरीक्षण | Crop Market Inspection" },
-  { id: 7, url: "https://picsum.photos/seed/g7/500/375", caption: "किसान जागरूकता अभियान | Farmer Awareness Drive" },
-  { id: 8, url: "https://picsum.photos/seed/g8/500/375", caption: "युवा किसान बैठक | Youth Farmer Meeting" }
+  { id: 1, url: "../public/Gallery/img1.jpg", caption: "राजा चरत प्रताप सिंह जी , इंटरनेशनल चेयरमैन | Raja Chatar Pratap Singh ji , International Chairperson" },
+  { id: 2, url: "../public/Gallery/img2.jpg", caption: "जैविक खेती प्रशिक्षण | Organic Farming Training" },
+  { id: 3, url: "../public/Gallery/img3.jpg", caption: "नवनीत कुमार ,संस्थापक सदस्य | Naveen Kumar, Founding Member" },
+  { id: 4, url: "../public/Gallery/img4.jpg", caption: "संजीव कुमार , संस्थापक सदस्य | Sanjeev Kumar, Founding Member" },
+  { id: 5, url: "../public/Gallery/img5.jpg", caption: "प्रदीप कुमार , संस्थापक सदस्य | Pradeep Kumar, Founding Member" },
+  { id: 6, url: "../public/Gallery/img6.jpg", caption: "रवि पंवार , संस्थापक सदस्य | Ravi Pande, Founding Member" },
+  { id: 7, url: "../public/Gallery/img7.jpg", caption: "संजीव दांगी , संस्थापक सदस्य | Sanjeev Dangi, Founding Member" },
+  { id: 8, url: "../public/Gallery/img8.jpg", caption: "मुकेश सिंह बिष्ट , संस्थापक सदस्य | Mukesha Singh Bist, Founding Member" },
+  { id: 9, url: "../public/Gallery/img9.jpg", caption: "अशोक कुमार , संस्थापक सदस्य | Ashok Kumar, Founding Member" },
+  { id: 10, url: "../public/Gallery/img10.jpg", caption: "राजेंद्र सिंह पंवार , संस्थापक सदस्य | Rajendra Singh Pande, Founding Member" },
+  { id: 11, url: "../public/Gallery/img11.jpg", caption: "विनोद तोमर , संस्थापक सदस्य | Vinod Tomar, Founding Member" },
+  { id: 12, url: "../public/Gallery/img12.jpg", caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Raut, Founding Member" },
+  { id: 13, url: "../public/Gallery/img13.jpg", caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
+  { id: 14, url: "../public/Gallery/img14.jpg", caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Raut, Founding Member" },
+  { id: 15, url: "../public/Gallery/img15.jpg", caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
 ]
 
 const initialVideos = [
@@ -85,12 +92,19 @@ const Gallery = () => {
           {photos.length === 0 ? (
             <div className="bg-base-200 border border-base-300 rounded-2xl p-12 text-center font-bold opacity-60">{g.noPhotos}</div>
           ) : (
-            <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {photos.map(photo => (
-                <div key={photo.id} className="break-inside-avoid group relative cursor-pointer rounded-xl overflow-hidden border border-base-300 shadow-md hover:shadow-xl transition-all mb-4" onClick={() => setLightbox(photo)}>
-                  <img src={photo.url} alt={photo.caption} className="w-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                    <span className="text-white text-xs font-bold leading-tight">{photo.caption}</span>
+                <div key={photo.id} className="group relative cursor-pointer rounded-2xl overflow-hidden border border-base-300 shadow-md hover:shadow-xl transition-all" onClick={() => setLightbox(photo)}>
+                  <div className="aspect-[4/5]">
+                    <img 
+                      src={photo.url} 
+                      alt={photo.caption} 
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                    />
+                  </div>
+                  <div className="p-3 bg-base-100">
+                    <p className="font-bold text-xs text-base-content leading-snug line-clamp-2">{photo.caption}</p>
                   </div>
                 </div>
               ))}

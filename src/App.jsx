@@ -19,6 +19,7 @@ import AnnouncementBar from './Components/AnnouncementBar'
 import Login from './Pages/LoginPage'
 import SankalpPatra from './Pages/SankalpPatra'
 import KisanKosh from './Pages/KisanKosh'
+import Samvidhan from './Pages/Samvidan'
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path='/sankalp' element={<SankalpPatra />} />
           <Route path='/kisanKosh' element={<KisanKosh />} />
           <Route path='/IdCard' element={<IdGenerator />} />
+          <Route path='/Samvidan' element={<Samvidhan />} />
           <Route path='/Leadership' element={<LeadershipDirectory />} />
           <Route path='/activities' element={<Activities />} />
           <Route path='/blog' element={<Blog />} />
