@@ -15,6 +15,11 @@ import img12 from "../../public/Gallery/img12.jpg";
 import img13 from "../../public/Gallery/img13.jpg";
 import img14 from "../../public/Gallery/img14.jpg";
 import img15 from "../../public/Gallery/img15.jpg";
+import img16 from "../../public/Gallery/img16.jpg";
+import img17 from "../../public/Gallery/img17.jpg";
+import img18 from "../../public/Gallery/img18.jpg";
+import img19 from "../../public/Gallery/img19.jpg";
+import vid1 from "../../public/Gallery/vid1.mp4";
 
 
 const initialPhotos = [
@@ -23,20 +28,24 @@ const initialPhotos = [
   { id: 3, url: img3, caption: "नवनीत कुमार ,संस्थापक सदस्य | Naveen Kumar, Founding Member" },
   { id: 4, url: img4, caption: "संजीव कुमार , संस्थापक सदस्य | Sanjeev Kumar, Founding Member" },
   { id: 5, url: img5, caption: "प्रदीप कुमार , संस्थापक सदस्य | Pradeep Kumar, Founding Member" },
-  { id: 6, url: img6, caption: "रवि पंवार , संस्थापक सदस्य | Ravi Pande, Founding Member" },
+  { id: 6, url: img6, caption: "रवि पंवार , संस्थापक सदस्य | Ravi Pawar, Founding Member" },
   { id: 7, url: img7, caption: "संजीव दांगी , संस्थापक सदस्य | Sanjeev Dangi, Founding Member" },
   { id: 8, url: img8, caption: "मुकेश सिंह बिष्ट , संस्थापक सदस्य | Mukesha Singh Bist, Founding Member" },
   { id: 9, url: img9, caption: "अशोक कुमार , संस्थापक सदस्य | Ashok Kumar, Founding Member" },
-  { id: 10, url: img10, caption: "राजेंद्र सिंह पंवार , संस्थापक सदस्य | Rajendra Singh Pande, Founding Member" },
+  { id: 10, url: img10, caption: "राजेंद्र सिंह पंवार , संस्थापक सदस्य | Rajendra Singh Pawar, Founding Member" },
   { id: 11, url: img11, caption: "विनोद तोमर , संस्थापक सदस्य | Vinod Tomar, Founding Member" },
-  { id: 12, url: img12, caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Raut, Founding Member" },
+  { id: 12, url: img12, caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Rawat, Founding Member" },
   { id: 13, url: img13, caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
-  { id: 14, url: img14, caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Raut, Founding Member" },
+  { id: 14, url: img14, caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Rawat, Founding Member" },
   { id: 15, url: img15, caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
+  { id: 16, url: img16, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 17, url: img17, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 18, url: img18, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 19, url: img19, caption: " संस्थापक सदस्य | Founding Member" },
 ]
 
 const initialVideos = [
-  { id: 1, title: "किसान सम्मेलन 2025 मुख्य भाषण | IFU Conference 2025 Keynote", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+  { id: 1, title: "किसान सम्मेलन 2025 मुख्य भाषण | IFU Conference 2025 Keynote", url: vid1 },
   { id: 2, title: "जैविक खेती प्रशिक्षण | Organic Farming Training Session", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
   { id: 3, title: "MSP गारंटी रैली — दिल्ली | MSP Guarantee Rally — Delhi", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
 ]

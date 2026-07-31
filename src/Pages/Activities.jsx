@@ -1,5 +1,25 @@
 import React, { useState } from 'react'
 import { useLanguage } from './LanguageContext'
+import img16 from '../../public/Gallery/img16.jpg';
+import img1 from '../../public/Gallery/img1.jpg';
+import img2 from '../../public/Gallery/img2.jpg';
+import img3 from '../../public/Gallery/img3.jpg';
+import img4 from '../../public/Gallery/img4.jpg';
+import img5 from '../../public/Gallery/img5.jpg';
+import img6 from '../../public/Gallery/img6.jpg';
+import img7 from '../../public/Gallery/img7.jpg';
+import img8 from '../../public/Gallery/img8.jpg';
+import img9 from '../../public/Gallery/img9.jpg';
+import img10 from '../../public/Gallery/img10.jpg';
+import img11 from '../../public/Gallery/img11.jpg';
+import img13 from '../../public/Gallery/img13.jpg';
+import img14 from '../../public/Gallery/img14.jpg';
+import img15 from '../../public/Gallery/img15.jpg';
+import img17 from '../../public/Gallery/img17.jpg';
+import img18 from '../../public/Gallery/img18.jpg';
+import img19 from '../../public/Gallery/img19.jpg';
+import vid1 from '../../public/Gallery/vid1.mp4';
+
 
 const initialEvents = [
   { id: 1, titleHi: "अंतर्राष्ट्रीय किसान सम्मेलन 2026", titleEn: "International Farmers Conference 2026", date: "2026-07-15", locationHi: "मेरठ, उत्तर प्रदेश", locationEn: "Meerut, Uttar Pradesh", type: "Meeting", descHi: "वार्षिक अंतर्राष्ट्रीय किसान सम्मेलन जिसमें देश-विदेश के किसान प्रतिनिधि भाग लेंगे।", descEn: "Annual international farmers conference with delegates from across the country and abroad." },
@@ -10,17 +30,29 @@ const initialEvents = [
 ]
 
 const initialPhotos = [
-  { id: 1, url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&h=400&q=80", caption: "किसान रैली — मेरठ | Farmer Rally — Meerut" },
-  { id: 2, url: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&h=400&q=80", caption: "जैविक खेती प्रशिक्षण | Organic Farming Training" },
-  { id: 3, url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&h=400&q=80", caption: "किसान सम्मेलन 2025 | Farmer Conference 2025" },
-  { id: 4, url: "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=600&h=400&q=80", caption: "महिला किसान बैठक | Women Farmer Meeting" },
-  { id: 5, url: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&h=400&q=80", caption: "मृदा स्वास्थ्य परीक्षण | Soil Health Testing" },
-  { id: 6, url: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&h=400&q=80", caption: "बाजार समिति बैठक | Market Committee Meeting" }
+  { id: 1, url: img16, caption: "किसान रैली — मेरठ | Farmer Rally — Meerut" },
+  { id: 2, url: img1, caption: "राजा चरत प्रताप सिंह जी , इंटरनेशनल चेयरमैन | Raja Chatar Pratap Singh ji , International Chairperson" },
+  { id: 3, url: img2, caption: "किसान सम्मेलन 2025 | Farmer Conference 2025" },
+  { id: 4, url: img3, caption: "नवनीत कुमार ,संस्थापक सदस्य | Naveen Kumar, Founding Member" },
+  { id: 5, url: img4, caption: "संजीव कुमार , संस्थापक सदस्य | Sanjeev Kumar, Founding Member" },
+  { id: 6, url: img5, caption: "प्रदीप कुमार , संस्थापक सदस्य | Pradeep Kumar, Founding Member" },
+  { id: 7, url: img6, caption: "रवि पंवार , संस्थापक सदस्य | Ravi Pawar, Founding Member" },
+  { id: 8, url: img7, caption: "संजीव दांगी , संस्थापक सदस्य | Sanjeev Dangi, Founding Member" },
+  { id: 9, url: img8, caption: "मुकेश सिंह बिष्ट , संस्थापक सदस्य | Mukesha Singh Bist, Founding Member" },
+  { id: 10, url: img9, caption: "अशोक कुमार , संस्थापक सदस्य | Ashok Kumar, Founding Member" },
+  { id: 11, url: img10, caption: "राजेंद्र सिंह पंवार , संस्थापक सदस्य | Rajendra Singh Pawar, Founding Member" },
+  { id: 12, url: img11, caption: "विनोद तोमर , संस्थापक सदस्य | Vinod Tomar, Founding Member" },
+  { id: 14, url: img13, caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
+  { id: 15, url: img14, caption: "दिलवर सिंह रावत , संस्थापक सदस्य | Dilwar Singh Rawat, Founding Member" },
+  { id: 16, url: img15, caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
+  { id: 17, url: img17, caption: "किसान अधिकार सम्मेलन | Farmers Rights Conference" },
+  { id: 18, url: img18, caption: "संस्थापक सदस्य | Founding Members" },
+  { id: 19, url: img19, caption: "संस्थापक सदस्य | Founding Members" },
 ]
 
 // Updated with real farmer/agriculture related video IDs
 const initialVideos = [
-  { id: 1, title: "किसान आंदोलन: आवाज़ और संघर्ष | Farmers Movement: Voices & Struggles", url: "https://www.youtube.com/embed/HrY6fO6V8bE" },
+  { id: 1, title: "किसान आंदोलन: आवाज़ और संघर्ष | Farmers Movement: Voices & Struggles", url: vid1 },
   { id: 2, title: "जैविक खेती की आधुनिक तकनीकें | Modern Organic Farming Techniques", url: "https://www.youtube.com/embed/LHx7bWE2gNI" },
   { id: 3, title: "भारतीय किसानों की सफलता की कहानियाँ | Success Stories of Indian Farmers", url: "https://www.youtube.com/embed/mFdjEwD7pMk" }
 ]
