@@ -19,8 +19,8 @@ import img16 from "../../public/Gallery/img16.jpg";
 import img17 from "../../public/Gallery/img17.jpg";
 import img18 from "../../public/Gallery/img18.jpg";
 import img19 from "../../public/Gallery/img19.jpg";
+import img20 from "../../public/Gallery/img20.jpeg";
 import vid1 from "../../public/Gallery/vid1.mp4";
-import vid2 from "../../public/Gallery/vid2_news.mp4";
 import img0 from '../../public/Gallery/img0.jpeg';
 
 
@@ -50,7 +50,7 @@ const initialPhotos = [
 
 const initialVideos = [
   { id: 1, title: "किसान सम्मेलन 2025 मुख्य भाषण | IFU Conference 2025 Keynote", url: vid1 },
-  { id: 2, title: "उत्तराखंड में अंतरराष्ट्रीय किसान यूनियन के नए संगठन का गठन || KBC NEWS", url: "https://www.youtube.com/watch?v=oKzNRg3Zxtg" },
+  { id: 2, title: "उत्तराखंड में अंतरराष्ट्रीय किसान यूनियन के नए संगठन का गठन || KBC NEWS", url:'https://www.youtube.com/embed/oKzNRg3Zxtg' },
 ]
 
 const Gallery = () => {
