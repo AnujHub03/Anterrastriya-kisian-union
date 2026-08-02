@@ -88,7 +88,7 @@ const Footer = () => {
             <div className="space-y-3 text-sm opacity-80">
               <div className="flex items-start gap-2">
                 <span className="text-amber-400 mt-0.5">📍</span>
-                <span>मेरठ, उत्तर प्रदेश, भारत<br /><span className="text-xs opacity-70">Village Brala, District Meerut, Uttar Pradesh, India — 250221</span></span>
+                <span>विलेज-भराला, जिला-मेरठ, उत्तर प्रदेश-भारत -250221<br /><span className="text-xs opacity-70">Village-Bharala, District-Meerut, Uttar Pradesh-India- 250221</span></span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-amber-400 mt-0.5">📞</span>

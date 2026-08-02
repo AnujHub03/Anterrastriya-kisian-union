@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const WhatsAppButton = () => {
   const [tooltip, setTooltip] = useState(false)
-  const waNumber = '919012345678'
+  const waNumber = '6395103639'
   const waMessage = encodeURIComponent('नमस्ते! मैं अंतर्राष्ट्रीय किसान यूनियन के बारे में जानकारी चाहता हूँ। / Hello! I want to know about International Farmers Union.')
 
   return (
