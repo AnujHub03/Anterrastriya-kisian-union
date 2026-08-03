@@ -24,6 +24,7 @@ export const LanguageProvider = ({ children }) => {
         contact: "संपर्क करें",
         login: "लॉगिन",
         sankalp: "संकल्प",
+        news:"News",
         more: "और देखें",
       },
       home: {

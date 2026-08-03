@@ -20,6 +20,7 @@ import Login from './Pages/LoginPage'
 import SankalpPatra from './Pages/SankalpPatra'
 import KisanKosh from './Pages/KisanKosh'
 import Samvidhan from './Pages/Samvidan'
+import AgricultureNewsPage from './Pages/AgricultureNewsPage'
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/downloads' element={<Downloads />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/news' element={<AgricultureNewsPage/>}/>
         </Routes>
       </main>
       <Footer />
