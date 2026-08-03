@@ -2,6 +2,7 @@ import React from 'react'
 import { useLanguage } from './LanguageContext'
 import NewsSection from '../Components/News'
 import { Link } from 'react-router-dom'
+import image from '../../public/Gallery/image.png'
 
 const Home = () => {
   const { t } = useLanguage()
@@ -110,6 +111,66 @@ const Home = () => {
           <div className="stat-title font-bold text-sm text-base-content opacity-70">{t.home.stat3Title}</div>
           <div className="stat-value text-secondary my-2 text-2xl sm:text-3xl font-black">{t.home.stat3Value}</div>
           <div className="stat-desc font-medium text-xs whitespace-normal">{t.home.stat3Desc}</div>
+        </div>
+      </div>
+
+      {/* NEW: Farmer Unity & Message Section (Ravi Panwar Message) */}
+      <div className="bg-base-200 border border-base-300 rounded-3xl p-6 sm:p-10 shadow-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Image Side */}
+          <div className="lg:col-span-5 relative group overflow-hidden rounded-2xl shadow-lg border border-base-300">
+            <img
+              src={image}
+              alt="Farmers standing together in unity"
+              className="w-full h-64 sm:h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div className="absolute bottom-4 left-4 right-4 text-white">
+              <span className="badge badge-primary font-bold text-xs tracking-wider mb-1">
+                {t.home.messageBadge || 'किसान संगठन'}
+              </span>
+              <p className="text-sm font-semibold opacity-90">
+                {t.home.messageSubtitle || 'एकता ही हमारी शक्ति है'}
+              </p>
+            </div>
+          </div>
+
+          {/* Content Side */}
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-4">
+            <div className="inline-block">
+              <div className="badge badge-outline badge-primary font-bold px-4 py-3 mb-2 tracking-wider">
+                {t.home.messageHeadingTag || 'ग्राम इकाई एवं किसान कोष'}
+              </div>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl font-black text-primary leading-tight">
+              {t.home.messageTitle || 'ग्राम इकाई ही हर किसान संगठन का मजबूत आधार है'}
+            </h2>
+
+            <div className="space-y-3 text-base-content/90 leading-relaxed text-sm sm:text-base">
+              <p>
+                {t.home.messageP1 || 'जब गांव मजबूत होंगे तभी संगठन मजबूत होगा। हर किसान की भागीदारी, हर ग्राम इकाई की एकता यही संगठन एवं सभी किसानों की ताकत बनेगी।'}
+              </p>
+              <p className="bg-base-100 p-4 rounded-xl border-l-4 border-accent shadow-sm">
+                {t.home.messageP2 || 'हम सब मिलकर एक किसान कोष का निर्माण करेंगे, जो विश्व के गरीब किसान और मजदूरों को आर्थिक सहायता प्रदान करने के लिए होगा।'}
+              </p>
+              <p>
+                {t.home.messageP3 || 'किसानों को समय पर खाद, बिजली, पानी, सस्ता पेट्रोल और डीजल चाहिए। किसानों को बड़े-बड़े वादे नहीं, आधुनिक तकनीक और खेती के लिए संसाधनों की जरूरत है। जब यह सब होगा, तभी देश और खेत दोनों सुरक्षित होंगे।'}
+              </p>
+            </div>
+
+            {/* Author Attribution */}
+            <div className="pt-2 flex justify-end">
+              <div className="text-right border-t border-base-300 pt-3 inline-block">
+                <span className="block font-black text-lg text-secondary">
+                  {t.home.messageAuthor || 'रवि पंवार'}
+                </span>
+                <span className="text-xs opacity-60">
+                  {t.home.messageAuthorTitle || 'किसान नेता / संगठक'}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

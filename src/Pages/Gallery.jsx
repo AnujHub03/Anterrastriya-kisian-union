@@ -28,7 +28,7 @@ const initialPhotos = [
   {id:0,url: img0,caption:"स्वामी दर्शन भारती जी राष्ट्रीय संरक्षक"},
   { id: 1, url: img1, caption: "राजा चरत प्रताप सिंह जी , इंटरनेशनल चेयरमैन | Raja Chatar Pratap Singh ji , International Chairperson" },
   { id: 2, url: img2, caption: "जैविक खेती प्रशिक्षण | Organic Farming Training" },
-  { id: 3, url: img3, caption: "नवनीत कुमार ,संस्थापक सदस्य | Naveen Kumar, Founding Member" },
+  { id: 3, url: img3, caption: "नवनीत कुमार ,संस्थापक सदस्य | Navnet Kumar, Founding Member" },
   { id: 4, url: img4, caption: "संजीव कुमार , संस्थापक सदस्य | Sanjeev Kumar, Founding Member" },
   { id: 5, url: img5, caption: "प्रदीप कुमार , संस्थापक सदस्य | Pradeep Kumar, Founding Member" },
   { id: 6, url: img6, caption: "प्रदीप कुमार, संस्थापक सदस्य " },
