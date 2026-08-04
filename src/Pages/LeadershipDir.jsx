@@ -179,9 +179,9 @@ const LeadershipDirectory = () => {
   // Helper for tier colors
   const getTierStyles = (tier) => {
     switch(tier) {
+      case 'BoardMember': return { text: 'text-primary', bg: 'bg-primary/10 border-primary/20', badge: 'bg-gradient-to-r from-primary to-primary/80', stripe: 'bg-gradient-to-b from-primary via-primary/80 to-primary', ring: 'ring-primary' }
       case 'InternationalHead':
       case 'NationalHead':
-      case 'BoardMember': return { text: 'text-primary', bg: 'bg-primary/10 border-primary/20', badge: 'bg-gradient-to-r from-primary to-primary/80', stripe: 'bg-gradient-to-b from-primary via-primary/80 to-primary', ring: 'ring-primary' }
       case 'State': return { text: 'text-accent', bg: 'bg-accent/10 border-accent/20', badge: 'bg-gradient-to-r from-accent to-accent/80', stripe: 'bg-gradient-to-b from-accent via-accent/80 to-accent', ring: 'ring-accent' }
       case 'District': return { text: 'text-secondary', bg: 'bg-secondary/10 border-secondary/20', badge: 'bg-gradient-to-r from-secondary to-secondary/80', stripe: 'bg-gradient-to-b from-secondary via-secondary/80 to-secondary', ring: 'ring-secondary' }
       default: return { text: 'text-base-content', bg: 'bg-neutral/10 border-neutral/20', badge: 'bg-gradient-to-r from-neutral to-neutral/80', stripe: 'bg-gradient-to-b from-neutral via-neutral/80 to-neutral', ring: 'ring-neutral' }
@@ -218,13 +218,13 @@ const LeadershipDirectory = () => {
         
         {/* Modern Pill Tabs */}
         <div className="flex flex-wrap gap-2 p-1 bg-base-100/50 dark:bg-base-900/50 rounded-xl">
-          {['All', 'InternationalHead', 'NationalHead', 'BoardMember', 'State', 'District', 'City'].map((tier) => (
+          {['All','BoardMember' , 'NationalHead', 'InternationalHead', 'State', 'District', 'City'].map((tier) => (
             <button 
               key={tier} 
               onClick={() => setActiveTier(tier)} 
               className={`btn btn-sm rounded-lg px-5 font-bold transition-all duration-300 border-none ${
                 activeTier === tier 
-                  ? (tier === 'All' ? 'bg-primary text-primary-content shadow-lg shadow-primary/25' : tier === 'InternationalHead' || tier === 'NationalHead' || tier === 'BoardMember' ? 'bg-primary text-primary-content shadow-lg shadow-primary/25' : tier === 'State' ? 'bg-accent text-accent-content shadow-lg shadow-accent/25' : tier === 'District' ? 'bg-secondary text-secondary-content shadow-lg shadow-secondary/25' : 'bg-neutral text-neutral-content shadow-lg shadow-neutral/25')
+                  ? (tier === 'All' ? 'bg-primary text-primary-content shadow-lg shadow-primary/25' : tier === 'BoardMember' || tier === 'NationalHead' || tier === 'InternationalHead' ? 'bg-primary text-primary-content shadow-lg shadow-primary/25' : tier === 'State' ? 'bg-accent text-accent-content shadow-lg shadow-accent/25' : tier === 'District' ? 'bg-secondary text-secondary-content shadow-lg shadow-secondary/25' : 'bg-neutral text-neutral-content shadow-lg shadow-neutral/25')
                   : 'bg-transparent hover:bg-base-200/50 text-base-content/70'
               }`}
             >
@@ -234,14 +234,14 @@ const LeadershipDirectory = () => {
         </div>
 
         {/* Sleek Search Input */}
-        <div className="w-full md:w-80 relative group">
+        <div className="w-52 md:w-36 relative group">
           <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-base-content/40 group-focus-within:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
           <input 
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={t.leadership.searchPlaceholder}
-            className="input input-sm input-bordered w-full pl-10 rounded-xl bg-base-100/80 dark:bg-base-900/80 border-base-300/50 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-medium"
+            className="input input-sm input-bordered w-42 pl-10 rounded-xl bg-base-100/80 dark:bg-base-900/80 border-base-300/50 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-medium"
           />
         </div>
       </div>
