@@ -20,6 +20,11 @@ import img17 from "../../public/Gallery/img17.jpg";
 import img18 from "../../public/Gallery/img18.jpg";
 import img19 from "../../public/Gallery/img19.jpg";
 import img20 from "../../public/Gallery/img20.jpeg";
+import img21 from "../../public/Gallery/img21.jpeg";
+import img22 from "../../public/Gallery/img22.jpeg";
+import img23 from "../../public/Gallery/img23.jpeg";
+import img24 from "../../public/Gallery/img24.jpeg";
+import img25 from "../../public/Gallery/img25.jpeg";
 import vid1 from "../../public/Gallery/vid1.mp4";
 import img0 from '../../public/Gallery/img0.jpeg';
 
@@ -46,11 +51,18 @@ const initialPhotos = [
   { id: 17, url: img17, caption: " संस्थापक सदस्य | Founding Member" },
   { id: 18, url: img18, caption: " संस्थापक सदस्य | Founding Member" },
   { id: 19, url: img19, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 20, url: img20, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 21, url: img21, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 22, url: img22, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 23, url: img23, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 24, url: img24, caption: " संस्थापक सदस्य | Founding Member" },
+  { id: 25, url: img25, caption: " संस्थापक सदस्य | Founding Member" },
 ]
 
 const initialVideos = [
   { id: 1, title: "किसान सम्मेलन 2025 मुख्य भाषण | IFU Conference 2025 Keynote", url: vid1 },
   { id: 2, title: "उत्तराखंड में अंतरराष्ट्रीय किसान यूनियन के नए संगठन का गठन || KBC NEWS", url:'https://www.youtube.com/embed/oKzNRg3Zxtg' },
+  { id: 3, title: "उत्तराखंड में अंतरराष्ट्रीय किसान यूनियन के नए संगठन का गठन || KBC NEWS", url:'https://www.youtube.com/embed/f8XbFUMeZfA'},
 ]
 
 const Gallery = () => {
