@@ -51,7 +51,6 @@ const initialPhotos = [
   { id: 17, url: img17, caption: " संस्थापक सदस्य | Founding Member" },
   { id: 18, url: img18, caption: " संस्थापक सदस्य | Founding Member" },
   { id: 19, url: img19, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 20, url: img20, caption: " संस्थापक सदस्य | Founding Member" },
   { id: 21, url: img21, caption: " संस्थापक सदस्य | Founding Member" },
   { id: 22, url: img22, caption: " संस्थापक सदस्य | Founding Member" },
   { id: 23, url: img23, caption: " संस्थापक सदस्य | Founding Member" },
@@ -60,7 +59,7 @@ const initialPhotos = [
 ]
 
 const initialVideos = [
-  { id: 1, title: "किसान सम्मेलन 2025 मुख्य भाषण | IFU Conference 2025 Keynote", url: vid1 },
+  { id: 1, title: "किसान सम्मेलन    मुख्य भाषण | IFU Conference    Keynote", url: vid1 },
   { id: 2, title: "उत्तराखंड में अंतरराष्ट्रीय किसान यूनियन के नए संगठन का गठन || KBC NEWS", url:'https://www.youtube.com/embed/oKzNRg3Zxtg' },
   { id: 3, title: "उत्तराखंड में अंतरराष्ट्रीय किसान यूनियन के नए संगठन का गठन || KBC NEWS", url:'https://www.youtube.com/embed/f8XbFUMeZfA'},
 ]

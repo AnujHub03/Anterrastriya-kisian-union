@@ -5,8 +5,15 @@ import img3 from "../../public/Gallery/img3.jpg";
 import img4 from "../../public/Gallery/img4.jpg";
 import img5 from "../../public/Gallery/img5.jpg";
 import img6 from "../../public/Gallery/img6.jpg";
+import img7 from "../../public/Gallery/img7.jpg";
+import img8 from "../../public/Gallery/img8.jpg";
+import img10 from "../../public/Gallery/img10.jpg";
 import img11 from "../../public/Gallery/img11.jpg";
+import img12 from "../../public/Gallery/img12.jpg";
+import img13 from "../../public/Gallery/img13.jpg";
+import img14 from "../../public/Gallery/img14.jpg";
 import img15 from "../../public/Gallery/img15.jpg";
+import img20 from "../../public/Gallery/img20.jpeg";
 
 const LeadershipDirectory = () => {
   const { t } = useLanguage()
@@ -56,7 +63,7 @@ const LeadershipDirectory = () => {
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80",
       email: "a.hooda@agriorg.org",
       phone: "+91 90123 45678",
-      joinedDate: "March 2025",
+      joinedDate: "March    ",
       responsibilities: [
         "Supervising urban vertical farming rooftop initiatives",
         "Managing municipal direct-to-consumer micro market setups",
@@ -145,11 +152,123 @@ const LeadershipDirectory = () => {
     },
     {
       id: 9,
+      name: "राजेंद्र सिंह पंवार| Rajendra Singh Panwar",
+      tier: "BoardMember",
+      region: "National Headquarters",
+      designation: "इंटरनेशनल चेयरमैन | International Chairman",
+      avatar: img14,
+      email: "r.singh@agriorg.org",
+      phone: "+91 98110 99887",
+      joinedDate: "August 2022",
+      responsibilities: [
+        "Strategic governance and international donor relations oversight",
+        "Approval of annual agricultural infrastructure expenditure",
+        "Directing sustainable technology adoption roadmap for 2030"
+      ]
+    },
+    {
+      id: 10,
       name: "सुरेश पाल  | Suresh Pal",
       tier: "BoardMember",
       region: "National Headquarters",
       designation: "इंटरनेशनल चेयरमैन | International Chairman",
       avatar: img15,
+      email: "r.singh@agriorg.org",
+      phone: "+91 98110 99887",
+      joinedDate: "August 2022",
+      responsibilities: [
+        "Strategic governance and international donor relations oversight",
+        "Approval of annual agricultural infrastructure expenditure",
+        "Directing sustainable technology adoption roadmap for 2030"
+      ]
+    },
+    {
+      id: 11,
+      name: "नीरज कुमार  | Neeraj Kumar",
+      tier: "BoardMember",
+      region: "National Headquarters",
+      designation: "इंटरनेशनल चेयरमैन | International Chairman",
+      avatar: img20,
+      email: "r.singh@agriorg.org",
+      phone: "+91 98110 99887",
+      joinedDate: "August 2022",
+      responsibilities: [
+        "Strategic governance and international donor relations oversight",
+        "Approval of annual agricultural infrastructure expenditure",
+        "Directing sustainable technology adoption roadmap for 2030"
+      ]
+    },
+    {
+      id: 12,
+      name: "राजेंद्र सिंह पंवार  | Rajendra Singh Pawar",
+      tier: "BoardMember",
+      region: "National Headquarters",
+      designation: "इंटरनेशनल चेयरमैन | International Chairman",
+      avatar: img12,
+      email: "r.singh@agriorg.org",
+      phone: "+91 98110 99887",
+      joinedDate: "August 2022",
+      responsibilities: [
+        "Strategic governance and international donor relations oversight",
+        "Approval of annual agricultural infrastructure expenditure",
+        "Directing sustainable technology adoption roadmap for 2030"
+      ]
+    },
+    {
+      id: 13,
+      name: "विनोद तोमर  | Vinod Tomar",
+      tier: "BoardMember",
+      region: "National Headquarters",
+      designation: "इंटरनेशनल चेयरमैन | International Chairman",
+      avatar: img13,
+      email: "r.singh@agriorg.org",
+      phone: "+91 98110 99887",
+      joinedDate: "August 2022",
+      responsibilities: [
+        "Strategic governance and international donor relations oversight",
+        "Approval of annual agricultural infrastructure expenditure",
+        "Directing sustainable technology adoption roadmap for 2030"
+      ]
+    },
+    {
+      id: 14,
+      name: "मुकेश सिंह बिष्ट  | Mukesh Singh Bisht",
+      tier: "BoardMember",
+      region: "National Headquarters",
+      designation: "इंटरनेशनल चेयरमैन | International Chairman",
+      avatar: img10,
+      email: "r.singh@agriorg.org",
+      phone: "+91 98110 99887",
+      joinedDate: "August 2022",
+      responsibilities: [
+        "Strategic governance and international donor relations oversight",
+        "Approval of annual agricultural infrastructure expenditure",
+        "Directing sustainable technology adoption roadmap for 2030"
+      ]
+    },
+    {
+      id: 15,
+      name: "संजीव डांगी  | Sanjeev Dangi",
+      tier: "BoardMember",
+      region: "National Headquarters",
+      designation: "इंटरनेशनल चेयरमैन | International Chairman",
+      avatar: img8,
+      email: "r.singh@agriorg.org",
+      phone: "+91 98110 99887",
+      joinedDate: "August 2022",
+      responsibilities: [
+        "Strategic governance and international donor relations oversight",
+        "Approval of annual agricultural infrastructure expenditure",
+        "Directing sustainable technology adoption roadmap for 2030"
+      ]
+    },
+    {
+      id: 16,
+      name: "रवि पंवार | Ravi Pawar",
+      tier: "BoardMember",
+      region: "National Headquarters",
+      designation: "इंटरनेशनल चेयरमैन | International Chairman",
+      avatar: img7,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
       joinedDate: "August 2022",

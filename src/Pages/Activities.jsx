@@ -32,7 +32,7 @@ const initialEvents = [
 const initialPhotos = [
   { id: 1, url: img16, caption: "किसान रैली — मेरठ | Farmer Rally — Meerut" },
   { id: 2, url: img1, caption: "राजा चरत प्रताप सिंह जी , इंटरनेशनल चेयरमैन | Raja Chatar Pratap Singh ji , International Chairperson" },
-  { id: 3, url: img2, caption: "किसान सम्मेलन 2025 | Farmer Conference 2025" },
+  { id: 3, url: img2, caption: "किसान सम्मेलन   | Farmer Conference  " },
   { id: 4, url: img3, caption: "नवनीत कुमार ,संस्थापक सदस्य | Naveen Kumar, Founding Member" },
   { id: 5, url: img4, caption: "संजीव कुमार , संस्थापक सदस्य | Sanjeev Kumar, Founding Member" },
   { id: 6, url: img5, caption: "प्रदीप कुमार , संस्थापक सदस्य | Pradeep Kumar, Founding Member" },
