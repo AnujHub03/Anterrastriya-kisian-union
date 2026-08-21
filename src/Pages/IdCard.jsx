@@ -12,7 +12,7 @@ const IdGenerator = () => {
     location: '',
     role: 'सामान्य सदस्य (Member)',
     photo: null,
-    memberId: 'IFU-2026-8491'
+    memberId: 'IKU-2026-8491'
   })
 
   // Ref to target the ID card bounding box for isolated printing
@@ -28,7 +28,7 @@ const IdGenerator = () => {
     const randomDigits = Math.floor(1000 + Math.random() * 9000)
     setFormData(prev => ({
       ...prev,
-      memberId: `IFU-2026-${randomDigits}`
+      memberId: `IKU-2026-${randomDigits}`
     }))
   }
 
@@ -223,7 +223,7 @@ const IdGenerator = () => {
             {/* Official Regional Base Footer */}
             <div className="bg-stone-900 text-white text-[10px] text-center py-2 px-1 font-medium tracking-wide border-t border-amber-400 z-10">
               <div>{t.idCard.cardFooterOffice}</div>
-              <div className="text-[8px] text-stone-400 font-mono tracking-widest mt-0.5">WWW.KISANUNION.ORG</div>
+              <div className="text-[8px] text-stone-400 font-mono tracking-widest mt-0.5">www.anterratriyakisanunion </div>
             </div>
           </div>
 
