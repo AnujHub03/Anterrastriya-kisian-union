@@ -79,7 +79,7 @@ const LeadershipDirectory = () => {
       avatar: img1,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -95,7 +95,7 @@ const LeadershipDirectory = () => {
       avatar: img3,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -111,7 +111,7 @@ const LeadershipDirectory = () => {
       avatar: img4,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -127,7 +127,7 @@ const LeadershipDirectory = () => {
       avatar: img6,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -143,7 +143,7 @@ const LeadershipDirectory = () => {
       avatar: img11,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -159,7 +159,7 @@ const LeadershipDirectory = () => {
       avatar: img14,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -175,7 +175,7 @@ const LeadershipDirectory = () => {
       avatar: img15,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -191,7 +191,7 @@ const LeadershipDirectory = () => {
       avatar: img20,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -207,7 +207,7 @@ const LeadershipDirectory = () => {
       avatar: img12,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -223,7 +223,7 @@ const LeadershipDirectory = () => {
       avatar: img13,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -239,7 +239,7 @@ const LeadershipDirectory = () => {
       avatar: img10,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -255,7 +255,7 @@ const LeadershipDirectory = () => {
       avatar: img8,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",
@@ -271,7 +271,7 @@ const LeadershipDirectory = () => {
       avatar: img7,
       email: "r.singh@agriorg.org",
       phone: "+91 98110 99887",
-      joinedDate: "August 2022",
+      joinedDate: "2026",
       responsibilities: [
         "Strategic governance and international donor relations oversight",
         "Approval of annual agricultural infrastructure expenditure",

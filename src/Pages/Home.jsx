@@ -109,7 +109,9 @@ const Home = () => {
 
         <div className="stat bg-base-200 border border-base-300 rounded-2xl p-6 shadow-md text-center">
           <div className="stat-title font-bold text-sm text-base-content opacity-70">{t.home.stat3Title}</div>
-          <div className="stat-value text-secondary my-2 text-2xl sm:text-3xl font-black">{t.home.stat3Value}</div>
+         <div className="stat-value text-secondary my-2 text-xl sm:text-2xl md:text-3xl font-black whitespace-normal break-words">
+    {t.home.stat3Value}
+  </div>
           <div className="stat-desc font-medium text-xs whitespace-normal">{t.home.stat3Desc}</div>
         </div>
       </div>

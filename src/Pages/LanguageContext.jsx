@@ -42,7 +42,7 @@ export const LanguageProvider = ({ children }) => {
         stat2Desc:
           "फ़्रांस, जर्मनी, ऑस्ट्रेलिया, म्यामार और अफ़्रीका आंदोलनों का एकीकरण",
         stat3Title: "मुख्य प्रशासनिक केंद्र",
-        stat3Value: "गाँव बराला, जिला मेरठ,UP",
+        stat3Value: "गाँव बराला, जिला मेरठ-उत्तर प्रदेश, भारत 250221",
         stat3Desc: "भारत में स्थित मुख्य वैश्विक कार्यालय",
         // Pillars Section
         pillarsBadge: "मूल स्तंभ",
@@ -428,7 +428,7 @@ export const LanguageProvider = ({ children }) => {
         labelScope: "दायरा",
         valueScope: "वैश्विक (अंतर्राष्ट्रीय)",
         labelOffice: "मुख्यालय",
-        valueOffice: "बराला, मेरठ, भारत",
+        valueOffice:" भराला | Bharala",
         resBadge: "संकल्प",
         resolutionHeading: "प्रमुख संकल्प",
         res1: "किसानों और मजदूरों के अधिकारों के लिए निरंतर संघर्ष करना।",
@@ -1068,7 +1068,7 @@ export const LanguageProvider = ({ children }) => {
         stat2Desc:
           "Integration of movements across France, Germany, Australia, Myanmar, and Africa",
         stat3Title: "Main Administrative Hub",
-        stat3Value: "Village Brala, Meerut,UP",
+        stat3Value: "Village Brala, Meerut , UP , India 250221",
         stat3Desc: "Primary global office located in India",
         // Pillars Section
         pillarsBadge: "CORE PILLARS",
@@ -1567,7 +1567,7 @@ export const LanguageProvider = ({ children }) => {
         labelScope: "Scope",
         valueScope: "Global (International)",
         labelOffice: "Headquarters",
-        valueOffice: "Brala, Meerut, India",
+        valueOffice: "भराला | Bharala",
         resBadge: "Resolution",
         resolutionHeading: "Key Resolutions",
         res1: "To continuously struggle for the rights of farmers and laborers.",
