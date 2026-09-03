@@ -1,0 +1,44 @@
+import React from 'react'
+import { useLanguage } from './LanguageContext'
+
+const PrivacyPolicy = () => {
+  const { t } = useLanguage()
+
+  if (!t || !t.privacy) return <div className="py-12 text-center">Loading...</div>
+  const p = t.privacy
+
+  return (
+    <div className="py-6 max-w-4xl mx-auto space-y-8 px-4 sm:px-6">
+      <div className="space-y-2 border-b border-base-300 pb-6">
+        <h2 className="text-3xl font-black text-green-800 dark:text-green-400 tracking-tight">{p.title}</h2>
+        <p className="text-xs font-semibold opacity-50 uppercase tracking-wider">{p.lastUpdated}</p>
+      </div>
+
+      <div className="bg-green-800/10 border border-green-800/30 rounded-2xl p-5 text-sm font-medium">
+        🌾 अंतर्राष्ट्रीय किसान यूनियन / International Farmers Union — आपकी गोपनीयता हमारी प्राथमिकता है।
+      </div>
+
+      <div className="space-y-6">
+        {p.sections.map((section, idx) => (
+          <div key={idx} className="bg-base-200 border border-base-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-green-800 text-white rounded-full flex items-center justify-center font-black text-sm flex-shrink-0 mt-0.5">
+                {idx + 1}
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-lg font-black text-green-700">{section.heading}</h3>
+                <p className="text-sm sm:text-base leading-relaxed opacity-90">{section.body}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-base-200 border border-base-300 rounded-2xl p-6 text-center text-sm opacity-60 font-medium">
+        किसी प्रश्न के लिए संपर्क करें / For queries contact: <a href="mailto:info@anterrastriyakisanunion.com" className="text-green-700 font-bold hover:underline">info@anterrastriyakisanunion.com</a>
+      </div>
+    </div>
+  )
+}
+
+export default PrivacyPolicy
