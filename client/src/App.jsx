@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import Home from './Pages/Home'
 import Navbar from './Components/Navbar'
 import About from './Pages/About'
@@ -21,6 +22,10 @@ import SankalpPatra from './Pages/SankalpPatra'
 import KisanKosh from './Pages/KisanKosh'
 import Samvidhan from './Pages/Samvidan'
 import AgricultureNewsPage from './Pages/AgricultureNewsPage'
+import AdminLayout from './Pages/admin/Adminlayout'
+import AdminGallery from './Pages/admin/Admingallery'
+import SankalpAdmin from './Pages/admin/Sankalpadmin'
+import BlogAdmin from './Pages/admin/BlogAdmin'
 
 function App() {
   return (
@@ -29,6 +34,19 @@ function App() {
       <Navbar />
       <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <Routes>
+          <Route
+  path="/dashboard"
+  element={
+    
+      <AdminLayout/>
+    
+  }
+>
+  <Route index element={<Navigate to="gallery" replace />} />
+  <Route path="gallery" element={<AdminGallery/>} />
+  <Route path="sankalp" element={<SankalpAdmin />} />
+  <Route path="blog" element={<BlogAdmin />} />
+</Route>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/issues' element={<Issues />} />

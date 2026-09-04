@@ -1,98 +1,48 @@
-import React, { useState } from 'react'
-import { useLanguage } from './LanguageContext';
-import img1 from "../../public/Gallery/img1.jpg";
-import img2 from "../../public/Gallery/img2.jpg";
-import img3 from "../../public/Gallery/img3.jpg";
-import img4 from "../../public/Gallery/img4.jpg";
-import img5 from "../../public/Gallery/img5.jpg";
-import img6 from "../../public/Gallery/img6.jpg";
-import img7 from "../../public/Gallery/img7.jpg";
-import img8 from "../../public/Gallery/img8.jpg";
-import img9 from "../../public/Gallery/img9.jpg";
-import img10 from "../../public/Gallery/img10.jpg";
-import img11 from "../../public/Gallery/img11.jpg";
-import img12 from "../../public/Gallery/img12.jpg";
-import img13 from "../../public/Gallery/img13.jpg";
-import img14 from "../../public/Gallery/img14.jpg";
-import img15 from "../../public/Gallery/img15.jpg";
-import img16 from "../../public/Gallery/img16.jpg";
-import img17 from "../../public/Gallery/img17.jpg";
-import img18 from "../../public/Gallery/img18.jpg";
-import img19 from "../../public/Gallery/img19.jpg";
-import img20 from "../../public/Gallery/img20.jpeg";
-import img21 from "../../public/Gallery/img21.jpeg";
-import img22 from "../../public/Gallery/img22.jpeg";
-import img23 from "../../public/Gallery/img23.jpeg";
-import img24 from "../../public/Gallery/img24.jpeg";
-import img25 from "../../public/Gallery/img25.jpeg";
-import vid1 from "../../public/Gallery/vid1.mp4";
-import img0 from '../../public/Gallery/img0.jpeg';
+import { useState, useEffect } from 'react'
+import { useLanguage } from './LanguageContext'
 
-
-const initialPhotos = [
-  {id:0,url: img0,caption:"स्वामी दर्शन भारती जी राष्ट्रीय संरक्षक"},
-  { id: 1, url: img1, caption: "राजा चरत प्रताप सिंह जी , इंटरनेशनल चेयरमैन | Raja Chatar Pratap Singh ji , International Chairperson" },
-  { id: 2, url: img2, caption: "जैविक खेती प्रशिक्षण | Organic Farming Training" },
-  { id: 3, url: img3, caption: "नवनीत कुमार ,संस्थापक सदस्य | Navnet Kumar, Founding Member" },
-  { id: 4, url: img4, caption: "संजीव कुमार , संस्थापक सदस्य | Sanjeev Kumar, Founding Member" },
-  { id: 5, url: img5, caption: " संस्थापक सदस्य  Founding Member" },
-  { id: 6, url: img6, caption: "प्रदीप कुमार, संस्थापक सदस्य | Pradeep Kumar, Founding Member" },
-  { id: 7, url: img7, caption: "रवि पंवार, संस्थापक सदस्य" },
-  { id: 8, url: img8, caption: "संजीव डांगी, संस्थापक सदस्य" },
-  { id: 9, url: img9, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 10, url: img10, caption: "मुकेश सिंह बिष्ट, संस्थापक सदस्य | Mukesh singh Bist , Founding Memeber" },
-  { id: 11, url: img11, caption: "अशोक कुमार, संस्थापक सदस्य | Ashok Kumar , Founding Member" },
-  { id: 12, url: img12, caption: "राजेंद्र सिंह पंवार, संस्थापक सदस्य | Rajinder singh pawar , Founding Member" },
-  { id: 13, url: img13, caption: "विनोद तोमर, संस्थापक सदस्य | Virender tomar" },
-  { id: 14, url: img14, caption: "दिलवर सिंह रावत , संस्थापक सदस्य Dilawar Singh Rawat , Founding Member" },
-  { id: 15, url: img15, caption: "सुरेश पाल , संस्थापक सदस्य | Suresh Pal, Founding Member" },
-  {id:20,url:img20,caption:"नीरज कुमार, संस्थापक सदस्य"},
-  { id: 16, url: img16, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 17, url: img17, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 18, url: img18, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 19, url: img19, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 21, url: img21, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 22, url: img22, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 23, url: img23, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 24, url: img24, caption: " संस्थापक सदस्य | Founding Member" },
-  { id: 25, url: img25, caption: " संस्थापक सदस्य | Founding Member" },
-]
-
-const initialVideos = [
-  { id: 1, title: "किसान सम्मेलन    मुख्य भाषण | IFU Conference    Keynote", url: vid1 },
-  { id: 2, title: "उत्तराखंड में अंतरराष्ट्रीय किसान यूनियन के नए संगठन का गठन || KBC NEWS", url:'https://www.youtube.com/embed/oKzNRg3Zxtg' },
-  { id: 3, title: "उत्तराखंड में अंतरराष्ट्रीय किसान यूनियन के नए संगठन का गठन || KBC NEWS", url:'https://www.youtube.com/embed/f8XbFUMeZfA'},
-]
+const API_BASE = 'http://localhost:5000/api/gallery'
 
 const Gallery = () => {
   const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState('photos')
-  const [photos, setPhotos] = useState(initialPhotos)
-  const [videos, setVideos] = useState(initialVideos)
+
+  const [photos, setPhotos] = useState([])
+  const [videos, setVideos] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const [lightbox, setLightbox] = useState(null)
-  const [caption, setCaption] = useState('')
-  const [newVideo, setNewVideo] = useState({ title: '', url: '' })
+
+  useEffect(() => {
+    const loadGallery = async () => {
+      setLoading(true)
+      setError(null)
+      try {
+        const [photosRes, videosRes] = await Promise.all([
+          fetch(`${API_BASE}/photos`),
+          fetch(`${API_BASE}/videos`)
+        ])
+
+        if (!photosRes.ok || !videosRes.ok) {
+          throw new Error('Failed to load gallery')
+        }
+
+        setPhotos(await photosRes.json())
+        setVideos(await videosRes.json())
+      } catch (err) {
+        setError(err.message === 'Failed to fetch'
+          ? 'Could not reach the server. Is the backend running on port 5000?'
+          : err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadGallery()
+  }, [])
 
   if (!t || !t.gallery) return <div className="py-12 text-center">Loading...</div>
   const g = t.gallery
-
-  const handlePhotoUpload = (e) => {
-    const file = e.target.files[0]
-    if (file) {
-      setPhotos(prev => [{ id: Date.now(), url: URL.createObjectURL(file), caption: caption || file.name }, ...prev])
-      setCaption('')
-    }
-  }
-
-  const handleAddVideo = (e) => {
-    e.preventDefault()
-    if (!newVideo.title || !newVideo.url) return
-    let embedUrl = newVideo.url
-    const match = newVideo.url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^&\s]+)/)
-    if (match) embedUrl = `https://www.youtube.com/embed/${match[1]}`
-    setVideos(prev => [{ id: Date.now(), title: newVideo.title, url: embedUrl }, ...prev])
-    setNewVideo({ title: '', url: '' })
-  }
 
   return (
     <div className="py-6 max-w-7xl mx-auto space-y-8 px-4 sm:px-6 lg:px-8">
@@ -100,6 +50,12 @@ const Gallery = () => {
         <h2 className="text-3xl font-black text-green-800 dark:text-green-400 tracking-tight">{g.title}</h2>
         <p className="text-sm font-semibold opacity-75">{g.subtitle}</p>
       </div>
+
+      {error && (
+        <div className="bg-red-500/10 border border-red-500/20 text-red-600 text-sm font-semibold rounded-xl px-4 py-3">
+          {error}
+        </div>
+      )}
 
       {/* Tab Switch */}
       <div className="flex gap-2 bg-base-200 p-2 rounded-2xl border border-base-300 w-fit">
@@ -113,77 +69,61 @@ const Gallery = () => {
         </button>
       </div>
 
-      {/* PHOTO GALLERY */}
-      {activeTab === 'photos' && (
-        <div className="space-y-6">
-          {/* Upload Section */}
-          <div className="bg-base-200 border border-base-300 rounded-2xl p-5 flex flex-col sm:flex-row items-end gap-4">
-            <div className="form-control flex-1 w-full">
-              <label className="label text-xs font-bold"><span className="label-text">{g.labelCaption}</span></label>
-              <input type="text" value={caption} onChange={e => setCaption(e.target.value)} placeholder="Caption for photo..." className="input input-bordered input-sm bg-base-100 font-medium w-full" />
-            </div>
-            <label className="btn btn-sm bg-green-800 hover:bg-green-700 text-white border-none font-bold cursor-pointer whitespace-nowrap">
-              {g.uploadPhoto}
-              <input type="file" accept="image/*" className="hidden" onChange={handlePhotoUpload} />
-            </label>
-          </div>
-
-          {photos.length === 0 ? (
-            <div className="bg-base-200 border border-base-300 rounded-2xl p-12 text-center font-bold opacity-60">{g.noPhotos}</div>
-          ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {photos.map(photo => (
-                <div key={photo.id} className="group relative cursor-pointer rounded-2xl overflow-hidden border border-base-300 shadow-md hover:shadow-xl transition-all" onClick={() => setLightbox(photo)}>
-                  <div className="aspect-[4/5]">
-                    <img 
-                      src={photo.url} 
-                      alt={photo.caption} 
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                    />
-                  </div>
-                  <div className="p-3 bg-base-100">
-                    <p className="font-bold text-xs text-base-content leading-snug line-clamp-2">{photo.caption}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+      {loading ? (
+        <div className="bg-base-200 border border-base-300 rounded-2xl p-12 text-center font-bold opacity-60">
+          Loading gallery...
         </div>
-      )}
-
-      {/* VIDEO GALLERY */}
-      {activeTab === 'videos' && (
-        <div className="space-y-6">
-          <form onSubmit={handleAddVideo} className="bg-base-200 border border-base-300 rounded-2xl p-5 flex flex-col sm:flex-row items-end gap-4">
-            <div className="form-control flex-1 w-full">
-              <label className="label text-xs font-bold"><span className="label-text">{g.labelVideoTitle}</span></label>
-              <input type="text" value={newVideo.title} onChange={e => setNewVideo(p => ({...p, title: e.target.value}))} className="input input-bordered input-sm bg-base-100 font-medium w-full" required />
-            </div>
-            <div className="form-control flex-1 w-full">
-              <label className="label text-xs font-bold"><span className="label-text">{g.labelVideoUrl}</span></label>
-              <input type="url" value={newVideo.url} onChange={e => setNewVideo(p => ({...p, url: e.target.value}))} placeholder="https://youtube.com/watch?v=..." className="input input-bordered input-sm bg-base-100 font-medium w-full" required />
-            </div>
-            <button type="submit" className="btn btn-sm bg-green-800 hover:bg-green-700 text-white border-none font-bold whitespace-nowrap">{g.btnAdd}</button>
-          </form>
-
-          {videos.length === 0 ? (
-            <div className="bg-base-200 border border-base-300 rounded-2xl p-12 text-center font-bold opacity-60">{g.noVideos}</div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {videos.map(video => (
-                <div key={video.id} className="bg-base-200 border border-base-300 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
-                  <div className="aspect-video">
-                    <iframe src={video.url} title={video.title} className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+      ) : (
+        <>
+          {/* PHOTO GALLERY */}
+          {activeTab === 'photos' && (
+            photos.length === 0 ? (
+              <div className="bg-base-200 border border-base-300 rounded-2xl p-12 text-center font-bold opacity-60">{g.noPhotos}</div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                {photos.map(photo => (
+                  <div key={photo._id} className="group relative cursor-pointer rounded-2xl overflow-hidden border border-base-300 shadow-md hover:shadow-xl transition-all" onClick={() => setLightbox(photo)}>
+                    <div className="aspect-[4/5]">
+                      <img
+                        src={photo.url}
+                        alt={photo.caption}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-3 bg-base-100">
+                      <p className="font-bold text-xs text-base-content leading-snug line-clamp-2">{photo.caption}</p>
+                    </div>
                   </div>
-                  <div className="p-4 border-t border-base-300/60">
-                    <p className="font-black text-sm text-base-content leading-snug">{video.title}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )
           )}
-        </div>
+
+          {/* VIDEO GALLERY */}
+          {activeTab === 'videos' && (
+            videos.length === 0 ? (
+              <div className="bg-base-200 border border-base-300 rounded-2xl p-12 text-center font-bold opacity-60">{g.noVideos}</div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {videos.map(video => (
+                  <div key={video._id} className="bg-base-200 border border-base-300 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                    <div className="aspect-video">
+                      {video.publicId ? (
+                        <video src={video.url} controls className="w-full h-full object-cover" />
+                      ) : (
+                        <iframe src={video.url} title={video.title} className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                      )}
+                    </div>
+                    <div className="p-4 border-t border-base-300/60">
+                      <p className="font-black text-sm text-base-content leading-snug">{video.title}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )
+          )}
+        </>
       )}
 
       {/* Lightbox */}

@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../Pages/LanguageContext'
+import { useAuth } from '../Pages/AuthCont'
 
 const Navbar = () => {
   const [theme, setTheme] = useState('light')
   const context = useLanguage()
-
+  const { user, isAuthenticated, logout } = useAuth()
   if (!context || !context.t) {
     return <div className="p-4 bg-green-800 text-white text-center">Loading Translation Module...</div>
   }
@@ -134,11 +135,19 @@ const Navbar = () => {
             </svg>
           )}
         </button>
-        <Link to="/login">
-          <button className="btn bg-amber-500 hover:bg-amber-600 border-none text-stone-900 font-bold px-4 btn-sm sm:btn-md rounded-lg shadow transition-all transform active:scale-95">
-            {t.navbar.login}
-          </button>
-        </Link>
+        {isAuthenticated ? (
+  <Link to="/dashboard">
+    <button className="btn bg-amber-500 hover:bg-amber-600 border-none text-stone-900 font-bold px-4 btn-sm sm:btn-md rounded-lg shadow transition-all transform active:scale-95">
+      👤 Profile
+    </button>
+  </Link>
+) : (
+  <Link to="/login">
+    <button className="btn bg-amber-500 hover:bg-amber-600 border-none text-stone-900 font-bold px-4 btn-sm sm:btn-md rounded-lg shadow transition-all transform active:scale-95">
+      {t.navbar.login}
+    </button>
+  </Link>
+)}
       </div>
     </div>
   )

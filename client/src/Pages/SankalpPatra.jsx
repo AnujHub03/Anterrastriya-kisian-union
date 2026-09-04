@@ -1,12 +1,31 @@
 import React, { useState } from 'react'
 import { useLanguage } from './LanguageContext'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const SankalpPatra = () => {
   const { t } = useLanguage()
   const [agreedCount, setAgreedCount] = useState(12456)
   const [hasAgreed, setHasAgreed] = useState(false)
   const [showConfetti, setShowConfetti] = useState(false)
+  const [resolutions, setResolutions] = useState([])
+const [resolutionsLoading, setResolutionsLoading] = useState(true)
+
+useEffect(() => {
+  const load = async () => {
+    try {
+      const res = await fetch('http://localhost:5000/api/sankalp')
+      if (!res.ok) throw new Error('Failed to load resolutions')
+      const data = await res.json()
+      setResolutions(data)
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setResolutionsLoading(false)
+    }
+  }
+  load()
+}, [])
 
   const handleAgree = () => {
     if (hasAgreed) return
@@ -20,7 +39,7 @@ const SankalpPatra = () => {
     return <div className="min-h-screen flex items-center justify-center text-lg">Loading...</div>
   }
 
-  const resolutions = [
+  /*const resolutions = [
     { num: '01', icon: '💰', title: t.sankalp.r1Title, desc: t.sankalp.r1Desc, color: 'green' },
     { num: '02', icon: '⚖️', title: t.sankalp.r2Title, desc: t.sankalp.r2Desc, color: 'blue' },
     { num: '03', icon: '🏪', title: t.sankalp.r3Title, desc: t.sankalp.r3Desc, color: 'orange' },
@@ -46,7 +65,13 @@ const SankalpPatra = () => {
     { num: '23', icon: '🤝', title: t.sankalp.r23Title, desc: t.sankalp.r23Desc, color: 'purple' },
     { num: '24', icon: '🌐', title: t.sankalp.r24Title, desc: t.sankalp.r24Desc, color: 'indigo' },
     { num: '25', icon: '🌾', title: t.sankalp.r25Title, desc: t.sankalp.r25Desc, color: 'primary' },
-  ]
+  ]*/
+
+    
+
+    
+
+
 
   const colorMap = {
     green: { bg: 'bg-green-500/10', border: 'hover:border-green-500/40', num: 'text-green-500/30 group-hover:text-green-500/70', line: 'from-green-500 to-green-400' },
@@ -173,6 +198,10 @@ const SankalpPatra = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {resolutionsLoading && <p className="col-span-full text-center text-sm opacity-60">Loading resolutions…</p>}
+  {!resolutionsLoading && resolutions.length === 0 && (
+    <p className="col-span-full text-center text-sm opacity-60">No resolutions added yet.</p>
+  )}
             {resolutions.map((r, i) => {
               const colors = colorMap[r.color] || colorMap.primary
               return (
