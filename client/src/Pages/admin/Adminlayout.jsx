@@ -7,6 +7,7 @@ const navItems = [
   { to: '/dashboard/gallery', label: 'Gallery' },
   { to: '/dashboard/sankalp', label: 'Sankalp Patra' },
   { to: '/dashboard/blog', label: 'Blog' },
+  { to: '/dashboard/membership', label: 'Membership' },
 ]
 
 const AdminLayout = () => {

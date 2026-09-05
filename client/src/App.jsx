@@ -26,7 +26,7 @@ import AdminLayout from './Pages/admin/Adminlayout'
 import AdminGallery from './Pages/admin/Admingallery'
 import SankalpAdmin from './Pages/admin/Sankalpadmin'
 import BlogAdmin from './Pages/admin/BlogAdmin'
-
+import MembershipAdmin from './Pages/admin/Membershipadmin'
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -45,6 +45,7 @@ function App() {
   <Route index element={<Navigate to="gallery" replace />} />
   <Route path="gallery" element={<AdminGallery/>} />
   <Route path="sankalp" element={<SankalpAdmin />} />
+   <Route path="membership" element={<MembershipAdmin />} />
   <Route path="blog" element={<BlogAdmin />} />
 </Route>
           <Route path='/' element={<Home />} />

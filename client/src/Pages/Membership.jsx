@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from './LanguageContext'
 
-const sampleMembers = [
-  { id: 1, name: "रमेश सिंह / Ramesh Singh", state: "Uttar Pradesh", city: "Meerut", land: "Small", phone: "9876543210", status: "approved", joinDate: "Jan 2026" },
-  { id: 2, name: "सुनीता देवी / Sunita Devi", state: "Haryana", city: "Rohtak", land: "Medium", phone: "9765432100", status: "pending", joinDate: "Feb 2026" },
-  { id: 3, name: "प्रदीप कुमार / Pradeep Kumar", state: "Punjab", city: "Amritsar", land: "Small", phone: "9654321000", status: "approved", joinDate: "Mar 2026" },
-  { id: 4, name: "मीना पटेल / Meena Patel", state: "Gujarat", city: "Surat", land: "Other", phone: "9543210000", status: "pending", joinDate: "Apr 2026" },
-  { id: 5, name: "राजेन्द्र यादव / Rajendra Yadav", state: "Bihar", city: "Patna", land: "Small", phone: "9432100000", status: "approved", joinDate: "May 2026" },
-  { id: 6, name: "लक्ष्मी बाई / Lakshmi Bai", state: "Madhya Pradesh", city: "Bhopal", land: "Medium", phone: "9321000000", status: "approved", joinDate: "May 2026" },
-  { id: 7, name: "विजय शर्मा / Vijay Sharma", state: "Rajasthan", city: "Jaipur", land: "Small", phone: "9210000000", status: "pending", joinDate: "Jun 2026" },
-  { id: 8, name: "अनिता कुमारी / Anita Kumari", state: "West Bengal", city: "Kolkata", land: "Other", phone: "9100000001", status: "approved", joinDate: "Jun 2026" },
-  { id: 9, name: "मोहन लाल / Mohan Lal", state: "Uttar Pradesh", city: "Agra", land: "Small", phone: "9000000002", status: "approved", joinDate: "Jun 2026" },
-  { id: 10, name: "शांति देवी / Shanti Devi", state: "Maharashtra", city: "Nagpur", land: "Medium", phone: "8900000003", status: "pending", joinDate: "Jun 2026" }
-]
+// ASSUMPTION: adjust if you have a shared axios instance / different env
+// var name for the API base URL elsewhere in the app.
+const API_BASE ='http://localhost:5000'
 
 const Membership = () => {
   const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState('apply')
-  const [members, setMembers] = useState(sampleMembers)
+  const [members, setMembers] = useState([])
+  const [loadingMembers, setLoadingMembers] = useState(true)
   const [search, setSearch] = useState('')
   const [filterState, setFilterState] = useState('All')
   const [toast, setToast] = useState('')
   const [form, setForm] = useState({ name: '', phone: '', land: '', state: '', city: '' })
+  const [submitting, setSubmitting] = useState(false)
 
   // Scan & Pay Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -31,6 +24,21 @@ const Membership = () => {
     if (toast) { const timer = setTimeout(() => setToast(''), 4000); return () => clearTimeout(timer) }
   }, [toast])
 
+  useEffect(() => {
+    const loadMembers = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/members`)
+        if (!res.ok) throw new Error('Failed to load members')
+        setMembers(await res.json())
+      } catch {
+        setMembers([]) // directory just shows "no members" rather than breaking the page
+      } finally {
+        setLoadingMembers(false)
+      }
+    }
+    loadMembers()
+  }, [])
+
   if (!t || !t.membership) return <div className="py-24 text-center text-lg">Loading Form Systems...</div>
   const m = t.membership
 
@@ -39,30 +47,12 @@ const Membership = () => {
   const filteredMembers = members.filter(mb => {
     const matchState = filterState === 'All' || mb.state === filterState
     const q = search.toLowerCase()
-    const matchSearch = mb.name.toLowerCase().includes(q) || mb.city.toLowerCase().includes(q) || mb.state.toLowerCase().includes(q)
+    const matchSearch = mb.name.toLowerCase().includes(q) || (mb.city || '').toLowerCase().includes(q) || mb.state.toLowerCase().includes(q)
     return matchState && matchSearch
   })
 
-  const totalApproved = members.filter(mb => mb.status === 'approved').length
-  const totalPending = members.filter(mb => mb.status === 'pending').length
-  const thisMonth = members.filter(mb => mb.status === 'approved' && mb.joinDate.includes('Jun 2026')).length
-  const statesCount = new Set(members.map(mb => mb.state)).size
-
-  const handleApprove = (id) => {
-    setMembers(prev => prev.map(mb => mb.id === id ? { ...mb, status: 'approved' } : mb))
-  }
-  const handleReject = (id) => {
-    setMembers(prev => prev.filter(mb => mb.id !== id))
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const newMember = { id: Date.now(), name: form.name, state: form.state || 'Unknown', city: form.city || 'Unknown', land: form.land, phone: form.phone, status: 'pending', joinDate: 'Jun 2026' }
-    setMembers(prev => [newMember, ...prev])
-    setForm({ name: '', phone: '', land: '', state: '', city: '' })
-    setToast(m.successMsg)
-    setIsModalOpen(true) // Triggers the payment QR modal strictly on form submission
-  }
+  const formatJoinDate = (iso) =>
+    new Date(iso).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
 
   const tabBtn = (key, label) => (
     <button key={key} onClick={() => setActiveTab(key)}
@@ -74,6 +64,31 @@ const Membership = () => {
       {label}
     </button>
   )
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    try {
+      const res = await fetch(`${API_BASE}/api/members`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.message || 'Failed to submit application')
+      }
+      const created = await res.json()
+      setMembers(prev => [created, ...prev]) // shows up in Directory immediately, as "pending"
+      setForm({ name: '', phone: '', land: '', state: '', city: '' })
+      setToast(m.successMsg)
+      setIsModalOpen(true) // Triggers the payment QR modal strictly on form submission
+    } catch (err) {
+      setToast(err.message)
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <div className="py-8 max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
@@ -113,7 +128,6 @@ const Membership = () => {
       <div className="flex flex-wrap gap-2 p bg-white/60 dark:bg-base-900/60 backdrop-blur-xl p-1.5 rounded-xl border border-white/40 dark:border-white/10 shadow-lg sticky top-4 z-20">
         {tabBtn('apply', m.tabApply)}
         {tabBtn('directory', m.tabDirectory)}
-        {tabBtn('dashboard', m.tabDashboard)}
       </div>
 
       {/* APPLY TAB */}
@@ -155,8 +169,8 @@ const Membership = () => {
               </div>
 
               <div className="form-control pt-2">
-                <button type="submit" className="btn bg-green-800 hover:bg-green-700 text-white border-none w-full text-base font-bold shadow-lg shadow-green-800/25 rounded-full hover:scale-[1.02] active:scale-95 transition-transform duration-300">
-                  {m.submitBtn}
+                <button type="submit" disabled={submitting} className="btn bg-green-800 hover:bg-green-700 text-white border-none w-full text-base font-bold shadow-lg shadow-green-800/25 rounded-full hover:scale-[1.02] active:scale-95 transition-transform duration-300">
+                  {submitting ? '...' : m.submitBtn}
                 </button>
               </div>
             </form>
@@ -192,7 +206,9 @@ const Membership = () => {
             <p className="text-xs font-bold opacity-50">{filteredMembers.length} {t.navbar.membership || 'members'}</p>
           </div>
 
-          {filteredMembers.length === 0 ? (
+          {loadingMembers ? (
+            <div className="text-center py-12 text-sm opacity-60">Loading members…</div>
+          ) : filteredMembers.length === 0 ? (
             <div className="bg-base-100/50 backdrop-blur-sm border border-dashed border-base-300 rounded-[2rem] p-16 text-center">
               <div className="text-5xl mb-4">🔍</div>
               <p className="text-lg font-bold text-base-content/60">{m.noMembers}</p>
@@ -200,7 +216,7 @@ const Membership = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredMembers.map(mb => (
-                <div key={mb.id} className="group relative bg-white/70 dark:bg-base-900/70 backdrop-blur-sm border border-white/40 dark:border-white/10 rounded-[2rem] p-6 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+                <div key={mb._id} className="group relative bg-white/70 dark:bg-base-900/70 backdrop-blur-sm border border-white/40 dark:border-white/10 rounded-[2rem] p-6 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
                   <div className={`absolute top-0 left-0 h-full w-2 rounded-l-[2rem] ${mb.status === 'approved' ? 'bg-gradient-to-b from-green-600 to-green-400' : 'bg-gradient-to-b from-amber-500 to-amber-300'}`}></div>
                   
                   <div className={`absolute -top-10 -right-10 w-24 h-24 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 ${mb.status === 'approved' ? 'bg-green-600' : 'bg-amber-500'}`}></div>
@@ -220,87 +236,14 @@ const Membership = () => {
                     </div>
                     <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-bold text-base-content/60 mt-4 bg-base-100/50 dark:bg-base-900/50 rounded-xl px-4 py-3 border border-base-300/30">
                       <span className="flex items-center gap-1.5"><span>📱</span>{mb.phone}</span>
-                      <span className="flex items-center gap-1.5"><span>🗓</span>{mb.joinDate}</span>
-                      <span className="flex items-center gap-1.5"><span>🌾</span>{mb.land}</span>
+                      <span className="flex items-center gap-1.5"><span>🗓</span>{formatJoinDate(mb.createdAt)}</span>
+                      <span className="flex items-center gap-1.5"><span>🌾</span>{mb.land || '—'}</span>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           )}
-        </div>
-      )}
-
-      {/* DASHBOARD TAB */}
-      {activeTab === 'dashboard' && (
-        <div className="space-y-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { label: m.totalMembers, value: members.length, color: 'text-green-700 dark:text-green-400', bg: 'bg-green-50/80 dark:bg-green-900/20', border: 'border-green-500/20', icon: '👥' },
-              { label: m.pendingApprovals, value: totalPending, color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50/80 dark:bg-amber-900/20', border: 'border-amber-500/20', icon: '⏳' },
-              { label: m.approvedThisMonth, value: thisMonth, color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50/80 dark:bg-blue-900/20', border: 'border-blue-500/20', icon: '✅' },
-              { label: m.statesRepresented, value: statesCount, color: 'text-purple-600 dark:text-purple-400', bg: 'bg-purple-50/80 dark:bg-purple-900/20', border: 'border-purple-500/20', icon: '🗺️' }
-            ].map((stat, i) => (
-              <div key={i} className={`${stat.bg} backdrop-blur-sm border ${stat.border} rounded-[1.5rem] p-6 text-center shadow-lg hover:scale-105 transition-transform duration-300`}>
-                <div className="text-3xl mb-2 drop-shadow-sm">{stat.icon}</div>
-                <div className={`text-3xl sm:text-4xl font-black ${stat.color}`}>{stat.value}</div>
-                <div className="text-[10px] sm:text-xs font-bold opacity-60 mt-2 uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="space-y-6">
-            <h3 className="text-xl font-black text-amber-600 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-              {m.pendingApprovals}
-            </h3>
-            {members.filter(mb => mb.status === 'pending').length === 0 ? (
-              <div className="bg-base-100/50 backdrop-blur-sm border border-dashed border-base-300 rounded-[2rem] p-12 text-center">
-                <div className="text-4xl mb-3">✅</div>
-                <p className="font-bold text-base-content/60">{t.navbar.home === 'Home' ? 'No pending approvals!' : 'कोई लंबित अनुमोदन नहीं!'}</p>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {members.filter(mb => mb.status === 'pending').map(mb => (
-                  <div key={mb.id} className="group bg-white/70 dark:bg-base-900/70 backdrop-blur-sm border border-amber-400/30 rounded-[1.5rem] p-5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-600 flex items-center justify-center text-lg shrink-0">
-                        {mb.name.charAt(0)}
-                      </div>
-                      <div>
-                        <h4 className="font-black text-base-content text-sm">{mb.name}</h4>
-                        <p className="text-xs font-semibold text-base-content/50 mt-0.5">📍 {mb.city}, {mb.state} · 📱 {mb.phone} · 🌾 {mb.land} · 🗓 {mb.joinDate}</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-2 shrink-0">
-                      <button onClick={() => handleApprove(mb.id)} className="btn btn-xs bg-green-700 hover:bg-green-600 text-white border-none font-bold rounded-full shadow-md shadow-green-700/20 hover:scale-105 transition-transform">{m.btnApprove}</button>
-                      <button onClick={() => handleReject(mb.id)} className="btn btn-xs btn-outline btn-error font-bold rounded-full hover:scale-105 transition-transform">{m.btnReject}</button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="space-y-6">
-            <h3 className="text-xl font-black text-green-700 dark:text-green-400 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500"></span>
-              {m.statusApproved} ({totalApproved})
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {members.filter(mb => mb.status === 'approved').map(mb => (
-                <div key={mb.id} className="group bg-white/70 dark:bg-base-900/70 backdrop-blur-sm border border-green-500/20 rounded-2xl p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400 flex items-center justify-center text-sm font-black shrink-0">
-                      {mb.name.charAt(0)}
-                    </div>
-                    <p className="font-black text-sm text-base-content group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors">{mb.name}</p>
-                  </div>
-                  <p className="text-xs opacity-50 font-semibold ml-11">📍 {mb.city}, {mb.state} · {mb.joinDate}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       )}
 
