@@ -16,7 +16,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173", // Vite local frontend
   "http://localhost:3000", // React/other local frontend
-  "https://anterrastriya-kisian-union.vercel.app/", // Your Vercel frontend
+  "https://anterrastriya-kisian-union.vercel.app", // Your Vercel frontend
 ];
 
 app.use(
