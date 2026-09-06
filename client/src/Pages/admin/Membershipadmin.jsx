@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAuth } from '../AuthCont.jsx'
 
 // ASSUMPTION: adjust to wherever your app's API base URL actually lives.
-const API_BASE = 'http://localhost:5000'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
 
 const MembershipAdmin = () => {
   // ASSUMPTION: your AuthCont exposes the logged-in user with a JWT on
