@@ -7,7 +7,7 @@ import galleryRoutes from "./routes/galleryRoutes.js";
 import sankalpRoutes from "./routes/Sankalproutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import memberRoutes from "./routes/Memberroutes.js";
-import paymentRoutes from "./routes/paymentRoutes.js";
+import paymentRoutes from "./routes/Paymentroutes.js";
 dotenv.config();
 
 connectDB();
