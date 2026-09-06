@@ -10,11 +10,12 @@ const SankalpPatra = () => {
   const [showConfetti, setShowConfetti] = useState(false)
   const [resolutions, setResolutions] = useState([])
 const [resolutionsLoading, setResolutionsLoading] = useState(true)
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
 
 useEffect(() => {
   const load = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/sankalp')
+      const res = await fetch(`${API_BASE}/api/sankalp`)
       if (!res.ok) throw new Error('Failed to load resolutions')
       const data = await res.json()
       setResolutions(data)

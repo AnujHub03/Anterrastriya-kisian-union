@@ -3,7 +3,7 @@ import { useLanguage } from './LanguageContext'
 
 // ASSUMPTION: adjust if you have a shared axios instance / different env
 // var name for the API base URL elsewhere in the app.
-const API_BASE ='http://localhost:5000'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
 
 const Membership = () => {
   const { t } = useLanguage()
