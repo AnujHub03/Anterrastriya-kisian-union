@@ -7,6 +7,7 @@ import galleryRoutes from "./routes/galleryRoutes.js";
 import sankalpRoutes from "./routes/Sankalproutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import memberRoutes from "./routes/Memberroutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js";
 dotenv.config();
 
 connectDB();
@@ -41,6 +42,7 @@ app.use("/api/gallery", galleryRoutes);
 app.use("/api/sankalp", sankalpRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/members", memberRoutes);
+app.use("/api/payments", paymentRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
