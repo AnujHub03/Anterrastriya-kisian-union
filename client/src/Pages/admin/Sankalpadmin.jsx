@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAuth } from '../AuthCont.jsx'
 
-const API_BASE = 'http://localhost:5000'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
 
 const COLOR_OPTIONS = [
   'green', 'blue', 'orange', 'amber', 'red', 'purple', 'cyan', 'indigo',

@@ -7,29 +7,46 @@ import galleryRoutes from "./routes/galleryRoutes.js";
 import sankalpRoutes from "./routes/Sankalproutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import memberRoutes from "./routes/Memberroutes.js";
+import paymentRoutes from "./routes/Paymentroutes.js";
 dotenv.config();
 
 connectDB();
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+const allowedOrigins = [
+  "http://localhost:5173", // Vite local frontend
+  "http://localhost:3000", // React/other local frontend
+  "https://anterrastriya-kisian-union.vercel.app", // Your Vercel frontend
+  "https://www.anterrastriyakisanunion.com"
+];
 
-// Routes
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (Postman, mobile apps, etc.)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/gallery", galleryRoutes);
 app.use("/api/sankalp", sankalpRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/members", memberRoutes);
+app.use("/api/payments", paymentRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-// Global error handler — MUST be last. Catches anything thrown or passed
-// to next(err) anywhere above (including multer/cloudinary upload errors)
-// and returns JSON instead of Express's default HTML error page. This is
-// what was causing "upload failed" with no real reason showing up.
 app.use((err, req, res, next) => {
   console.error("Server error:", err);
   res.status(err.status || 500).json({

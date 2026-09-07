@@ -1,5 +1,7 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useLanguage } from './LanguageContext'
+
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
 
 const IdGenerator = () => {
   const { t } = useLanguage()
@@ -17,9 +19,27 @@ const IdGenerator = () => {
   // Modal display state & Payment QR Image Path (placed in public/QrCode/ folder)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [qrImageUrl, setQrImageUrl] = useState('/QrCode/Qrcode.png') 
+
+  // Toast for feedback (membership check results, errors, etc.)
+  const [toast, setToast] = useState('')
+
+  // Membership check state — if this phone already belongs to an
+  // approved member, they can skip payment entirely.
+  const [checkingMembership, setCheckingMembership] = useState(false)
+  const [verifiedMember, setVerifiedMember] = useState(false)
+
+  // Payment state — mirrors the flow on the Membership page. The Payment
+  // record is only created when "Pay ₹50" is clicked, not just from
+  // opening the modal or scanning the QR.
+  const [payment, setPayment] = useState(null)
+  const [payingNow, setPayingNow] = useState(false)
   
   // Reference for printable ID card container
   const cardRef = useRef(null)
+
+  useEffect(() => {
+    if (toast) { const timer = setTimeout(() => setToast(''), 4000); return () => clearTimeout(timer) }
+  }, [toast])
 
   if (!t || !t.idCard) {
     return (
@@ -46,38 +66,137 @@ const IdGenerator = () => {
     }
   }
 
-  // Handle "Generate ID & Show Payment QR" action
-  const handleGenerateIdAndShowQr = () => {
+  // Handle "Generate ID & Show Payment QR" action.
+  // First checks if this phone number already belongs to an approved
+  // member — if so, no payment is needed. Otherwise it opens the
+  // Scan & Pay flow just like the Membership page.
+  const handleGenerateIdAndShowQr = async () => {
+    if (!formData.phone) {
+      setToast('Enter your mobile number first.')
+      return
+    }
+
     const randomDigits = Math.floor(1000 + Math.random() * 9000)
     const newMemberId = `IKU-2026-${randomDigits}`
-    setFormData(prev => ({ ...prev, memberId: newMemberId }))
 
-    setQrImageUrl('/QrCode/Qrcode.png')
-    setIsModalOpen(true)
+    setCheckingMembership(true)
+    try {
+      const res = await fetch(`${API_BASE}/api/members?phone=${encodeURIComponent(formData.phone)}`)
+      const list = res.ok ? await res.json() : []
+      const approvedMember = list.find(mb => mb.status === 'approved')
+
+      setFormData(prev => ({ ...prev, memberId: newMemberId }))
+
+      if (approvedMember) {
+        setVerifiedMember(true)
+        setToast("You're a verified member — no payment needed. Your ID card is ready below.")
+        return
+      }
+
+      setVerifiedMember(false)
+      setPayment(null)
+      setQrImageUrl('/QrCode/Qrcode.png')
+      setIsModalOpen(true)
+    } catch {
+      setToast('Could not check membership status — please try again.')
+    } finally {
+      setCheckingMembership(false)
+    }
+  }
+
+  // Fires when the user clicks "Pay ₹50" in the form below the QR code.
+  // This click IS what creates the payment record.
+  const handlePayNow = async () => {
+    setPayingNow(true)
+    try {
+      const res = await fetch(`${API_BASE}/api/payments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name || 'Unnamed applicant',
+          phone: formData.phone,
+          purpose: 'idcard',
+          amount: 50,
+        }),
+      })
+      if (!res.ok) throw new Error('Failed to record payment')
+      setPayment(await res.json())
+    } catch (err) {
+      setToast(err.message)
+    } finally {
+      setPayingNow(false)
+    }
   }
 
   // System Print fallback
-  const handlePrint = () => {
-    if (!cardRef.current) return
-    const printWindow = window.open('', '', 'width=600,height=800')
-    printWindow.document.write(`
-      <html>
-        <head>
-          <title>Print ID Card</title>
-          <script src="https://cdn.tailwindcss.com"></script>
-        </head>
-        <body class="flex items-center justify-center min-h-screen bg-white">
-          ${cardRef.current.outerHTML}
-        </body>
-      </html>
-    `)
-    printWindow.document.close()
-    printWindow.focus()
-    setTimeout(() => {
-      printWindow.print()
-      printWindow.close()
-    }, 500)
+ const handlePrint = () => {
+  if (!verifiedMember) {
+    setToast('Only verified members can print the ID card.')
+    return
   }
+
+  if (!cardRef.current) return
+
+  const printWindow = window.open('', '', 'width=600,height=800')
+
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Print ID Card</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+      </head>
+
+      <body class="flex items-center justify-center min-h-screen bg-white">
+        ${cardRef.current.outerHTML}
+      </body>
+    </html>
+  `)
+
+  printWindow.document.close()
+  printWindow.focus()
+
+  setTimeout(() => {
+    printWindow.print()
+    printWindow.close()
+  }, 500)
+}
+  const handleDownload = async () => {
+  if (!verifiedMember) {
+    setToast('Only verified members can download the ID card.')
+    return
+  }
+
+  if (!cardRef.current) return
+
+  try {
+    // Dynamically load html2canvas if it is not already available
+    if (!window.html2canvas) {
+      const script = document.createElement('script')
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'
+
+      await new Promise((resolve, reject) => {
+        script.onload = resolve
+        script.onerror = reject
+        document.body.appendChild(script)
+      })
+    }
+
+    const canvas = await window.html2canvas(cardRef.current, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: '#ffffff'
+    })
+
+    const link = document.createElement('a')
+    link.download = `${formData.name || 'member'}-ID-card.png`
+    link.href = canvas.toDataURL('image/png')
+    link.click()
+
+  } catch (error) {
+    console.error('Download error:', error)
+    setToast('Unable to download ID card. Please try again.')
+  }
+}
 
   // Generate dynamic QR code URL for card preview
   const qrDataString = `ID: ${formData.memberId}\nName: ${formData.name || 'Not Provided'}\nRole: ${formData.role}`
@@ -85,6 +204,14 @@ const IdGenerator = () => {
 
   return (
     <div className="py-8 max-w-6xl mx-auto space-y-10 px-4 sm:px-6 lg:px-8">
+
+      {toast && (
+        <div className="toast toast-top toast-end z-50">
+          <div className="alert alert-success shadow-2xl text-white font-bold text-sm rounded-2xl border border-green-600 backdrop-blur-sm">
+            <span>{toast}</span>
+          </div>
+        </div>
+      )}
       
       {/* Header Banner */}
       <div className="relative rounded-[2.5rem] overflow-hidden border border-white/20 dark:border-white/10 shadow-2xl">
@@ -186,29 +313,95 @@ const IdGenerator = () => {
               />
             </div>
 
-            <div className="flex flex-wrap gap-3 pt-2">
-              <button 
-                type="button" 
-                onClick={handleGenerateIdAndShowQr} 
-                className="btn btn-primary flex-1 font-bold text-xs sm:text-sm rounded-full shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-transform duration-300"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                {t.idCard.btnNewId || 'Generate & Show Payment QR'}
-              </button>
+            {verifiedMember && (
+              <div className="alert alert-success text-xs py-2">
+                ✓ Verified member — you can print/download your card now, no payment needed.
+              </div>
+            )}
 
-              <button 
-                type="button" 
-                onClick={handlePrint} 
-                className="btn btn-outline btn-secondary flex-1 font-bold text-xs sm:text-sm rounded-full hover:scale-105 active:scale-95 transition-transform duration-300"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                </svg>
-                {t.idCard.btnPrint || 'Print Card'}
-              </button>
-            </div>
+            <div className="flex flex-wrap gap-3 pt-2">
+
+  {/* Generate ID Card */}
+  <button 
+    type="button" 
+    onClick={handleGenerateIdAndShowQr} 
+    disabled={checkingMembership}
+    className="btn btn-primary flex-1 font-bold text-xs sm:text-sm rounded-full shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-transform duration-300"
+  >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      className="h-4 w-4 mr-1" 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke="currentColor"
+    >
+      <path 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="2" 
+        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+      />
+    </svg>
+
+    {checkingMembership ? 'Checking…' : 'GENERATE ID CARD'}
+  </button>
+
+
+  {/* Only verified members can Download / Print */}
+  {verifiedMember && (
+    <>
+      {/* Download Button */}
+      <button
+        type="button"
+        onClick={handleDownload}
+        className="btn btn-success flex-1 font-bold text-xs sm:text-sm rounded-full hover:scale-105 active:scale-95 transition-transform duration-300"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="h-4 w-4 mr-1" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth="2" 
+            d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" 
+          />
+        </svg>
+
+        DOWNLOAD ID CARD
+      </button>
+
+
+      {/* Print Button */}
+      <button 
+        type="button"
+        onClick={handlePrint} 
+        className="btn btn-outline btn-secondary flex-1 font-bold text-xs sm:text-sm rounded-full hover:scale-105 active:scale-95 transition-transform duration-300"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="h-4 w-4 mr-1" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth="2" 
+            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H9v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" 
+          />
+        </svg>
+
+        PRINT ID CARD
+      </button>
+    </>
+  )}
+
+</div>
           </form>
         </div>
 
@@ -324,6 +517,32 @@ const IdGenerator = () => {
                 alt="Anterrastriya Kisan Union Scan & Pay QR Code" 
                 className="max-h-[420px] w-auto object-contain rounded-xl shadow-md"
               />
+            </div>
+
+            {/* PAY ₹50 FORM — the payment record is created only when
+                this button is clicked, not by scanning the QR above. */}
+            <div className="space-y-3 pt-2 border-t border-base-300">
+              {!payment ? (
+                <>
+                  <div className="text-xs text-center opacity-60">
+                    {formData.name || 'Applicant'} · {formData.phone} · ₹50
+                  </div>
+                  <button
+                    onClick={handlePayNow}
+                    disabled={payingNow}
+                    className="btn btn-success btn-sm w-full font-bold"
+                  >
+                    {payingNow ? 'Recording…' : 'Pay ₹50'}
+                  </button>
+                </>
+              ) : (
+                <div className="alert alert-success text-xs py-2 flex-col items-start gap-1">
+                  <span>Payment recorded — awaiting admin verification.</span>
+                  <span>
+                    Unique ID: <span className="font-mono font-bold">{payment.referenceId}</span>
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Modal Footer Controls */}

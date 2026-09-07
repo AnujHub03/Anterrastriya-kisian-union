@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const API_BASE = 'http://localhost:5000/api/gallery'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
 
 const AdminGallery = () => {
   const [activeTab, setActiveTab] = useState('photos')
@@ -21,8 +21,8 @@ const AdminGallery = () => {
       setError(null)
       try {
         const [photosRes, videosRes] = await Promise.all([
-          fetch(`${API_BASE}/photos`),
-          fetch(`${API_BASE}/videos`)
+          fetch(`${API_BASE}/api/gallery/photos`),
+          fetch(`${API_BASE}/api/gallery/videos`)
         ])
         if (!photosRes.ok || !videosRes.ok) throw new Error('Failed to load gallery')
         setPhotos(await photosRes.json())
@@ -49,7 +49,7 @@ const AdminGallery = () => {
       formData.append('photo', file)
       formData.append('caption', caption || file.name)
 
-      const res = await fetch(`${API_BASE}/photos`, {
+      const res = await fetch(`${API_BASE}/api/gallery/photos`, {
         method: 'POST',
         body: formData
       })
@@ -83,7 +83,7 @@ const AdminGallery = () => {
       formData.append('video', file)
       formData.append('title', newVideo.title || file.name)
 
-      const res = await fetch(`${API_BASE}/videos/upload`, {
+      const res = await fetch(`${API_BASE}/api/gallery/videos/upload`, {
         method: 'POST',
         body: formData
       })
@@ -112,7 +112,7 @@ const AdminGallery = () => {
 
     setError(null)
     try {
-      const res = await fetch(`${API_BASE}/videos/link`, {
+      const res = await fetch(`${API_BASE}/api/gallery/videos/link`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newVideo)
@@ -135,7 +135,7 @@ const AdminGallery = () => {
     if (!window.confirm('Delete this photo?')) return
     setError(null)
     try {
-      const res = await fetch(`${API_BASE}/photos/${id}`, { method: 'DELETE' })
+      const res = await fetch(`${API_BASE}/api/gallery/photos/${id}`, { method: 'DELETE' })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.message || 'Failed to delete photo')
       setPhotos(prev => prev.filter(p => p._id !== id))
@@ -148,7 +148,7 @@ const AdminGallery = () => {
     if (!window.confirm('Delete this video?')) return
     setError(null)
     try {
-      const res = await fetch(`${API_BASE}/videos/${id}`, { method: 'DELETE' })
+      const res = await fetch(`${API_BASE}/api/gallery/videos/${id}`, { method: 'DELETE' })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.message || 'Failed to delete video')
       setVideos(prev => prev.filter(v => v._id !== id))

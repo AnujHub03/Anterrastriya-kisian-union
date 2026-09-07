@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from './LanguageContext'
 
-// ASSUMPTION: adjust if you have a shared axios instance / different env
-// var name for the API base URL elsewhere in the app.
-const API_BASE ='http://localhost:5000'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
 
 const Membership = () => {
   const { t } = useLanguage()
@@ -19,6 +17,12 @@ const Membership = () => {
   // Scan & Pay Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
   const qrImageUrl = '/QrCode/Qrcode.png'
+
+  // Payment state — the Payment record is only created when the user
+  // clicks "Pay ₹50" in the form below the QR code, not on submit.
+  const [submittedApplicant, setSubmittedApplicant] = useState(null) // { name, phone, memberId }
+  const [payment, setPayment] = useState(null)
+  const [payingNow, setPayingNow] = useState(false)
 
   useEffect(() => {
     if (toast) { const timer = setTimeout(() => setToast(''), 4000); return () => clearTimeout(timer) }
@@ -80,6 +84,13 @@ const Membership = () => {
       }
       const created = await res.json()
       setMembers(prev => [created, ...prev]) // shows up in Directory immediately, as "pending"
+
+      // Remember who just applied so the "Pay ₹50" button in the modal
+      // below has what it needs — the payment record itself is only
+      // created when that button is actually clicked.
+      setSubmittedApplicant({ name: form.name, phone: form.phone, memberId: created._id })
+      setPayment(null)
+
       setForm({ name: '', phone: '', land: '', state: '', city: '' })
       setToast(m.successMsg)
       setIsModalOpen(true) // Triggers the payment QR modal strictly on form submission
@@ -87,6 +98,33 @@ const Membership = () => {
       setToast(err.message)
     } finally {
       setSubmitting(false)
+    }
+  }
+
+  // Fires when the user clicks "Pay ₹50" in the form below the QR code.
+  // This click IS what creates the payment record — nothing is created
+  // just from scanning the QR or opening the modal.
+  const handlePayNow = async () => {
+    if (!submittedApplicant) return
+    setPayingNow(true)
+    try {
+      const res = await fetch(`${API_BASE}/api/payments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: submittedApplicant.name,
+          phone: submittedApplicant.phone,
+          purpose: 'membership',
+          memberId: submittedApplicant.memberId,
+          amount: 50,
+        }),
+      })
+      if (!res.ok) throw new Error('Failed to record payment')
+      setPayment(await res.json())
+    } catch (err) {
+      setToast(err.message)
+    } finally {
+      setPayingNow(false)
     }
   }
 
@@ -276,6 +314,34 @@ const Membership = () => {
                 className="max-h-[420px] w-auto object-contain rounded-xl shadow-md"
               />
             </div>
+
+            {/* PAY ₹50 FORM — the payment record is created only when
+                this button is clicked, not by scanning the QR above. */}
+            {submittedApplicant && (
+              <div className="space-y-3 pt-2 border-t border-base-300">
+                {!payment ? (
+                  <>
+                    <div className="text-xs text-center opacity-60">
+                      {submittedApplicant.name} · {submittedApplicant.phone} · ₹50
+                    </div>
+                    <button
+                      onClick={handlePayNow}
+                      disabled={payingNow}
+                      className="btn btn-success btn-sm w-full font-bold"
+                    >
+                      {payingNow ? 'Recording…' : 'Pay ₹50'}
+                    </button>
+                  </>
+                ) : (
+                  <div className="alert alert-success text-xs py-2 flex-col items-start gap-1">
+                    <span>Payment recorded — awaiting admin verification.</span>
+                    <span>
+                      Unique ID: <span className="font-mono font-bold">{payment.referenceId}</span>
+                    </span>
+                  </div>
+                )}
+              </div>
+            )}
 
             <div className="flex justify-end gap-3 pt-2">
               <button 

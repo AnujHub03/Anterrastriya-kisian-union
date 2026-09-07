@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from './LanguageContext'
 
-const API_BASE = 'http://localhost:5000/api/gallery'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
 
 const Gallery = () => {
   const { t } = useLanguage()
@@ -19,8 +19,8 @@ const Gallery = () => {
       setError(null)
       try {
         const [photosRes, videosRes] = await Promise.all([
-          fetch(`${API_BASE}/photos`),
-          fetch(`${API_BASE}/videos`)
+          fetch(`${API_BASE}/api/gallery/photos`),
+          fetch(`${API_BASE}/api/gallery/videos`)
         ])
 
         if (!photosRes.ok || !videosRes.ok) {

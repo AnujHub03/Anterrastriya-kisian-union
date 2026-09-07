@@ -1,11 +1,15 @@
 import Member from "../models/Member.js";
 
 // GET /api/members
-// Public. Used by both the Directory tab on the public site and the
-// admin Membership dashboard — most recent applications first.
+// GET /api/members?phone=9876543210
+// Public. Used by the Directory tab, the admin Membership dashboard, and
+// the ID card page (which checks ?phone= to see if someone is already
+// an approved member before asking them to pay).
 export const getMembers = async (req, res, next) => {
   try {
-    const members = await Member.find().sort({ createdAt: -1 });
+    const filter = {};
+    if (req.query.phone) filter.phone = req.query.phone;
+    const members = await Member.find(filter).sort({ createdAt: -1 });
     res.json(members);
   } catch (err) {
     next(err);
