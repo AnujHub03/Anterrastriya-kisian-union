@@ -68,6 +68,7 @@ function App() {
           <Route path='/downloads' element={<Downloads />} />
           <Route path='/login' element={<Login />} />
           <Route path='/news' element={<AgricultureNewsPage/>}/>
+          <Route path="*" element={<Navigate to="/" replace/>} />
         </Routes>
       </main>
       <Footer />
