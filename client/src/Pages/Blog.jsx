@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from './LanguageContext'
 
-const API_BASE = 'http://localhost:5000'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union-8cdn.onrender.com'
 
 const catColors = { 
   Policy: { bg: 'bg-gradient-to-r from-blue-600 to-blue-500', glow: 'bg-blue-500' }, 

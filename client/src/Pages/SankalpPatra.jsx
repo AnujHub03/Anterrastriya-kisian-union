@@ -10,7 +10,7 @@ const SankalpPatra = () => {
   const [showConfetti, setShowConfetti] = useState(false)
   const [resolutions, setResolutions] = useState([])
 const [resolutionsLoading, setResolutionsLoading] = useState(true)
-const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union-8cdn.onrender.com'
 
 useEffect(() => {
   const load = async () => {

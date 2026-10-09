@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union.onrender.com'
+const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union-8cdn.onrender.com'
 
 const AdminGallery = () => {
   const [activeTab, setActiveTab] = useState('photos')
