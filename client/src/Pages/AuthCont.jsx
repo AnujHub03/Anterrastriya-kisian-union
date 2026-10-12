@@ -1,3 +1,4 @@
+
 import { createContext, useContext, useState } from 'react'
 
 const AuthContext = createContext(null)
@@ -14,18 +15,20 @@ const safeParseJSON = async (res) => {
   }
 }
 
+const readStored = () => {
+  try {
+    const stored = localStorage.getItem('auth') || sessionStorage.getItem('auth')
+    return stored ? JSON.parse(stored) : null
+  } catch {
+    return null
+  }
+}
+
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => {
-    try {
-      const stored = localStorage.getItem('user')
-      return stored ? JSON.parse(stored) : null
-    } catch {
-      return null
-    }
-  })
+  const [auth, setAuth] = useState(readStored)
   const [error, setError] = useState(null)
 
-  const login = async ({ email, password }) => {
+  const login = async ({ email, password, rememberMe = false }) => {
     setError(null)
     try {
       const res = await fetch(`${API_BASE}/login`, {
@@ -34,70 +37,42 @@ export const AuthProvider = ({ children }) => {
         body: JSON.stringify({ email, password })
       })
       const data = await safeParseJSON(res)
-      console.log(data)
 
       if (!res.ok) {
-        const message = data.message || `Login failed (${res.status})`
-        setError(message)
-        throw new Error(message)
+        throw new Error(data.message || `Login failed (${res.status})`)
       }
 
-      localStorage.setItem('user', JSON.stringify(data))
-      setUser(data)
+      // "Remember me" keeps login after the browser closes
+      localStorage.removeItem('auth')
+      sessionStorage.removeItem('auth')
+      const storage = rememberMe ? localStorage : sessionStorage
+      storage.setItem('auth', JSON.stringify(data))
+
+      setAuth(data)
       return data
     } catch (err) {
-      if (!error) {
-        const message = err.message === 'Failed to fetch'
-          ? 'Could not reach the server. Is the backend running on port 5000?'
+      setError(
+        err.message === 'Failed to fetch'
+          ? 'Could not reach the server. Please try again.'
           : err.message
-        setError(message)
-      }
-      throw err
-    }
-  }
-
-  const register = async ({ name, email, password }) => {
-    setError(null)
-    try {
-      const res = await fetch(`${API_BASE}/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password })
-      })
-      const data = await safeParseJSON(res)
-
-      if (!res.ok) {
-        const message = data.message || `Registration failed (${res.status})`
-        setError(message)
-        throw new Error(message)
-      }
-
-      localStorage.setItem('user', JSON.stringify(data))
-      setUser(data)
-      return data
-    } catch (err) {
-      if (!error) {
-        const message = err.message === 'Failed to fetch'
-          ? 'Could not reach the server. Is the backend running on port 5000?'
-          : err.message
-        setError(message)
-      }
+      )
       throw err
     }
   }
 
   const logout = () => {
-    localStorage.removeItem('user')
-    setUser(null)
+    localStorage.removeItem('auth')
+    sessionStorage.removeItem('auth')
+    setAuth(null)
   }
 
   const value = {
-    user,
-    isAuthenticated: !!user,
+    admin: auth?.admin || null,
+    token: auth?.token || null,
+    isAuthenticated: !!auth?.token,
     error,
     setError,
     login,
-    register,
     logout
   }
 
@@ -106,11 +81,7 @@ export const AuthProvider = ({ children }) => {
 
 export const useAuth = () => {
   const ctx = useContext(AuthContext)
-
-  if (!ctx) {
-    throw new Error('useAuth must be used inside AuthProvider')
-  }
-
+  if (!ctx) throw new Error('useAuth must be used inside AuthProvider')
   return ctx
 }
 

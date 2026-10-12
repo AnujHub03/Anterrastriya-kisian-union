@@ -1,31 +1,17 @@
 import jwt from "jsonwebtoken";
-import User from "../models/User.js";
+import "dotenv/config";
 
-export const protect = async (req, res, next) => {
-  let token;
+export const protect = (req, res, next) => {
+  const header = req.headers.authorization || "";
+  const token = header.startsWith("Bearer ") ? header.slice(7) : null;
+  if (!token) return res.status(401).json({ message: "Not authorized" });
 
-  const authHeader = req.headers.authorization;
-
-  if (authHeader && authHeader.startsWith("Bearer")) {
-    try {
-      token = authHeader.split(" ")[1];
-
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-      req.user = await User.findById(decoded.id);
-
-      if (!req.user) {
-        return res.status(401).json({ message: "User not found" });
-      }
-
-      next();
-    } catch (error) {
-      console.error(error);
-      return res.status(401).json({ message: "Not authorized, token failed" });
-    }
-  }
-
-  if (!token) {
-    return res.status(401).json({ message: "Not authorized, no token" });
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (decoded.role !== "admin") return res.status(403).json({ message: "Forbidden" });
+    req.admin = decoded;
+    next();
+  } catch {
+    res.status(401).json({ message: "Invalid or expired token" });
   }
 };
