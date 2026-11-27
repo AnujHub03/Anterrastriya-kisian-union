@@ -28,6 +28,7 @@ import SankalpAdmin from './Pages/admin/Sankalpadmin'
 import BlogAdmin from './Pages/admin/BlogAdmin'
 import MembershipAdmin from './Pages/admin/Membershipadmin'
 import PaymentsAdmin from './Pages/admin/Paymentsadmin'
+import LeadersManagement from './Pages/admin/LeadersManagement'
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -49,6 +50,10 @@ function App() {
    <Route path="membership" element={<MembershipAdmin />} />
   <Route path="blog" element={<BlogAdmin />} />
   <Route path="payments" element={<PaymentsAdmin/>} />
+  <Route
+    path="leaders"
+    element={<LeadersManagement />}
+  />
 </Route>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />

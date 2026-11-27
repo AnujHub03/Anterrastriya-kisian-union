@@ -16,14 +16,41 @@ export const getMembers = async (req, res, next) => {
   }
 };
 
+export const getMemberByPhone = async(req,res)=>{
+  
+  try{
+
+    const response = await Member.findOne({phone:req.params.phone})
+    console.log('member response',response)
+    if(response.length==0)
+    {
+      return res.json({error:"No such Member"})
+    }
+
+    res.json({memberData:response})
+  }catch(e)
+  {
+    console.log(e)
+  }
+
+}
+
 // POST /api/members
 // Public. Anyone can submit a membership application. Always created
 // as "pending" — a person cannot approve themself.
 export const createMember = async (req, res, next) => {
+  console.log('req.body',req.body)
   try {
     const { name, phone, land, state, city } = req.body;
     if (!name || !phone || !state) {
       return res.status(400).json({ message: "Name, phone, and state are required" });
+    }
+    
+    const exist = await Member.findOne({phone:req.body.phone})
+    console.log('member exist',exist)
+    if(exist)
+    {
+      return res.json({error:"Already Member"})
     }
     const member = await Member.create({ name, phone, land, state, city, status: "pending" });
     res.status(201).json(member);
@@ -41,7 +68,11 @@ export const approveMember = async (req, res, next) => {
       { status: "approved" },
       { new: true }
     );
-    if (!member) return res.status(404).json({ message: "Member not found" });
+
+    if (!member) {
+      return res.status(404).json({ message: "Member not found" });
+    }
+
     res.json(member);
   } catch (err) {
     next(err);

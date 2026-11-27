@@ -52,13 +52,18 @@ export const approvePayment = async (req, res, next) => {
       { status: "approved" },
       { new: true }
     );
+    
     if (!payment) return res.status(404).json({ message: "Payment not found" });
 
-    if (payment.purpose === "membership" && payment.member) {
+    
+
+    if (payment.purpose === "membership" && payment.member) { 
       await Member.findByIdAndUpdate(payment.member, { status: "approved" });
     }
 
     res.json(payment);
+
+    console.log('payment',payment)
   } catch (err) {
     next(err);
   }

@@ -8,6 +8,7 @@ import sankalpRoutes from "./routes/Sankalproutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import memberRoutes from "./routes/Memberroutes.js";
 import paymentRoutes from "./routes/Paymentroutes.js";
+import LeaderRoutes from './routes/Leaderroutes.js'
 dotenv.config();
 
 connectDB();
@@ -43,6 +44,7 @@ app.use("/api/sankalp", sankalpRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/members", memberRoutes);
 app.use("/api/payments", paymentRoutes);
+app.use("/api/leaders", LeaderRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });

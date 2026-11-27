@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from '../context/LanguageContext'
 import img16 from '../../public/Gallery/img16.jpg';
 import img1 from '../../public/Gallery/img1.jpg';
 import img2 from '../../public/Gallery/img2.jpg';

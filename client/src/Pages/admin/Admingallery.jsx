@@ -14,6 +14,10 @@ const AdminGallery = () => {
   const [newVideo, setNewVideo] = useState({ title: '', url: '' })
   const [uploadingPhoto, setUploadingPhoto] = useState(false)
   const [uploadingVideo, setUploadingVideo] = useState(false)
+  const [editingPhoto, setEditingPhoto] = useState(null);
+const [editCaption, setEditCaption] = useState("");
+const [editPhotoFile, setEditPhotoFile] = useState(null);
+const [updatingPhoto, setUpdatingPhoto] = useState(false);
 
   useEffect(() => {
     const loadGallery = async () => {
@@ -41,6 +45,11 @@ const AdminGallery = () => {
   const handlePhotoUpload = async (e) => {
     const file = e.target.files[0]
     if (!file) return
+
+    if(caption==="" || null)
+    {
+      return alert('Provide caption first')
+    }
 
     setUploadingPhoto(true)
     setError(null)
@@ -144,6 +153,61 @@ const AdminGallery = () => {
     }
   }
 
+const handleEditPhoto = (photo) => {
+  setEditingPhoto(photo);
+  setEditCaption(photo.caption || "");
+  setEditPhotoFile(null);
+};
+
+const handleUpdatePhoto = async (e) => {
+  e.preventDefault();
+
+  if (!editingPhoto) return;
+
+  setUpdatingPhoto(true);
+  setError(null);
+
+  try {
+    const formData = new FormData();
+
+    formData.append("caption", editCaption);
+
+    if (editPhotoFile) {
+      formData.append("photo", editPhotoFile);
+    }
+
+    const res = await fetch(
+      `${API_BASE}/api/gallery/photos/${editingPhoto._id}`,
+      {
+        method: "PUT",
+        body: formData,
+      }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.message || "Failed to update photo");
+    }
+
+    setPhotos((prev) =>
+      prev.map((photo) =>
+        photo._id === editingPhoto._id ? data.photo : photo
+      )
+    );
+
+    setEditingPhoto(null);
+    setEditCaption("");
+    setEditPhotoFile(null);
+
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setUpdatingPhoto(false);
+  }
+};
+
+
   const handleDeleteVideo = async (id) => {
     if (!window.confirm('Delete this video?')) return
     setError(null)
@@ -190,6 +254,81 @@ const AdminGallery = () => {
             </label>
           </div>
 
+{editingPhoto && (
+  <form
+    onSubmit={handleUpdatePhoto}
+    className="bg-base-200 border border-green-700/30 rounded-2xl p-5 space-y-4"
+  >
+    <h3 className="font-black text-lg text-green-800">
+      Edit Photo
+    </h3>
+
+    <div className="flex flex-col sm:flex-row gap-4">
+      <img
+        src={
+          editPhotoFile
+            ? URL.createObjectURL(editPhotoFile)
+            : editingPhoto.url
+        }
+        alt="Preview"
+        className="w-24 h-24 rounded-xl object-cover"
+      />
+
+      <div className="flex-1 space-y-3">
+        <div>
+          <label className="label text-xs font-bold">
+            Photo Caption
+          </label>
+
+          <input
+            type="text"
+            value={editCaption}
+            onChange={(e) => setEditCaption(e.target.value)}
+            className="input input-bordered input-sm bg-base-100 w-full"
+            placeholder="Enter photo caption"
+          />
+        </div>
+
+        <div>
+          <label className="label text-xs font-bold">
+            Replace Image (Optional)
+          </label>
+
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setEditPhotoFile(e.target.files[0] || null)}
+            className="file-input file-input-bordered file-input-sm w-full"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div className="flex gap-2">
+      <button
+        type="submit"
+        disabled={updatingPhoto}
+        className="btn btn-sm bg-green-800 hover:bg-green-700 text-white border-none"
+      >
+        {updatingPhoto ? "Updating..." : "Save Changes"}
+      </button>
+
+      <button
+        type="button"
+        onClick={() => {
+          setEditingPhoto(null);
+          setEditCaption("");
+          setEditPhotoFile(null);
+        }}
+        className="btn btn-sm btn-ghost"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+)}
+
+
           {photos.length === 0 ? (
             <div className="bg-base-200 border border-base-300 rounded-2xl p-12 text-center font-bold opacity-60">No photos yet</div>
           ) : (
@@ -201,7 +340,21 @@ const AdminGallery = () => {
                   </div>
                   <div className="p-3 bg-base-100 flex items-center justify-between gap-2">
                     <p className="font-bold text-xs leading-snug line-clamp-2 flex-1">{photo.caption}</p>
-                    <button onClick={() => handleDeletePhoto(photo._id)} className="text-red-500 hover:text-red-700 text-xs font-bold shrink-0">Delete</button>
+                    <div className="flex gap-3 shrink-0">
+  <button
+    onClick={() => handleEditPhoto(photo)}
+    className="text-green-700 hover:text-green-900 text-xs font-bold"
+  >
+    Edit
+  </button>
+
+  <button
+    onClick={() => handleDeletePhoto(photo._id)}
+    className="text-red-500 hover:text-red-700 text-xs font-bold"
+  >
+    Delete
+  </button>
+</div>
                   </div>
                 </div>
               ))}

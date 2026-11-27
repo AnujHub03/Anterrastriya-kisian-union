@@ -35,6 +35,60 @@ router.post("/photos", upload.single("photo"), async (req, res) => {
   }
 });
 
+
+/* UPDATE PHOTO */
+
+router.put("/photos/:id", upload.single("photo"), async (req, res) => {
+  try {
+    const photo = await Photo.findById(req.params.id);
+
+    if (!photo) {
+      // The new file may already have been uploaded to Cloudinary.
+      if (req.file) {
+        await cloudinary.uploader.destroy(req.file.filename);
+      }
+
+      return res.status(404).json({ message: "Photo not found" });
+    }
+
+    // Update caption if it was provided
+    if (req.body.caption !== undefined) {
+      photo.caption = req.body.caption;
+    }
+
+    // If admin selected a replacement image
+    if (req.file) {
+      const oldPublicId = photo.publicId;
+
+      photo.url = req.file.path;
+      photo.publicId = req.file.filename;
+
+      await photo.save();
+
+      // Delete old image only after the new image is saved
+      if (oldPublicId) {
+        await cloudinary.uploader.destroy(oldPublicId);
+      }
+    } else {
+      await photo.save();
+    }
+
+    res.json({
+      message: "Photo updated successfully",
+      photo,
+    });
+
+  } catch (error) {
+    // Avoid leaving a newly uploaded image behind if saving fails
+    if (req.file) {
+      await cloudinary.uploader.destroy(req.file.filename).catch(() => {});
+    }
+
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
 router.delete("/photos/:id", async (req, res) => {
   try {
     const photo = await Photo.findById(req.params.id);

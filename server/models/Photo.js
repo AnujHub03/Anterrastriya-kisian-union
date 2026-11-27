@@ -12,6 +12,7 @@ const photoSchema = new mongoose.Schema(
     },
     caption: {
       type: String,
+      required:true,
       default: "",
       trim: true,
     },

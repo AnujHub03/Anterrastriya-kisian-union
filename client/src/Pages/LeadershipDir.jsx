@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import { useLanguage } from './LanguageContext'
-import img1 from "../../public/Gallery/img1.jpg";
-import img3 from "../../public/Gallery/img3.jpg";
-import img4 from "../../public/Gallery/img4.jpg";
-import img5 from "../../public/Gallery/img5.jpg";
-import img6 from "../../public/Gallery/img6.jpg";
-import img7 from "../../public/Gallery/img7.jpg";
-import img8 from "../../public/Gallery/img8.jpg";
-import img10 from "../../public/Gallery/img10.jpg";
-import img11 from "../../public/Gallery/img11.jpg";
-import img12 from "../../public/Gallery/img12.jpg";
-import img13 from "../../public/Gallery/img13.jpg";
-import img14 from "../../public/Gallery/img14.jpg";
-import img15 from "../../public/Gallery/img15.jpg";
-import img20 from "../../public/Gallery/img20.jpeg";
-import img0 from "../../public/Gallery/img0.jpeg";
-import img27 from "../../public/Gallery/img27.jpeg";
-import img26 from "../../public/Gallery/img26.jpeg";
+import { useEffect, useState } from 'react'
+import { useLanguage } from '../context/LanguageContext'
+// import img1 from "../../public/Gallery/img1.jpg";
+// import img3 from "../../public/Gallery/img3.jpg";
+// import img4 from "../../public/Gallery/img4.jpg";
+// import img5 from "../../public/Gallery/img5.jpg";
+// import img6 from "../../public/Gallery/img6.jpg";
+// import img7 from "../../public/Gallery/img7.jpg";
+// import img8 from "../../public/Gallery/img8.jpg";
+// import img10 from "../../public/Gallery/img10.jpg";
+// import img11 from "../../public/Gallery/img11.jpg";
+// import img12 from "../../public/Gallery/img12.jpg";
+// import img13 from "../../public/Gallery/img13.jpg";
+// import img14 from "../../public/Gallery/img14.jpg";
+// import img15 from "../../public/Gallery/img15.jpg";
+// import img20 from "../../public/Gallery/img20.jpeg";
+// import img0 from "../../public/Gallery/img0.jpeg";
+// import img27 from "../../public/Gallery/img27.jpeg";
+// import img26 from "../../public/Gallery/img26.jpeg";
 
 const LeadershipDirectory = () => {
   const { t } = useLanguage()
@@ -36,278 +36,326 @@ const LeadershipDirectory = () => {
     return tier;
   };
 
-  const [leaders] = useState([
-    {
-      id: 4,
-      name: "राजा चरत प्रताप सिंह जी | Raja Chatar Pratap Singh ji",
-      tier: "InternationalHead",
-      region: "National Headquarters",
-      designation: "अंतर्राष्ट्रीय अध्यक्ष | International Chairman ",
-      avatar: img1,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 5,
-      name: "नवनीत कुमार  |  Navnet Kumar",
-      tier: "BoardMember",
-      region: "National Headquarters",
-      designation: "संस्थापक सदस्य | Founding Member",
-      avatar: img3,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 6,
-      name: "संजीव कुमार | Sanjeev Kumar",
-      tier: "BoardMember",
-      region: "National Headquarters",
-      designation: "संस्थापक सदस्य | Founding Member",
-      avatar: img4,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 7,
-      name: "प्रदीप कुमार | Pradeep Kumar",
-      tier: "BoardMember",
-      region: "National Headquarters",
-      designation: "संस्थापक सदस्य | Founding Member",
-      avatar: img6,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 8,
-      name: "अशोक कुमार  | Ashok Kumar",
-      tier: "NationalMember",
-      region: "National Headquarters",
-      designation: "राष्ट्रीय सचिव | National Secretary",
-      avatar: img11,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 9,
-      name: "डी एस रावत | D.S Rawat",
-      tier: "NationalMember",
-      region: "National Headquarters",
-      designation: "राष्ट्रीय महासचिव | National General Secretary",
-      avatar: img14,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 10,
-      name: "सुरेश पाल  | Suresh Pal",
-      tier: "BoardMember",
-      region: "National Headquarters",
-      designation: "संस्थापक सदस्य | Founding Member",
-      avatar: img15,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 11,
-      name: "नीरज कुमार  | Neeraj Kumar",
-      tier: "NationalMember",
-      region: "National Headquarters",
-      designation: "राष्ट्रीय सलाहकार | National Advisor",
-      avatar: img20,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 12,
-      name: "राजेंद्र सिंह पंवार  | Rajendra Singh Pawar",
-      tier: "BoardMember",
-      region: "National Headquarters",
-      designation: "संस्थापक सदस्य | Founding Member",
-      avatar: img12,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 13,
-      name: "विनोद तोमर  | Vinod Tomar",
-      tier: "NationalMember",
-      region: "National Headquarters",
-      designation: "राष्ट्रीय संयोजक | National Coordinator",
-      avatar: img13,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 14,
-      name: "मुकेश सिंह बिष्ट  | Mukesh Singh Bisht",
-      tier: "StateMember",
-      region: "National Headquarters",
-      designation: "प्रदेश महासचिव (संगठन) उत्तराखंड | State General Secretary (Organization) Uttarakhand",
-      avatar: img10,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 15,
-      name: "संजीव डांगी  | Sanjeev Dangi",
-      tier: "NationalMember",
-      region: "National Headquarters",
-      designation: "राष्ट्रीय महासचिव (संगठन) | National General Secretary (Organization)",
-      avatar: img8,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 16,
-      name: "रवि पंवार | Ravi Pawar",
-      tier: "InternationalMember",
-      region: "National Headquarters",
-      designation: "अंतर्राष्ट्रीय संयोजक | International Coordinator",
-      avatar: img7,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 17,
-      name: "स्वामी दर्शन भारती जी  ",
-      tier: "NationalMember",
-      region: "National Headquarters",
-      designation: "राष्ट्रीय संरक्षक | National Patron",
-      avatar: img0,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 18,
-      name: "डॉ नरेश मदेरणा  | Dr. Naresh Maderna ",
-      tier: "StateMember",
-      region: "National Headquarters",
-      designation: "युवा प्रदेश अध्यक्ष राजस्थान | Youth State President Rajasthan",
-      avatar: img27,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-    {
-      id: 19,
-      name: "राजेंद्र सिंह पंवार  | Rajender Singh Pawar ",
-      tier: "InternationalMember",
-      region: "National Headquarters",
-      designation: "अंतर्राष्ट्रीय महासचिव  | International General Secretary",
-      avatar: img26,
-      email: "r.singh@agriorg.org",
-      phone: "+91 98110 99887",
-      joinedDate: "2026",
-      responsibilities: [
-        "Strategic governance and international donor relations oversight",
-        "Approval of annual agricultural infrastructure expenditure",
-        "Directing sustainable technology adoption roadmap for 2030"
-      ]
-    },
-  ])
+  // const [leaders] = useState([
+  //   {
+  //     id: 4,
+  //     name: "राजा चरत प्रताप सिंह जी | Raja Chatar Pratap Singh ji",
+  //     tier: "InternationalHead",
+  //     region: "National Headquarters",
+  //     designation: "अंतर्राष्ट्रीय अध्यक्ष | International Chairman ",
+  //     avatar: img1,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "नवनीत कुमार  |  Navnet Kumar",
+  //     tier: "BoardMember",
+  //     region: "National Headquarters",
+  //     designation: "संस्थापक सदस्य | Founding Member",
+  //     avatar: img3,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "संजीव कुमार | Sanjeev Kumar",
+  //     tier: "BoardMember",
+  //     region: "National Headquarters",
+  //     designation: "संस्थापक सदस्य | Founding Member",
+  //     avatar: img4,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "प्रदीप कुमार | Pradeep Kumar",
+  //     tier: "BoardMember",
+  //     region: "National Headquarters",
+  //     designation: "संस्थापक सदस्य | Founding Member",
+  //     avatar: img6,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "अशोक कुमार  | Ashok Kumar",
+  //     tier: "NationalMember",
+  //     region: "National Headquarters",
+  //     designation: "राष्ट्रीय सचिव | National Secretary",
+  //     avatar: img11,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 9,
+  //     name: "डी एस रावत | D.S Rawat",
+  //     tier: "NationalMember",
+  //     region: "National Headquarters",
+  //     designation: "राष्ट्रीय महासचिव | National General Secretary",
+  //     avatar: img14,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 10,
+  //     name: "सुरेश पाल  | Suresh Pal",
+  //     tier: "BoardMember",
+  //     region: "National Headquarters",
+  //     designation: "संस्थापक सदस्य | Founding Member",
+  //     avatar: img15,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 11,
+  //     name: "नीरज कुमार  | Neeraj Kumar",
+  //     tier: "NationalMember",
+  //     region: "National Headquarters",
+  //     designation: "राष्ट्रीय सलाहकार | National Advisor",
+  //     avatar: img20,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 12,
+  //     name: "राजेंद्र सिंह पंवार  | Rajendra Singh Pawar",
+  //     tier: "BoardMember",
+  //     region: "National Headquarters",
+  //     designation: "संस्थापक सदस्य | Founding Member",
+  //     avatar: img12,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 13,
+  //     name: "विनोद तोमर  | Vinod Tomar",
+  //     tier: "NationalMember",
+  //     region: "National Headquarters",
+  //     designation: "राष्ट्रीय संयोजक | National Coordinator",
+  //     avatar: img13,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 14,
+  //     name: "मुकेश सिंह बिष्ट  | Mukesh Singh Bisht",
+  //     tier: "StateMember",
+  //     region: "National Headquarters",
+  //     designation: "प्रदेश महासचिव (संगठन) उत्तराखंड | State General Secretary (Organization) Uttarakhand",
+  //     avatar: img10,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 15,
+  //     name: "संजीव डांगी  | Sanjeev Dangi",
+  //     tier: "NationalMember",
+  //     region: "National Headquarters",
+  //     designation: "राष्ट्रीय महासचिव (संगठन) | National General Secretary (Organization)",
+  //     avatar: img8,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 16,
+  //     name: "रवि पंवार | Ravi Pawar",
+  //     tier: "InternationalMember",
+  //     region: "National Headquarters",
+  //     designation: "अंतर्राष्ट्रीय संयोजक | International Coordinator",
+  //     avatar: img7,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 17,
+  //     name: "स्वामी दर्शन भारती जी  ",
+  //     tier: "NationalMember",
+  //     region: "National Headquarters",
+  //     designation: "राष्ट्रीय संरक्षक | National Patron",
+  //     avatar: img0,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 18,
+  //     name: "डॉ नरेश मदेरणा  | Dr. Naresh Maderna ",
+  //     tier: "StateMember",
+  //     region: "National Headquarters",
+  //     designation: "युवा प्रदेश अध्यक्ष राजस्थान | Youth State President Rajasthan",
+  //     avatar: img27,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]
+  //   },
+  //   {
+  //     id: 19,
+  //     name: "राजेंद्र सिंह पंवार  | Rajender Singh Pawar ",
+  //     tier: "InternationalMember",
+  //     region: "National Headquarters",
+  //     designation: "अंतर्राष्ट्रीय महासचिव  | International General Secretary",
+  //     avatar: img26,
+  //     email: "r.singh@agriorg.org",
+  //     phone: "+91 98110 99887",
+  //     joinedDate: "2026",
+  //     responsibilities: [
+  //       "Strategic governance and international donor relations oversight",
+  //       "Approval of annual agricultural infrastructure expenditure",
+  //       "Directing sustainable technology adoption roadmap for 2030"
+  //     ]h
+  //   },
+  // ])
+
+  const [leaders, setLeaders] = useState([]);
+const [loading, setLoading] = useState(true);
+const API = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union-8cdn.onrender.com'
+
+useEffect(() => {
+  const fetchLeaders = async () => {
+    try {
+      const response = await fetch(`${API}/api/leaders`);
+
+      const data = await response.json();
+
+      console.log("Leaders data:", data);
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to fetch leaders");
+      }
+
+      // Your backend returns an array directly
+      setLeaders(Array.isArray(data) ? data : data.members || []);
+
+    } catch (error) {
+      console.error("Error fetching leaders:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchLeaders();
+}, []);
+if (loading) {
+  return (
+    <div className="py-24 text-center text-lg">
+      Loading Leadership Directory...
+    </div>
+  );
+}
 
   if (!t || !t.leadership) {
     return <div className="py-24 text-center text-lg">Initializing Directory Framework...</div>
   }
 
   // Filter checking category equivalence
-  const filteredLeaders = leaders.filter(leader => {
-    const matchesTier = activeTier === 'All' || getTierCategory(leader.tier) === getTierCategory(activeTier)
-    const matchesSearch = 
-      leader.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      leader.region.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      leader.designation.toLowerCase().includes(searchQuery.toLowerCase())
-    return matchesTier && matchesSearch
-  })
+  const filteredLeaders = leaders.filter((leader) => {
+
+  const matchesTier =
+    activeTier === "All" ||
+    getTierCategory(leader.tier) === getTierCategory(activeTier);
+
+  const search = searchQuery.toLowerCase();
+
+  const matchesSearch = [
+    leader.name,
+    leader.region,
+    leader.designation,
+    leader.tier
+  ].some((value) =>
+    (value || "").toLowerCase().includes(search)
+  );
+
+  return matchesTier && matchesSearch;
+});
 
   const getTierStyles = (tier) => {
     const category = getTierCategory(tier);
@@ -390,7 +438,7 @@ const LeadershipDirectory = () => {
             const styles = getTierStyles(leader.tier);
             return (
               <div 
-                key={leader.id} 
+                key={leader._id} 
                 className="group relative bg-white/70 dark:bg-base-900/70 backdrop-blur-sm border border-white/40 dark:border-white/10 rounded-[2rem] p-8 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden"
               >
                 <div className={`absolute top-0 left-0 h-full w-2 rounded-l-[2rem] ${styles.stripe}`}></div>
@@ -400,11 +448,10 @@ const LeadershipDirectory = () => {
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-6 pl-4">
                     <div className="flex items-center gap-4">
                       <div className="relative group-hover:scale-105 transition-transform duration-300">
-                        <img 
-                          src={leader.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&h=200&q=80"} 
-                          alt={leader.name}
-                          className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover ring-2 ${styles.ring} ring-offset-2 ring-offset-base-100 shadow-md`}
-                        />
+                        <img
+  src={leader.avatar || "https://img.magnific.com/premium-vector/indian-farmer-walking-through-rice-field_1036470-999.jpg?semt=ais_hybrid&w=740&q=80"}
+  alt={leader.name}
+/>
                         {leader.tier === 'BoardMember' && (
                           <span className="absolute -bottom-1 -right-1 bg-amber-500 text-white p-1 rounded-full text-xs shadow-md" title="Board Member">
                             ⭐

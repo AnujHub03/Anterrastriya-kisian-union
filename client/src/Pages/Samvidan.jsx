@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from '../context/LanguageContext'
 import { Link } from 'react-router-dom'
 
 const Samvidhan = () => {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from '../context/LanguageContext.jsx'
 import { useAuth } from './AuthCont.jsx'
 import { useNavigate } from 'react-router-dom'
 

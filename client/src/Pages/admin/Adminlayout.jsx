@@ -9,6 +9,7 @@ const navItems = [
   { to: '/dashboard/blog', label: 'Blog' },
   { to: '/dashboard/membership', label: 'Membership' },
   { to: '/dashboard/payments', label: 'Payments' },
+   { to: '/dashboard/leaders', label: 'Leaders Management' },
 ]
 
 const AdminLayout = () => {

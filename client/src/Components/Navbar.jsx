@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useLanguage } from '../Pages/LanguageContext'
+import { useLanguage } from '../context/LanguageContext'
 import { useAuth } from '../Pages/AuthCont'
 
 const Navbar = () => {

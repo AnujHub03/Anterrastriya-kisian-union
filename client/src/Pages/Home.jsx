@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from '../context/LanguageContext'
 import NewsSection from '../Components/News'
 import { Link } from 'react-router-dom'
 import image from '../../public/Gallery/image.png'

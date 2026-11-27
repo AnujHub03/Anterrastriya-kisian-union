@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from '../context/LanguageContext'
+import { useAuth } from './AuthCont'
 
 const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union-8cdn.onrender.com'
 
@@ -13,6 +14,7 @@ const Membership = () => {
   const [toast, setToast] = useState('')
   const [form, setForm] = useState({ name: '', phone: '', land: '', state: '', city: '' })
   const [submitting, setSubmitting] = useState(false)
+  const {auth} = useAuth()
 
   // Scan & Pay Modal state
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -50,8 +52,8 @@ const Membership = () => {
 
   const filteredMembers = members.filter(mb => {
     const matchState = filterState === 'All' || mb.state === filterState
-    const q = search.toLowerCase()
-    const matchSearch = mb.name.toLowerCase().includes(q) || (mb.city || '').toLowerCase().includes(q) || mb.state.toLowerCase().includes(q)
+    const q = search?.toLowerCase()
+    const matchSearch = mb.name?.toLowerCase().includes(q) || (mb.city || '').toLowerCase().includes(q) || mb.state.toLowerCase().includes(q)
     return matchState && matchSearch
   })
 
@@ -75,14 +77,18 @@ const Membership = () => {
     try {
       const res = await fetch(`${API_BASE}/api/members`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json',
+         },
         body: JSON.stringify(form),
       })
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}))
-        throw new Error(data.message || 'Failed to submit application')
-      }
+      
       const created = await res.json()
+      if(created.error)
+      {
+        
+        return alert(created.error)
+      }
+      
       setMembers(prev => [created, ...prev]) // shows up in Directory immediately, as "pending"
 
       // Remember who just applied so the "Pay ₹50" button in the modal

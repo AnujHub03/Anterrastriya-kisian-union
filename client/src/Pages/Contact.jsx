@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from '../context/LanguageContext'
 
 const Contact = () => {
   const { t } = useLanguage()

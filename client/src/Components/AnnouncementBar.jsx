@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from '../Pages/LanguageContext'
+import { useLanguage } from '../context/LanguageContext'
 
 const AnnouncementBar = () => {
   const { t } = useLanguage()

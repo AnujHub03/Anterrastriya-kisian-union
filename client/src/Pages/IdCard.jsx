@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from '../context/LanguageContext'
 
 const API_BASE = window.location.hostname == "localhost"?'http://localhost:5000': 'https://anterrastriya-kisian-union-8cdn.onrender.com'
 
@@ -71,6 +71,7 @@ const IdGenerator = () => {
   // member — if so, no payment is needed. Otherwise it opens the
   // Scan & Pay flow just like the Membership page.
   const handleGenerateIdAndShowQr = async () => {
+    var memberrespData = []
     if (!formData.phone) {
       setToast('Enter your mobile number first.')
       return
@@ -81,9 +82,20 @@ const IdGenerator = () => {
 
     setCheckingMembership(true)
     try {
-      const res = await fetch(`${API_BASE}/api/members?phone=${encodeURIComponent(formData.phone)}`)
-      const list = res.ok ? await res.json() : []
-      const approvedMember = list.find(mb => mb.status === 'approved')
+      const res = await fetch(`${API_BASE}/api/members/${formData.phone}`)
+      if(!res.ok)
+      {
+        throw(res)
+      }
+      const list = await res.json()
+
+      console.log('list',list)
+      memberrespData.push(list.memberData)
+      
+      console.log('member res data',memberrespData)
+      const approvedMember = memberrespData?.find(mb => mb.status === 'approved')
+
+      console.log('approved member',approvedMember)
 
       setFormData(prev => ({ ...prev, memberId: newMemberId }))
 
