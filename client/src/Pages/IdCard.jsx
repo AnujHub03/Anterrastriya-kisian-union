@@ -310,8 +310,7 @@ const IdGenerator = () => {
                 <option>Ref: सामान्य सदस्य (Member)</option>
                 <option>Ref: कृषि श्रमिक प्रतिनिधि (Laborer Rep)</option>
                 <option>Ref: महिला विंग कार्यकर्ता (Women Wing Worker)</option>
-                <option>Ref: क्षेत्रीय प्रशासनिक अधिकारी (Regional Leader)</option>
-                <option>Ref: केंद्रीय कोर कमेटी सदस्य (Core Committee Member)</option>
+                
               </select>
             </div>
 
